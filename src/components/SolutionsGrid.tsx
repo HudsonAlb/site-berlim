@@ -17,7 +17,7 @@ const solutionsList: Solution[] = [
     description: 'Criamos e escalamos campanhas nas redes mais eficientes do mercado: Meta Ads, Google Ads, TikTok e LinkedIn Ads, focados em conversão direta.',
     imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
     lpUrl: '#traffic-lp',
-    accent: '#0052ff'
+    accent: '#0941DC'
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const solutionsList: Solution[] = [
     description: 'Páginas e criativos desenhados cientificamente para capturar atenção e converter cliques em vendas. Foco em interfaces limpas e responsivas.',
     imageUrl: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=1000',
     lpUrl: '#design-lp',
-    accent: '#0052ff'
+    accent: '#0941DC'
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const solutionsList: Solution[] = [
     description: 'Monitoramento detalhado de cada etapa do funil e testes A/B estruturados para aumentar a taxa de conversão sem gastar mais com mídia.',
     imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
     lpUrl: '#cro-lp',
-    accent: '#0052ff'
+    accent: '#0941DC'
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const solutionsList: Solution[] = [
     description: 'Aumente o tempo de vida do seu cliente (LTV) com réguas de relacionamento otimizadas e campanhas personalizadas de e-mail e WhatsApp.',
     imageUrl: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=1000',
     lpUrl: '#crm-lp',
-    accent: '#0052ff'
+    accent: '#0941DC'
   }
 ];
 
@@ -90,7 +90,7 @@ export default function SolutionsGrid() {
                     </p>
                     <a 
                       href={sol.lpUrl}
-                      className="inline-flex items-center gap-1 text-xs text-[#0052ff] hover:underline font-bold"
+                      className="inline-flex items-center gap-1 text-xs text-[#0941DC] hover:underline font-bold"
                       onClick={(e) => e.stopPropagation()}
                     >
                       Saiba Mais
@@ -113,7 +113,7 @@ export default function SolutionsGrid() {
                 className="w-full h-full object-cover object-center transition-all duration-550"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              <span className="absolute bottom-6 left-6 text-white text-xs font-bold uppercase tracking-widest bg-[#0052ff] px-3.5 py-1.5 rounded-none shadow-sm">
+              <span className="absolute bottom-6 left-6 text-white text-xs font-bold uppercase tracking-widest bg-[#0941DC] px-3.5 py-1.5 rounded-none shadow-sm">
                 {activeSolution.title}
               </span>
             </div>
@@ -125,7 +125,7 @@ export default function SolutionsGrid() {
         <div className="flex justify-center">
           <a 
             href="#contact"
-            className="flex items-center gap-2 px-8 py-4 bg-[#0052ff] text-white font-bold rounded-none shadow-md hover:bg-[#0041cb] transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+            className="flex items-center gap-2 px-8 py-4 bg-[#0941DC] text-white font-bold rounded-none shadow-md hover:bg-[#061F6B] transition-all duration-300 hover:scale-[1.02] cursor-pointer"
           >
             <MessageSquare className="w-5 h-5" />
             Agendar Auditoria Grátis

@@ -38,7 +38,7 @@ export default function Navbar() {
       isLight 
         ? 'bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-md' 
         : scrolled || isAtFooter
-          ? 'bg-[#03030e]/95 backdrop-blur-md border-b border-white/5 shadow-lg'
+          ? 'bg-[#030311]/95 backdrop-blur-md border-b border-white/5 shadow-lg'
           : 'bg-transparent'
     }`}>
       {/* Brand logo container (left) */}
@@ -85,12 +85,12 @@ export default function Navbar() {
                     ? 'bg-white border-slate-200/80 text-slate-700 shadow-xl' 
                     : 'bg-[#080816] border-white/5 text-slate-300'
                 }`}>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0052ff] transition-colors">Propaganda</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0052ff] transition-colors">E-commerce</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0052ff] transition-colors">Produtos Digitais</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0052ff] transition-colors">Marketing</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0052ff] transition-colors">Vendas</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0052ff] transition-colors">Serviços</a>
+                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Propaganda</a>
+                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">E-commerce</a>
+                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Produtos Digitais</a>
+                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Marketing</a>
+                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Vendas</a>
+                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Serviços</a>
                 </div>
               </div>
             )}
@@ -163,7 +163,7 @@ export default function Navbar() {
           <a href="#bdash" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Dashboard</a>
           <a href="#cases" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Cases</a>
           <a href="#footer-section" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">News & Ideas</a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="w-full py-3 text-center text-sm font-bold text-white rounded-none bg-[#0052ff] hover:bg-[#0041cb] transition-colors shadow-md">
+          <a href="#contact" onClick={() => setIsOpen(false)} className="w-full py-3 text-center text-sm font-bold text-white rounded-none bg-[#0941DC] hover:bg-[#061F6B] transition-colors shadow-md">
             Contato
           </a>
         </div>

@@ -82,7 +82,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#03030e] flex items-center justify-center">
+    <div className="relative w-full h-screen overflow-hidden bg-[#030311] flex items-center justify-center">
       {/* Background slide elements */}
       {slides.map((slide, idx) => (
         <div
@@ -111,21 +111,21 @@ export default function HeroCarousel() {
           )}
 
           {/* Premium overlay: Dark gradient on the left side to ensure high readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#03030e] via-[#03030e]/85 md:from-[#03030e]/95 md:via-[#03030e]/75 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030311] via-[#030311]/85 md:from-[#030311]/95 md:via-[#030311]/75 to-transparent z-10" />
 
           {/* Slide Content */}
           <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full h-full flex items-center justify-start relative z-20 mt-8">
             <div className="max-w-3xl text-left">
               {/* Category Tag */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-[#0052ff]/10 border border-[#0052ff]/20 mb-6 backdrop-blur-sm">
-                <Sparkles className="w-4 h-4 text-[#0052ff] animate-spin" style={{ animationDuration: '3s' }} />
-                <span className="text-xs font-bold tracking-widest text-[#0052ff] uppercase">{slide.tag}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-[#0941DC]/10 border border-[#0941DC]/20 mb-6 backdrop-blur-sm">
+                <Sparkles className="w-4 h-4 text-[#0941DC] animate-spin" style={{ animationDuration: '3s' }} />
+                <span className="text-xs font-bold tracking-widest text-[#0941DC] uppercase">{slide.tag}</span>
               </div>
 
               {/* Lettering */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
                 {slide.titleLine1} <br />
-                <span className="text-[#0052ff]">
+                <span className="text-[#0941DC]">
                   {slide.titleLine2}
                 </span>
               </h1>
@@ -139,7 +139,7 @@ export default function HeroCarousel() {
               <div className="flex flex-wrap gap-4">
                 <a 
                   href="#contact"
-                  className="px-8 py-4 bg-[#0052ff] hover:bg-[#0041cb] text-white font-bold rounded-none shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
+                  className="px-8 py-4 bg-[#0941DC] hover:bg-[#061F6B] text-white font-bold rounded-none shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
                 >
                   {slide.primaryCta}
                 </a>
@@ -159,14 +159,14 @@ export default function HeroCarousel() {
       {/* Slide Navigation Arrows */}
       <button 
         onClick={prevSlide}
-        className="absolute left-6 z-30 p-3 rounded-none border border-white/10 hover:border-[#0052ff] bg-black/40 hover:bg-black/80 text-white hover:scale-105 transition-all duration-300 shadow-sm focus:outline-none"
+        className="absolute left-6 z-30 p-3 rounded-none border border-white/10 hover:border-[#0941DC] bg-black/40 hover:bg-black/80 text-white hover:scale-105 transition-all duration-300 shadow-sm focus:outline-none"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button 
         onClick={nextSlide}
-        className="absolute right-6 z-30 p-3 rounded-none border border-white/10 hover:border-[#0052ff] bg-black/40 hover:bg-black/80 text-white hover:scale-105 transition-all duration-300 shadow-sm focus:outline-none"
+        className="absolute right-6 z-30 p-3 rounded-none border border-white/10 hover:border-[#0941DC] bg-black/40 hover:bg-black/80 text-white hover:scale-105 transition-all duration-300 shadow-sm focus:outline-none"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6" />
@@ -175,7 +175,7 @@ export default function HeroCarousel() {
       {/* Deluxe Progress Timeline (Deloitte Style) */}
       <div className="absolute bottom-12 left-6 right-6 md:left-12 md:right-12 z-30 max-w-7xl mx-auto flex items-center justify-between gap-6">
         <div className="flex items-center gap-2 text-sm font-bold text-white">
-          <span className="text-[#0052ff]">0{current + 1}</span>
+          <span className="text-[#0941DC]">0{current + 1}</span>
           <span className="text-white/20">/</span>
           <span className="text-white/40">0{slides.length}</span>
         </div>
@@ -192,7 +192,7 @@ export default function HeroCarousel() {
               aria-label={`Go to slide ${idx + 1}`}
             >
               <div 
-                className="h-full bg-[#0052ff] transition-all"
+                className="h-full bg-[#0941DC] transition-all"
                 style={{ 
                   width: idx === current ? `${progress}%` : idx < current ? '100%' : '0%',
                   transition: idx === current ? 'width 50ms linear' : 'width 300ms ease-in-out'

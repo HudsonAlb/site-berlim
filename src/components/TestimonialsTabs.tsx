@@ -58,7 +58,7 @@ export default function TestimonialsTabs() {
   };
 
   return (
-    <section id="testimonials" className="py-24 bg-[#03030e] relative overflow-hidden border-t border-white/5">
+    <section id="testimonials" className="py-24 bg-[#030311] relative overflow-hidden border-t border-white/5">
       <div className="glow-spot-dark top-10 right-[-100px]" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
@@ -119,7 +119,7 @@ export default function TestimonialsTabs() {
 
             {/* Right Side: Highlight Metric Box + Quote */}
             <div className="md:col-span-8 bg-transparent p-8 md:p-10 rounded-none border border-white/10 text-left min-h-[300px] flex flex-col justify-center relative">
-              <Quote className="absolute right-8 top-8 w-24 h-24 text-[#0052ff]/5 pointer-events-none" />
+              <Quote className="absolute right-8 top-8 w-24 h-24 text-[#0941DC]/5 pointer-events-none" />
               
               {/* Highlight Metric */}
               <div className="flex items-center gap-6 mb-8 pb-6 border-b border-white/5">

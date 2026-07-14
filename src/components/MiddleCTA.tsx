@@ -46,7 +46,7 @@ export default function MiddleCTA() {
           
           {/* Left Column: Conversion Copy & Features */}
           <div className="lg:col-span-5 text-left">
-            <span className="text-xs font-black tracking-widest text-[#0052ff] uppercase bg-[#0052ff]/10 px-3.5 py-1.5 rounded-none mb-6 inline-block">
+            <span className="text-xs font-black tracking-widest text-[#0941DC] uppercase bg-[#0941DC]/10 px-3.5 py-1.5 rounded-none mb-6 inline-block">
               Conversão & Escala
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
@@ -58,21 +58,21 @@ export default function MiddleCTA() {
 
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#0052ff] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#0941DC] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Auditoria Completa do Funil</h4>
                   <p className="text-xs text-slate-500 font-light mt-0.5">Identificamos os pontos de atrito no seu tráfego e design.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#0052ff] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#0941DC] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Planejamento Tático de Mídia</h4>
                   <p className="text-xs text-slate-500 font-light mt-0.5">Estratégias sob medida para Google Ads, Meta Ads e canais de aquisição.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#0052ff] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#0941DC] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Suporte de Growth Direto</h4>
                   <p className="text-xs text-slate-500 font-light mt-0.5">Time sênior focado na geração contínua de ROI e LTV.</p>
@@ -112,7 +112,7 @@ export default function MiddleCTA() {
                         placeholder="Ex: Hudson Silva"
                         value={formData.nome}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0052ff] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       />
                     </div>
 
@@ -126,7 +126,7 @@ export default function MiddleCTA() {
                         placeholder="Ex: hudson@empresa.com"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0052ff] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       />
                     </div>
                   </div>
@@ -142,7 +142,7 @@ export default function MiddleCTA() {
                         placeholder="Ex: (81) 99999-9999"
                         value={formData.telefone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0052ff] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       />
                     </div>
 
@@ -156,7 +156,7 @@ export default function MiddleCTA() {
                         placeholder="Ex: Berlim Co."
                         value={formData.empresa}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0052ff] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       />
                     </div>
                   </div>
@@ -169,7 +169,7 @@ export default function MiddleCTA() {
                         name="funcionarios"
                         value={formData.funcionarios}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0052ff] focus:bg-white focus:outline-none text-slate-900 text-sm font-semibold transition-all appearance-none cursor-pointer"
+                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-semibold transition-all appearance-none cursor-pointer"
                       >
                         <option value="">Selecione uma opção</option>
                         <option value="1-10">1 a 10 funcionários</option>
@@ -186,7 +186,7 @@ export default function MiddleCTA() {
                         name="faturamento"
                         value={formData.faturamento}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0052ff] focus:bg-white focus:outline-none text-slate-900 text-sm font-semibold transition-all appearance-none cursor-pointer"
+                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-semibold transition-all appearance-none cursor-pointer"
                       >
                         <option value="">Selecione uma opção</option>
                         <option value="ate-50k">Até R$ 50.000 / mês</option>
@@ -199,7 +199,7 @@ export default function MiddleCTA() {
 
                   <button
                     type="submit"
-                    className="w-full py-4 mt-2 bg-[#0052ff] text-white font-extrabold text-xs uppercase tracking-wider rounded-none shadow-md hover:bg-[#0041cb] transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-4 mt-2 bg-[#0941DC] text-white font-extrabold text-xs uppercase tracking-wider rounded-none shadow-md hover:bg-[#061F6B] transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Falar com especialista
                     <ArrowRight className="w-4 h-4" />

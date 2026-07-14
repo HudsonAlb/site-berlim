@@ -171,7 +171,7 @@ export default function BDashSection() {
             {/* CTA Button */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="w-full mt-6 py-4 px-6 bg-[#0052ff] hover:bg-[#0041cb] text-white font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-[#0052ff]/20 flex items-center justify-center gap-2 group cursor-pointer"
+              className="w-full mt-6 py-4 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-[#0941DC]/20 flex items-center justify-center gap-2 group cursor-pointer"
             >
               Solicitar Acesso ao B-DASH
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -249,7 +249,7 @@ export default function BDashSection() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <span className="text-[10px] font-black tracking-widest text-[#0052ff] uppercase bg-[#0052ff]/10 px-2.5 py-1 rounded-none inline-block mb-3">
+                  <span className="text-[10px] font-black tracking-widest text-[#0941DC] uppercase bg-[#0941DC]/10 px-2.5 py-1 rounded-none inline-block mb-3">
                     B-DASH Beta
                   </span>
                   <h3 className="text-2xl font-extrabold text-white">Solicitar Demonstração</h3>
@@ -269,7 +269,7 @@ export default function BDashSection() {
                       placeholder="Ex: Hudson Albuquerque"
                       value={formData.nome}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-white text-sm font-medium transition-all"
+                      className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
                     />
                   </div>
 
@@ -283,7 +283,7 @@ export default function BDashSection() {
                       placeholder="Ex: hudson@empresa.com"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-white text-sm font-medium transition-all"
+                      className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
                     />
                   </div>
 
@@ -298,7 +298,7 @@ export default function BDashSection() {
                         placeholder="Ex: (11) 99999-9999"
                         value={formData.telefone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-white text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
                       />
                     </div>
 
@@ -312,7 +312,7 @@ export default function BDashSection() {
                         placeholder="Ex: Berlim Company"
                         value={formData.empresa}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-white text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
                       />
                     </div>
                   </div>
@@ -320,7 +320,7 @@ export default function BDashSection() {
 
                 <button
                   type="submit"
-                  className="w-full mt-6 py-4 px-6 bg-[#0052ff] hover:bg-[#0041cb] text-white font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-[#0052ff]/20 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full mt-6 py-4 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-[#0941DC]/20 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Garantir Meu Acesso
                   <ArrowRight className="w-4 h-4" />

@@ -3,17 +3,23 @@
 
 @theme {
   --color-berlim-bg: #ffffff;
-  --color-berlim-bg-light: #f8fafc;
+  --color-berlim-bg-light: #F2F8FF; /* Branco Névoa */
   --color-berlim-card: rgba(255, 255, 255, 0.8);
-  --color-berlim-cyan: #0052ff;
-  --color-berlim-cyan-glow: rgba(0, 82, 255, 0.05);
-  --color-berlim-cyan-dark: #0041cb;
+  --color-berlim-cyan: #0941DC; /* Azul Pulso */
+  --color-berlim-cyan-glow: rgba(9, 65, 220, 0.05);
+  --color-berlim-cyan-dark: #061F6B; /* Azul Abissal */
   --color-berlim-gray: #64748b;
   --color-berlim-border: rgba(226, 232, 240, 0.8);
   
-  --color-berlim-dark-bg: #03030e;
+  --color-berlim-dark-bg: #030311; /* Preto Eclipse */
   --color-berlim-dark-card: #080816;
   --color-berlim-dark-border: rgba(255, 255, 255, 0.08);
+
+  --color-azul-pulso: #0941DC;
+  --color-preto-eclipse: #030311;
+  --color-branco-nevoa: #F2F8FF;
+  --color-azul-vetor: #29569B;
+  --color-azul-abissal: #061F6B;
 }
 
 
@@ -148,19 +154,19 @@ body {
 
 /* Brand system gradients and utility classes */
 .bg-brand-gradient-dark {
-  background: linear-gradient(135deg, #03030e 0%, #040414 40%, #002db3 100%);
+  background: linear-gradient(135deg, #030311 0%, #061F6B 40%, #0941DC 100%);
 }
 
 .bg-brand-gradient-royal {
-  background: linear-gradient(135deg, #002db3 0%, #0052ff 50%, #1e40af 100%);
+  background: linear-gradient(135deg, #061F6B 0%, #0941DC 50%, #29569B 100%);
 }
 
 .bg-brand-gradient-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(0, 82, 255, 0.12) 0%, rgba(3, 3, 14, 0) 80%);
+  background: radial-gradient(circle at 50% 50%, rgba(9, 65, 220, 0.12) 0%, rgba(3, 3, 17, 0) 80%);
 }
 
 .bg-brand-gradient-radial-dark {
-  background: radial-gradient(circle at top right, rgba(0, 82, 255, 0.15) 0%, #03030e 80%);
+  background: radial-gradient(circle at top right, rgba(9, 65, 220, 0.15) 0%, #030311 80%);
 }
 
 

@@ -87,7 +87,7 @@ export default function SuccessCases() {
           {/* Left Arrow */}
           <button 
             onClick={handlePrev}
-            className="p-2.5 rounded-none bg-slate-50 border border-slate-150 hover:border-[#0052ff] hover:text-[#0052ff] hover:bg-white transition-all cursor-pointer focus:outline-none shrink-0"
+            className="p-2.5 rounded-none bg-slate-50 border border-slate-150 hover:border-[#0941DC] hover:text-[#0941DC] hover:bg-white transition-all cursor-pointer focus:outline-none shrink-0"
             aria-label="Previous case"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -101,7 +101,7 @@ export default function SuccessCases() {
                 onClick={() => setSelectedIdx(idx)}
                 className={`px-6 py-3.5 rounded-none text-sm font-black tracking-wide border transition-all duration-300 cursor-pointer focus:outline-none uppercase ${
                   idx === selectedIdx
-                    ? 'bg-[#0052ff]/10 border-[#0052ff] text-[#0052ff] shadow-sm'
+                    ? 'bg-[#0941DC]/10 border-[#0941DC] text-[#0941DC] shadow-sm'
                     : 'bg-slate-50 border-slate-150 hover:border-slate-300 text-slate-700 font-bold'
                 }`}
               >
@@ -113,7 +113,7 @@ export default function SuccessCases() {
           {/* Right Arrow */}
           <button 
             onClick={handleNext}
-            className="p-2.5 rounded-none bg-slate-50 border border-slate-150 hover:border-[#0052ff] hover:text-[#0052ff] hover:bg-white transition-all cursor-pointer focus:outline-none shrink-0"
+            className="p-2.5 rounded-none bg-slate-50 border border-slate-150 hover:border-[#0941DC] hover:text-[#0941DC] hover:bg-white transition-all cursor-pointer focus:outline-none shrink-0"
             aria-label="Next case"
           >
             <ChevronRight className="w-5 h-5" />
@@ -137,7 +137,7 @@ export default function SuccessCases() {
               </div>
 
               {/* Tag & Info */}
-              <span className="text-[10px] font-bold text-[#0052ff] tracking-widest uppercase block mb-3">
+              <span className="text-[10px] font-bold text-[#0941DC] tracking-widest uppercase block mb-3">
                 {active.tag}
               </span>
               <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
@@ -164,7 +164,7 @@ export default function SuccessCases() {
                 <ul className="space-y-2 mb-6">
                   {active.bulletPoints.map((pt, idx) => (
                     <li key={idx} className="text-xs text-slate-600 leading-relaxed flex items-start gap-2">
-                      <span className="text-[#0052ff] mt-0.5 shrink-0 font-bold">•</span>
+                      <span className="text-[#0941DC] mt-0.5 shrink-0 font-bold">•</span>
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -176,7 +176,7 @@ export default function SuccessCases() {
             <div className="pt-6 border-t border-slate-200">
               <a 
                 href={active.studyLink} 
-                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0052ff] hover:text-[#0041cb] transition-colors group/link"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0941DC] hover:text-[#061F6B] transition-colors group/link"
               >
                 Falar com especialista
                 <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />

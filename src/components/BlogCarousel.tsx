@@ -88,7 +88,7 @@ export default function BlogCarousel() {
           {/* Left Arrow Button */}
           <button 
             onClick={handlePrev}
-            className="p-3 rounded-none bg-slate-50 border border-slate-200 hover:border-[#0052ff] hover:text-[#0052ff] hover:bg-white transition-all cursor-pointer focus:outline-none shrink-0"
+            className="p-3 rounded-none bg-slate-50 border border-slate-200 hover:border-[#0941DC] hover:text-[#0941DC] hover:bg-white transition-all cursor-pointer focus:outline-none shrink-0"
             aria-label="Previous article"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -113,7 +113,7 @@ export default function BlogCarousel() {
               <div className="w-full">
                 {/* Tag & Meta info */}
                 <div className="flex justify-between items-center mb-4">
-                  <span className="px-2.5 py-1 rounded-none bg-[#0052ff]/10 border border-[#0052ff]/20 text-[#0052ff] text-[10px] font-extrabold tracking-widest uppercase">
+                  <span className="px-2.5 py-1 rounded-none bg-[#0941DC]/10 border border-[#0941DC]/20 text-[#0941DC] text-[10px] font-extrabold tracking-widest uppercase">
                     {active.tag}
                   </span>
                   <div className="flex items-center gap-3 text-xs text-slate-400">
@@ -144,7 +144,7 @@ export default function BlogCarousel() {
 
                 <a 
                   href={active.studyLink}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0052ff] text-white text-xs font-bold uppercase tracking-wider rounded-none shadow-md hover:bg-[#0041cb] transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0941DC] text-white text-xs font-bold uppercase tracking-wider rounded-none shadow-md hover:bg-[#061F6B] transition-all duration-300 hover:scale-[1.02] cursor-pointer"
                 >
                   Ler Notícia
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -158,7 +158,7 @@ export default function BlogCarousel() {
           {/* Right Arrow Button */}
           <button 
             onClick={handleNext}
-            className="p-3 rounded-none bg-slate-50 border border-slate-200 hover:border-[#0052ff] hover:text-[#0052ff] hover:bg-white transition-all cursor-pointer focus:outline-none shrink-0"
+            className="p-3 rounded-none bg-slate-50 border border-slate-200 hover:border-[#0941DC] hover:text-[#0941DC] hover:bg-white transition-all cursor-pointer focus:outline-none shrink-0"
             aria-label="Next article"
           >
             <ChevronRight className="w-5 h-5" />
