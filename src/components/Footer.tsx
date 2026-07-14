@@ -53,7 +53,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-6">Institucional</h3>
             <ul className="space-y-3.5 text-sm font-light text-slate-300">
               <li><a href="#about" className="hover:text-white transition-colors">Nossa missão</a></li>
-              <li><a href="#cases" className="hover:text-white transition-colors">Resultados</a></li>
+              <li><a href="#cases" className="hover:text-white transition-colors">Cases</a></li>
               <li><a href="#footer-section" className="hover:text-white transition-colors">News & Ideas</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Carreiras</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Fale Conosco</a></li>

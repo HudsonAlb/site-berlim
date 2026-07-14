@@ -106,14 +106,14 @@ export default function Navbar() {
             Dashboard
           </a>
 
-          {/* Resultados */}
+          {/* Cases */}
           <a 
             href="#cases" 
             className={`text-sm font-semibold tracking-wide transition-colors ${
               isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
             }`}
           >
-            Resultados
+            Cases
           </a>
 
           {/* News & Ideas */}
@@ -161,7 +161,7 @@ export default function Navbar() {
           <a href="#about" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Nossa missão</a>
           <a href="#solutions" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">o que fazemos</a>
           <a href="#bdash" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Dashboard</a>
-          <a href="#cases" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Resultados</a>
+          <a href="#cases" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Cases</a>
           <a href="#footer-section" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">News & Ideas</a>
           <a href="#contact" onClick={() => setIsOpen(false)} className="w-full py-3 text-center text-sm font-bold text-white rounded-none bg-[#0052ff] hover:bg-[#0041cb] transition-colors shadow-md">
             Contato
