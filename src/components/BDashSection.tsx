@@ -8,12 +8,39 @@ import {
   Clock, 
   CheckCircle,
   ShieldCheck,
-  Database
+  Database,
+  ArrowRight,
+  X
 } from 'lucide-react';
 
 
 export default function BDashSection() {
   const [activeTab, setActiveTab] = useState<'funil' | 'mkt' | 'roi'>('funil');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    telefone: '',
+    empresa: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formData.nome && formData.email && formData.telefone && formData.empresa) {
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ nome: '', email: '', telefone: '', empresa: '' });
+        setIsModalOpen(false);
+      }, 3000);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <section id="bdash" className="py-24 bg-brand-gradient-dark relative overflow-hidden border-t border-white/5">
@@ -286,6 +313,15 @@ export default function BDashSection() {
               </div>
 
             </div>
+
+            {/* CTA Button */}
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="w-full mt-6 py-4 px-6 bg-[#0052ff] hover:bg-[#0041cb] text-white font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-[#0052ff]/20 flex items-center justify-center gap-2 group cursor-pointer"
+            >
+              Solicitar Acesso ao B-DASH
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
 
         </div>
@@ -329,6 +365,117 @@ export default function BDashSection() {
           </div>
         </div>
       </div>
+
+      {/* Modern Premium Modal Form */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">
+          <div 
+            className="relative w-full max-w-lg bg-[#080816] border border-white/10 p-8 md:p-10 shadow-2xl text-left"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white transition-colors cursor-pointer"
+              aria-label="Fechar"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {submitted ? (
+              <div className="py-12 text-center flex flex-col items-center justify-center">
+                <div className="w-16 h-16 bg-emerald-500/10 rounded-none flex items-center justify-center mb-6 border border-emerald-500/20">
+                  <CheckCircle className="w-8 h-8 text-emerald-500" />
+                </div>
+                <h3 className="text-2xl font-extrabold text-white mb-2">Solicitação Recebida!</h3>
+                <p className="text-slate-350 font-light text-sm max-w-sm mx-auto">
+                  Nossos engenheiros de growth estão analisando seu perfil e entrarão em contato em breve para liberar seu acesso ao B-DASH.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <span className="text-[10px] font-black tracking-widest text-[#0052ff] uppercase bg-[#0052ff]/10 px-2.5 py-1 rounded-none inline-block mb-3">
+                    B-DASH Beta
+                  </span>
+                  <h3 className="text-2xl font-extrabold text-white">Solicitar Demonstração</h3>
+                  <p className="text-xs text-slate-400 font-light mt-1.5">
+                    Inscreva-se na lista de espera exclusiva e agende uma demonstração prática da nossa inteligência comercial.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Nome */}
+                  <div className="flex flex-col">
+                    <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">Nome Completo *</label>
+                    <input
+                      type="text"
+                      name="nome"
+                      required
+                      placeholder="Ex: Hudson Albuquerque"
+                      value={formData.nome}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-white text-sm font-medium transition-all"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex flex-col">
+                    <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">E-mail Corporativo *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="Ex: hudson@empresa.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-white text-sm font-medium transition-all"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Telefone */}
+                    <div className="flex flex-col">
+                      <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">WhatsApp *</label>
+                      <input
+                        type="tel"
+                        name="telefone"
+                        required
+                        placeholder="Ex: (11) 99999-9999"
+                        value={formData.telefone}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-white text-sm font-medium transition-all"
+                      />
+                    </div>
+
+                    {/* Empresa */}
+                    <div className="flex flex-col">
+                      <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">Nome da Empresa *</label>
+                      <input
+                        type="text"
+                        name="empresa"
+                        required
+                        placeholder="Ex: Berlim Company"
+                        value={formData.empresa}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-white text-sm font-medium transition-all"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full mt-6 py-4 px-6 bg-[#0052ff] hover:bg-[#0041cb] text-white font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-[#0052ff]/20 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  Garantir Meu Acesso
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
