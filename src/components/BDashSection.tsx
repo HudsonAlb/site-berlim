@@ -8,7 +8,6 @@ import {
   TrendingUp, 
   Clock, 
   CheckCircle,
-  ShieldCheck,
   Database,
   ArrowRight,
   X
