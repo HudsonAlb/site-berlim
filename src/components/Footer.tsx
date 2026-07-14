@@ -8,10 +8,10 @@ export default function Footer() {
       <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl w-full mx-auto px-6 lg:px-8 relative z-10 flex-grow flex flex-col justify-between">
-        
+
         {/* Top Section with Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/5">
-          
+
           {/* Column 1: Info and Brand */}
           <div className="lg:col-span-4 text-left">
             <div className="flex items-center mb-6 -ml-3 select-none">
@@ -67,13 +67,13 @@ export default function Footer() {
               Receba análises estratégicas mensais sobre tendências de tráfego, design de conversão e growth diretamente na sua caixa de entrada.
             </p>
             <form className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Seu e-mail profissional" 
+              <input
+                type="email"
+                placeholder="Seu e-mail profissional"
                 className="flex-grow px-4 py-2.5 rounded-none bg-white/5 border border-white/10 focus:border-[#0052ff] focus:outline-none text-sm text-white placeholder-slate-500 font-medium shadow-sm"
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="p-3 rounded-none bg-[#0052ff] text-white font-bold hover:bg-[#0041cb] transition-all shadow-sm cursor-pointer"
                 aria-label="Subscribe"
               >
@@ -98,7 +98,7 @@ export default function Footer() {
 
           {/* Partner Seals Badges */}
           <div className="flex flex-wrap items-center justify-center gap-6">
-            
+
             {/* RD Station Partner */}
             <div className="flex items-center gap-2.5 px-4 py-3 rounded-none border border-white/10 bg-white/5 hover:border-white/20 transition-all select-none">
               <div className="w-6 h-6 rounded-none bg-amber-500 flex items-center justify-center text-xs font-black text-white">RD</div>
@@ -132,7 +132,7 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="pt-10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-300 font-light gap-4">
           <div className="text-left">
-            © {new Date().getFullYear()} Berlim Co. Growth Marketing Ltda. Todos os direitos reservados.
+            © {new Date().getFullYear()} Berlim Company. Todos os direitos reservados.
           </div>
           <div className="flex space-x-6">
             <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
