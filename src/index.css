@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-berlim-bg: #ffffff;
+  --color-berlim-bg-light: #f8fafc;
+  --color-berlim-card: rgba(255, 255, 255, 0.8);
+  --color-berlim-cyan: #0052ff;
+  --color-berlim-cyan-glow: rgba(0, 82, 255, 0.05);
+  --color-berlim-cyan-dark: #0041cb;
+  --color-berlim-gray: #64748b;
+  --color-berlim-border: rgba(226, 232, 240, 0.8);
+  
+  --color-berlim-dark-bg: #03030e;
+  --color-berlim-dark-card: #080816;
+  --color-berlim-dark-border: rgba(255, 255, 255, 0.08);
+}
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 130px;
+  }
+}
+
+:root {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color-scheme: dark light;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #0f172a;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Elegant light grid background */
+.cyber-grid {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(37, 99, 235, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.02) 1px, transparent 1px);
+}
+
+/* Glassmorphism for light mode */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.glass-glow {
+  box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.05);
+}
+
+.neon-border {
+  position: relative;
+}
+
+.neon-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to right, rgba(37, 99, 235, 0.2), transparent, rgba(37, 99, 235, 0.1));
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 2px solid #f8fafc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Glowing decorative spots for light mode */
+.glow-spot {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glowing spots for dark mode */
+.glow-spot-dark {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 82, 255, 0.07) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glassmorphism for dark mode */
+.glass-dark {
+  background: rgba(8, 8, 22, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Brand system gradients and utility classes */
+.bg-brand-gradient-dark {
+  background: linear-gradient(135deg, #03030e 0%, #040414 40%, #002db3 100%);
+}
+
+.bg-brand-gradient-royal {
+  background: linear-gradient(135deg, #002db3 0%, #0052ff 50%, #1e40af 100%);
+}
+
+.bg-brand-gradient-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 82, 255, 0.12) 0%, rgba(3, 3, 14, 0) 80%);
+}
+
+.bg-brand-gradient-radial-dark {
+  background: radial-gradient(circle at top right, rgba(0, 82, 255, 0.15) 0%, #03030e 80%);
+}
+
+
