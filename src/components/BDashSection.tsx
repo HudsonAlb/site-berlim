@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import bdashMockup from '../assets/bdash_mockup.png';
 import { 
   BarChart3, 
   Activity, 
@@ -67,164 +68,18 @@ export default function BDashSection() {
         {/* Product Visual Mockup & Interactive Tabs */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
           
-          {/* Interactive UI Mockup (Left Column) */}
-          <div className="lg:col-span-7 w-full order-2 lg:order-1">
-            <div className="bg-[#080816] p-6 md:p-8 rounded-none border border-white/5 shadow-2xl relative overflow-hidden">
-              
-              {/* Fake Window Controls */}
-              <div className="flex items-center gap-2 mb-6 border-b border-white/5 pb-4">
-                <div className="w-3 h-3 rounded-none bg-rose-400" />
-                <div className="w-3 h-3 rounded-none bg-amber-400" />
-                <div className="w-3 h-3 rounded-none bg-emerald-400" />
-                <span className="text-xs font-mono text-slate-400 ml-4">bdash.berlim.co/dashboard</span>
+          {/* Visual Mockup PC & Smartphone (Left Column) */}
+          <div className="lg:col-span-7 w-full order-2 lg:order-1 flex justify-center items-center">
+            <div className="relative group w-full">
+              {/* Glowing Background Glows matching the premium branding */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#0052ff] to-purple-600 rounded-none blur-2xl opacity-20 group-hover:opacity-35 transition duration-1000 group-hover:duration-300" />
+              <div className="relative overflow-hidden border border-white/10 bg-[#080816] p-2 shadow-2xl">
+                <img 
+                  src={bdashMockup} 
+                  alt="B-DASH em dispositivos móveis e desktop" 
+                  className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                />
               </div>
-
-              {/* Dynamic tab contents mimicking powerBI widgets */}
-              {activeTab === 'funil' && (
-                <div className="space-y-6 animate-fade-in text-left">
-                  {/* Top Stats */}
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-[#0c0c22] p-4 rounded-none border border-white/5 shadow-sm">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Receita CRM</span>
-                      <span className="text-lg font-black text-white">R$ 294.673</span>
-                      <span className="text-xs text-emerald-500 font-semibold block mt-1">↑ 18.2%</span>
-                    </div>
-                    <div className="bg-[#0c0c22] p-4 rounded-none border border-white/5 shadow-sm">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Sessões GA4</span>
-                      <span className="text-lg font-black text-white">11.059</span>
-                      <span className="text-xs text-slate-400 block mt-1">Meta Batida</span>
-                    </div>
-                    <div className="bg-[#0c0c22] p-4 rounded-none border border-white/5 shadow-sm">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Conversão</span>
-                      <span className="text-lg font-black text-white">19,30%</span>
-                      <span className="text-xs text-sky-400 font-semibold block mt-1">Alta de CPL</span>
-                    </div>
-                  </div>
-
-                  {/* Funnel Graph Mockup */}
-                  <div className="bg-[#0c0c22] p-4 rounded-none border border-white/5 shadow-sm">
-                    <h5 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-4">Etapas do Funil</h5>
-                    <div className="space-y-3">
-                      <div>
-                        <div className="flex justify-between text-xs font-semibold mb-1">
-                          <span className="text-slate-400">1. Sessões Organizadas</span>
-                          <span className="text-white">11.059 (100%)</span>
-                        </div>
-                        <div className="h-6 w-full bg-white/5 rounded-none overflow-hidden">
-                          <div className="h-full bg-[#0052ff] rounded-none" style={{ width: '100%' }} />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex justify-between text-xs font-semibold mb-1">
-                          <span className="text-slate-400">2. Leads no CRM</span>
-                          <span className="text-white">1.701 (15,3%)</span>
-                        </div>
-                        <div className="h-6 w-full bg-white/5 rounded-none overflow-hidden">
-                          <div className="h-full bg-[#0052ff]/80 rounded-none" style={{ width: '55%' }} />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex justify-between text-xs font-semibold mb-1">
-                          <span className="text-slate-400">3. Vendas Ganhas</span>
-                          <span className="text-white">329 (3,1%)</span>
-                        </div>
-                        <div className="h-6 w-full bg-white/5 rounded-none overflow-hidden">
-                          <div className="h-full bg-[#0052ff]/60 rounded-none" style={{ width: '22%' }} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {activeTab === 'mkt' && (
-                <div className="space-y-6 animate-fade-in text-left">
-                  {/* Top stats for Ads */}
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-[#0c0c22] p-4 rounded-none border border-white/5 shadow-sm">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Meta Ads ROI</span>
-                      <span className="text-lg font-black text-white">4.5x</span>
-                      <span className="text-xs text-sky-400 block mt-1">R$ 48k investidos</span>
-                    </div>
-                    <div className="bg-[#0c0c22] p-4 rounded-none border border-white/5 shadow-sm">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Google Ads ROI</span>
-                      <span className="text-lg font-black text-white">5.2x</span>
-                      <span className="text-xs text-sky-400 block mt-1">R$ 35k investidos</span>
-                    </div>
-                    <div className="bg-[#0c0c22] p-4 rounded-none border border-white/5 shadow-sm">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Custo por Lead</span>
-                      <span className="text-lg font-black text-white">R$ 14,20</span>
-                      <span className="text-xs text-emerald-500 font-semibold block mt-1">↓ 12% queda</span>
-                    </div>
-                  </div>
-
-                  {/* Channel Breakdown */}
-                  <div className="bg-[#0c0c22] p-5 rounded-none border border-white/5 shadow-sm">
-                    <h5 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-4">Investimento por Redes Sociais</h5>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center text-xs">
-                        <span className="font-semibold text-slate-400 flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-none bg-[#0052ff]" />
-                          Facebook & Instagram Ads
-                        </span>
-                        <span className="font-bold text-white">R$ 124.500 (52%)</span>
-                      </div>
-                      <div className="flex justify-between items-center text-xs">
-                        <span className="font-semibold text-slate-400 flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-none bg-[#0052ff]/70" />
-                          Google & YouTube Ads
-                        </span>
-                        <span className="font-bold text-white">R$ 88.420 (36%)</span>
-                      </div>
-                      <div className="flex justify-between items-center text-xs">
-                        <span className="font-semibold text-slate-400 flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-none bg-purple-500" />
-                          TikTok Ads & Outros
-                        </span>
-                        <span className="font-bold text-white">R$ 29.620 (12%)</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {activeTab === 'roi' && (
-                <div className="space-y-6 animate-fade-in text-left">
-                  {/* KPI card matrix */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-[#0c0c22] p-6 rounded-none border border-white/5 shadow-sm flex items-center gap-4">
-                      <div className="p-3 rounded-none bg-emerald-500/10 text-emerald-500">
-                        <CheckCircle className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] text-slate-400 font-bold tracking-wider uppercase block">ROI Consolidado</span>
-                        <span className="text-xl font-extrabold text-white">R$ 412.980</span>
-                        <span className="text-xs text-emerald-500 font-bold block">4.2x retorno</span>
-                      </div>
-                    </div>
-
-                    <div className="bg-[#0c0c22] p-6 rounded-none border border-white/5 shadow-sm flex items-center gap-4">
-                      <div className="p-3 rounded-none bg-[#0052ff]/10 text-[#0052ff]">
-                        <TrendingUp className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] text-slate-400 font-bold tracking-wider uppercase block">Métrica LVR</span>
-                        <span className="text-xl font-extrabold text-white">142,5%</span>
-                        <span className="text-xs text-sky-400 font-bold block">Crescimento de Leads</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-[#0c0c22] p-4 rounded-none border border-white/5 shadow-sm flex justify-between items-center text-xs">
-                    <span className="text-slate-500 font-mono">Última atualização: Hoje 21:58</span>
-                    <span className="text-emerald-500 font-bold flex items-center gap-1">
-                      <ShieldCheck className="w-4 h-4" />
-                      Conexão Segura SSL Homologada
-                    </span>
-                  </div>
-                </div>
-              )}
-
             </div>
           </div>
           
