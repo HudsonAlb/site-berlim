@@ -9,7 +9,7 @@ const partners: Partner[] = [
   {
     name: 'Sport Clube do Recife',
     renderLogo: () => (
-      <svg viewBox="0 0 180 40" className="h-8 text-slate-400 hover:text-[#d32f2f] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 180 40" className="h-12 text-slate-400 hover:text-[#d32f2f] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Shield icon */}
         <path d="M10,5 L30,5 L30,20 C30,28 20,35 20,35 C20,35 10,28 10,20 Z" fill="none" stroke="currentColor" strokeWidth="2.5" />
         {/* Stripes inside shield */}
@@ -25,7 +25,7 @@ const partners: Partner[] = [
   {
     name: 'Batekoo',
     renderLogo: () => (
-      <svg viewBox="0 0 160 40" className="h-8 text-slate-400 hover:text-[#fbc02d] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 160 40" className="h-12 text-slate-400 hover:text-[#fbc02d] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         <text x="10" y="27" fontSize="22" fontWeight="950" fontFamily="Impact, system-ui, -apple-system, sans-serif" letterSpacing="1.5">BATEKOO</text>
       </svg>
     )
@@ -33,7 +33,7 @@ const partners: Partner[] = [
   {
     name: 'Coquetel Molotov',
     renderLogo: () => (
-      <svg viewBox="0 0 200 40" className="h-8 text-slate-400 hover:text-[#ff9800] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 200 40" className="h-12 text-slate-400 hover:text-[#ff9800] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Bottle with flame */}
         <path d="M15,18 L15,32 A3,3 0 0,0 18,35 L24,35 A3,3 0 0,0 27,32 L27,18 L24,14 L24,10 L18,10 L18,14 Z" fill="none" stroke="currentColor" strokeWidth="2" />
         <path d="M21,10 C21,6 23,8 23,4 C21,4 19,6 20,10 Z" fill="currentColor" />
@@ -46,7 +46,7 @@ const partners: Partner[] = [
   {
     name: 'TOTVS',
     renderLogo: () => (
-      <svg viewBox="0 0 150 40" className="h-8 text-slate-400 hover:text-[#0052ff] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 150 40" className="h-12 text-slate-400 hover:text-[#0052ff] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Intersecting ellipses */}
         <ellipse cx="20" cy="20" rx="14" ry="5" transform="rotate(-30 20 20)" fill="none" stroke="currentColor" strokeWidth="3" />
         <ellipse cx="20" cy="20" rx="14" ry="5" transform="rotate(45 20 20)" fill="none" stroke="currentColor" strokeWidth="3" />
@@ -59,7 +59,7 @@ const partners: Partner[] = [
   {
     name: 'Ser Educacional',
     renderLogo: () => (
-      <svg viewBox="0 0 180 40" className="h-8 text-slate-400 hover:text-[#1e88e5] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 180 40" className="h-12 text-slate-400 hover:text-[#1e88e5] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Graduation cap */}
         <path d="M20,8 L34,14 L20,20 L6,14 Z" fill="currentColor" />
         <path d="M12,18 L12,28 C12,30 28,30 28,28 L28,18" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -72,7 +72,7 @@ const partners: Partner[] = [
   {
     name: 'Morada da Paz Essencial',
     renderLogo: () => (
-      <svg viewBox="0 0 200 40" className="h-8 text-slate-400 hover:text-[#00bcd4] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 200 40" className="h-12 text-slate-400 hover:text-[#00bcd4] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Stylized flower */}
         <circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" strokeWidth="2" />
         <path d="M20,30 C20,20 12,22 12,16 C12,12 20,8 20,8 C20,8 28,12 28,16 C28,22 20,20 20,30 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -85,7 +85,7 @@ const partners: Partner[] = [
   {
     name: 'Âncora',
     renderLogo: () => (
-      <svg viewBox="0 0 150 40" className="h-8 text-slate-400 hover:text-[#37474f] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 150 40" className="h-12 text-slate-400 hover:text-[#37474f] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Anchor */}
         <circle cx="20" cy="10" r="3" fill="none" stroke="currentColor" strokeWidth="2.5" />
         <line x1="20" y1="13" x2="20" y2="30" stroke="currentColor" strokeWidth="3" />
@@ -99,7 +99,7 @@ const partners: Partner[] = [
   {
     name: 'Hemobrás',
     renderLogo: () => (
-      <svg viewBox="0 0 160 40" className="h-8 text-slate-400 hover:text-[#e53935] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 160 40" className="h-12 text-slate-400 hover:text-[#e53935] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Blood drop */}
         <path d="M20,6 C20,6 29,17 29,23 A9,9 0 0,1 11,23 C11,17 20,6 20,6 Z" fill="currentColor" />
         <circle cx="20" cy="23" r="3" fill="white" />
@@ -111,7 +111,7 @@ const partners: Partner[] = [
   {
     name: 'Governo de PE',
     renderLogo: () => (
-      <svg viewBox="0 0 200 40" className="h-8 text-slate-400 hover:text-[#1565c0] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 200 40" className="h-12 text-slate-400 hover:text-[#1565c0] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Sun emblem */}
         <circle cx="20" cy="20" r="7" fill="currentColor" />
         <path d="M20,6 L20,10 M20,30 L20,34 M6,20 L10,20 M30,20 L34,20 M10,10 L13,13 M27,27 L30,30 M10,30 L13,27 M27,10 L30,13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -125,7 +125,7 @@ const partners: Partner[] = [
   {
     name: 'Prefeitura do Recife',
     renderLogo: () => (
-      <svg viewBox="0 0 200 40" className="h-8 text-slate-400 hover:text-[#1e88e5] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 200 40" className="h-12 text-slate-400 hover:text-[#1e88e5] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Lighthouse */}
         <path d="M14,35 L16,16 L24,16 L26,35 Z" fill="none" stroke="currentColor" strokeWidth="2.5" />
         <rect x="12" y="32" width="16" height="3" fill="currentColor" />
@@ -139,7 +139,7 @@ const partners: Partner[] = [
   {
     name: 'Rio 2026',
     renderLogo: () => (
-      <svg viewBox="0 0 150 40" className="h-8 text-slate-400 hover:text-[#009688] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 150 40" className="h-12 text-slate-400 hover:text-[#009688] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Wave silhouette */}
         <path d="M6,26 Q14,10 22,24 T38,18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
         <circle cx="34" cy="12" r="3.5" fill="currentColor" />
@@ -152,7 +152,7 @@ const partners: Partner[] = [
   {
     name: 'RedBull',
     renderLogo: () => (
-      <svg viewBox="0 0 150 40" className="h-8 text-slate-400 hover:text-[#e53935] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 150 40" className="h-12 text-slate-400 hover:text-[#e53935] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Charging bull silhouette */}
         <path d="M6,16 C10,12 18,14 20,18 C22,22 18,28 24,28 C28,28 32,20 34,16 L34,22 C30,26 24,32 16,32 C10,32 6,24 6,16 Z" fill="currentColor" />
         <circle cx="28" cy="12" r="4.5" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -164,7 +164,7 @@ const partners: Partner[] = [
   {
     name: 'UOL Edtech',
     renderLogo: () => (
-      <svg viewBox="0 0 180 40" className="h-8 text-slate-400 hover:text-[#ff9800] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 180 40" className="h-12 text-slate-400 hover:text-[#ff9800] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* UOL Ball */}
         <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" strokeWidth="3" />
         <path d="M20,8 A12,12 0 0,1 32,20 L20,20 Z" fill="currentColor" />
@@ -177,7 +177,7 @@ const partners: Partner[] = [
   {
     name: 'Esporte da Sorte',
     renderLogo: () => (
-      <svg viewBox="0 0 200 40" className="h-8 text-slate-400 hover:text-[#2e7d32] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 200 40" className="h-12 text-slate-400 hover:text-[#2e7d32] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Clover leaf */}
         <path d="M20,18 C17,14 11,14 11,19 C11,24 18,24 20,21 C22,24 29,24 29,19 C29,14 23,14 20,18 Z" fill="currentColor" />
         <path d="M20,21 C17,25 11,25 11,30 C11,35 18,35 20,32 C22,35 29,35 29,30 C29,25 23,25 20,21 Z" fill="currentColor" />
@@ -191,7 +191,7 @@ const partners: Partner[] = [
   {
     name: 'Um Telecom',
     renderLogo: () => (
-      <svg viewBox="0 0 170 40" className="h-8 text-slate-400 hover:text-[#3f51b5] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 170 40" className="h-12 text-slate-400 hover:text-[#3f51b5] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Number 1 with signal waves */}
         <circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" strokeWidth="2.5" />
         <path d="M17,26 L17,14 L14,16" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -205,7 +205,7 @@ const partners: Partner[] = [
   {
     name: 'FIAT',
     renderLogo: () => (
-      <svg viewBox="0 0 120 40" className="h-8 text-slate-400 hover:text-[#d32f2f] transition-all duration-300 transform hover:scale-105" fill="currentColor">
+      <svg viewBox="0 0 120 40" className="h-12 text-slate-400 hover:text-[#d32f2f] transition-all duration-300 transform hover:scale-105" fill="currentColor">
         {/* Classic FIAT bold italic text and red bars */}
         <text x="10" y="29" fontSize="28" fontWeight="950" fontFamily="system-ui, -apple-system, sans-serif" fontStyle="italic" letterSpacing="2">FIAT</text>
         <rect x="88" y="10" width="3" height="20" fill="currentColor" transform="skewX(-15)" />

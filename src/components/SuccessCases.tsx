@@ -70,20 +70,20 @@ export default function SuccessCases() {
   };
 
   return (
-    <section id="cases" className="py-24 bg-white relative overflow-hidden border-t border-slate-100">
+    <section id="cases" className="pt-10 pb-14 bg-white relative overflow-hidden border-t border-slate-100">
       <div className="glow-spot top-1/2 left-[-150px] opacity-30" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Centered Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        <div className="text-center max-w-3xl mx-auto mb-5">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Cases
           </h2>
         </div>
 
         {/* Logo Selector Row surrounded by Arrows */}
-        <div className="flex justify-center items-center gap-4 md:gap-6 mb-12 max-w-3xl mx-auto">
+        <div className="flex justify-center items-center gap-4 md:gap-6 mb-5 max-w-3xl mx-auto">
           {/* Left Arrow */}
           <button 
             onClick={handlePrev}
@@ -99,7 +99,7 @@ export default function SuccessCases() {
               <button
                 key={c.id}
                 onClick={() => setSelectedIdx(idx)}
-                className={`px-6 py-3.5 rounded-none text-sm font-black tracking-wide border transition-all duration-300 cursor-pointer focus:outline-none uppercase ${
+                className={`px-4 py-2.5 rounded-none text-xs font-black tracking-wide border transition-all duration-300 cursor-pointer focus:outline-none uppercase ${
                   idx === selectedIdx
                     ? 'bg-[#0941DC]/10 border-[#0941DC] text-[#0941DC] shadow-sm'
                     : 'bg-slate-50 border-slate-150 hover:border-slate-300 text-slate-700 font-bold'
@@ -124,11 +124,11 @@ export default function SuccessCases() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
           
           {/* Left Column: Metrics & Content Details Card */}
-          <div className="lg:col-span-7 bg-[#f8fafc] p-8 md:p-12 rounded-none border border-slate-100 shadow-sm text-left flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-[#f8fafc] p-6 md:p-8 rounded-none border border-slate-100 shadow-sm text-left flex flex-col justify-between">
             <div>
               {/* Highlight Metric */}
-              <div className="mb-6 flex items-baseline gap-2">
-                <span className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              <div className="mb-4 flex items-baseline gap-2">
+                <span className="text-4xl font-extrabold text-slate-900 tracking-tight">
                   {active.metric}
                 </span>
                 <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide">
@@ -137,19 +137,19 @@ export default function SuccessCases() {
               </div>
 
               {/* Tag & Info */}
-              <span className="text-[10px] font-bold text-[#0941DC] tracking-widest uppercase block mb-3">
+              <span className="text-[10px] font-bold text-[#0941DC] tracking-widest uppercase block mb-2">
                 {active.tag}
               </span>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
                 {active.title}
               </h3>
-              <p className="text-sm text-slate-600 font-light leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 font-light leading-relaxed mb-4">
                 {active.context}
               </p>
 
               {/* Additional Metrics Grid */}
               {active.additionalMetrics && (
-                <div className="grid grid-cols-2 gap-4 mb-6 border-y border-slate-200/50 py-4">
+                <div className="grid grid-cols-2 gap-4 mb-4 border-y border-slate-200/50 py-3">
                   {active.additionalMetrics.map((m, idx) => (
                     <div key={idx}>
                       <div className="text-2xl font-bold text-slate-900">{m.value}</div>
@@ -161,7 +161,7 @@ export default function SuccessCases() {
 
               {/* Bullet Points */}
               {active.bulletPoints && (
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-1.5 mb-4">
                   {active.bulletPoints.map((pt, idx) => (
                     <li key={idx} className="text-xs text-slate-600 leading-relaxed flex items-start gap-2">
                       <span className="text-[#0941DC] mt-0.5 shrink-0 font-bold">•</span>
@@ -173,7 +173,7 @@ export default function SuccessCases() {
             </div>
 
             {/* Study Link */}
-            <div className="pt-6 border-t border-slate-200">
+            <div className="pt-4 border-t border-slate-200">
               <a 
                 href={active.studyLink} 
                 className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0941DC] hover:text-[#061F6B] transition-colors group/link"
@@ -185,8 +185,8 @@ export default function SuccessCases() {
           </div>
 
           {/* Right Column: Representative Image */}
-          <div className="lg:col-span-5 w-full min-h-[300px] lg:min-h-full">
-            <div className="relative w-full h-full min-h-[300px] rounded-none overflow-hidden shadow-sm border border-slate-100">
+          <div className="lg:col-span-5 w-full min-h-[250px] lg:min-h-full">
+            <div className="relative w-full h-full min-h-[250px] rounded-none overflow-hidden shadow-sm border border-slate-100">
               <img 
                 key={active.id}
                 src={active.imageUrl} 
