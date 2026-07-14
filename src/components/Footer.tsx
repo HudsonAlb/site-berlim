@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer id="footer-section" className="bg-brand-gradient-radial-dark text-white pt-28 pb-12 min-h-[calc(100vh-100px)] md:min-h-[calc(100vh-130px)] flex flex-col justify-between relative overflow-hidden border-t border-white/5">
       {/* Decorative light overlay in the corner */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-[#0941DC]/2 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl w-full mx-auto px-6 lg:px-8 relative z-10 flex-grow flex flex-col justify-between">
 

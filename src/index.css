@@ -154,7 +154,7 @@ body {
 
 /* Brand system gradients and utility classes */
 .bg-brand-gradient-dark {
-  background: linear-gradient(135deg, #030311 0%, #061F6B 40%, #0941DC 100%);
+  background: linear-gradient(135deg, #030311 15%, #061F6B 35%, #0941DC 50%, #061F6B 65%, #030311 85%);
 }
 
 .bg-brand-gradient-royal {
@@ -166,7 +166,7 @@ body {
 }
 
 .bg-brand-gradient-radial-dark {
-  background: radial-gradient(circle at top right, rgba(9, 65, 220, 0.15) 0%, #030311 80%);
+  background: linear-gradient(135deg, #030311 15%, #061F6B 35%, #0941DC 50%, #061F6B 65%, #030311 85%);
 }
 
 

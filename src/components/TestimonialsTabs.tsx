@@ -58,7 +58,7 @@ export default function TestimonialsTabs() {
   };
 
   return (
-    <section id="testimonials" className="py-24 bg-[#030311] relative overflow-hidden border-t border-white/5">
+    <section id="testimonials" className="py-24 bg-brand-gradient-dark relative overflow-hidden border-t border-white/5">
       <div className="glow-spot-dark top-10 right-[-100px]" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
