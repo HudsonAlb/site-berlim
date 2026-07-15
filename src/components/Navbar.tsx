@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isAtFooter, setIsAtFooter] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<'what-we-do' | 'more' | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,36 +64,15 @@ export default function Navbar() {
             Nossa missão
           </a>
 
-          {/* Dropdown What We Do */}
-          <div 
-            className="relative flex items-center py-1"
-            onMouseEnter={() => setActiveDropdown('what-we-do')}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            <button className={`text-sm font-semibold tracking-wide flex items-center gap-1 transition-colors focus:outline-none cursor-pointer ${
+          {/* Serviços */}
+          <a 
+            href="#solutions" 
+            className={`text-sm font-semibold tracking-wide transition-colors ${
               isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
-            }`}>
-              o que fazemos
-              <ChevronDown className="w-4 h-4" />
-            </button>
-            
-            {activeDropdown === 'what-we-do' && (
-              <div className="absolute top-[80%] left-1/2 -translate-x-1/2 pt-4 w-56 z-50">
-                <div className={`rounded-none border p-4 space-y-2.5 shadow-lg transition-colors duration-300 ${
-                  isLight 
-                    ? 'bg-white border-slate-200/80 text-slate-700 shadow-xl' 
-                    : 'bg-[#080816] border-white/5 text-slate-300'
-                }`}>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Propaganda</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">E-commerce</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Produtos Digitais</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Marketing</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Vendas</a>
-                  <a href="#solutions" className="block text-xs font-semibold hover:text-[#0941DC] transition-colors">Serviços</a>
-                </div>
-              </div>
-            )}
-          </div>
+            }`}
+          >
+            Serviços
+          </a>
 
           {/* B-Dash */}
           <a 
@@ -159,7 +137,7 @@ export default function Navbar() {
       }`}>
         <div className="px-6 py-6 space-y-4 flex flex-col bg-[#080816] shadow-lg text-left">
           <a href="#about" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Nossa missão</a>
-          <a href="#solutions" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">o que fazemos</a>
+          <a href="#solutions" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Serviços</a>
           <a href="#bdash" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Dashboard</a>
           <a href="#cases" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Cases</a>
           <a href="#footer-section" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">News & Ideas</a>
