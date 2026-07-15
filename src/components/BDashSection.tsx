@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import bdashMockup from '../assets/bdash_mockup.png';
+import phoneLaptopFallback from '../assets/phone-laptop-fallback.png';
 import { 
   BarChart3, 
   Activity, 
@@ -12,7 +12,6 @@ import {
   ArrowRight,
   X
 } from 'lucide-react';
-
 
 export default function BDashSection() {
   const [activeTab, setActiveTab] = useState<'funil' | 'mkt' | 'roi'>('funil');
@@ -44,9 +43,34 @@ export default function BDashSection() {
 
   return (
     <section id="bdash" className="py-24 bg-brand-gradient-dark relative overflow-hidden border-t border-white/5">
+      {/* Background Devices Mockup (Video & Fallback) */}
+      <div className="absolute inset-0 w-full h-full opacity-25 lg:opacity-45 pointer-events-none overflow-hidden select-none z-0">
+        {/* Gradients to merge the background mockup with the page theme */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-gradient-dark via-brand-gradient-dark/60 to-brand-gradient-dark/35 lg:from-brand-gradient-dark lg:via-brand-gradient-dark/40 lg:to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-gradient-dark via-transparent to-brand-gradient-dark z-10" />
+        
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          className="w-full h-full object-cover object-center lg:object-right-center"
+          poster={phoneLaptopFallback}
+        >
+          <source src="/assets/phone-screen-video.mp4" type="video/mp4" />
+          <img 
+            src={phoneLaptopFallback} 
+            alt="B-DASH em dispositivos móveis e desktop" 
+            className="w-full h-full object-cover object-center lg:object-right-center"
+          />
+        </video>
+      </div>
+
       {/* Decorative radial gradients for dark mode depth */}
-      <div className="absolute top-1/4 left-[-100px] w-96 h-96 bg-[#0052ff]/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-[-100px] w-96 h-96 bg-[#0052ff]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-[-100px] w-96 h-96 bg-[#0052ff]/5 rounded-full blur-[100px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 right-[-100px] w-96 h-96 bg-[#0052ff]/5 rounded-full blur-[100px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
@@ -67,23 +91,8 @@ export default function BDashSection() {
         {/* Product Visual Mockup & Interactive Tabs */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
           
-          {/* Visual Mockup PC & Smartphone (Left Column) */}
-          <div className="lg:col-span-7 w-full order-2 lg:order-1 flex justify-center items-center">
-            <div className="relative group w-full">
-              {/* Glowing Background Glows matching the premium branding */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#0052ff] to-purple-600 rounded-none blur-2xl opacity-20 group-hover:opacity-35 transition duration-1000 group-hover:duration-300" />
-              <div className="relative overflow-hidden border border-white/10 bg-[#080816] p-2 shadow-2xl">
-                <img 
-                  src={bdashMockup} 
-                  alt="B-DASH em dispositivos móveis e desktop" 
-                  className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01]"
-                />
-              </div>
-            </div>
-          </div>
-          
-          {/* Interactive features list (Right Column) */}
-          <div className="lg:col-span-5 text-left space-y-6 order-1 lg:order-2">
+          {/* Interactive features list (Left Column) */}
+          <div className="lg:col-span-7 text-left space-y-6">
             <div className="space-y-2">
               <h3 className="text-2xl font-bold text-white">
                 Uma visão 360° da sua operação
@@ -99,8 +108,8 @@ export default function BDashSection() {
                 onClick={() => setActiveTab('funil')}
                 className={`p-5 rounded-none text-left transition-all duration-300 border cursor-pointer ${
                   activeTab === 'funil'
-                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm'
-                    : 'bg-[#080816] border-white/5 hover:border-white/10 text-slate-400'
+                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm backdrop-blur-sm'
+                    : 'bg-[#080816]/80 border-white/5 hover:border-white/10 text-slate-400 backdrop-blur-sm'
                 }`}
               >
                 <div className="flex items-center gap-4">
@@ -123,8 +132,8 @@ export default function BDashSection() {
                 onClick={() => setActiveTab('mkt')}
                 className={`p-5 rounded-none text-left transition-all duration-300 border cursor-pointer ${
                   activeTab === 'mkt'
-                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm'
-                    : 'bg-[#080816] border-white/5 hover:border-white/10 text-slate-400'
+                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm backdrop-blur-sm'
+                    : 'bg-[#080816]/80 border-white/5 hover:border-white/10 text-slate-400 backdrop-blur-sm'
                 }`}
               >
                 <div className="flex items-center gap-4">
@@ -147,8 +156,8 @@ export default function BDashSection() {
                 onClick={() => setActiveTab('roi')}
                 className={`p-5 rounded-none text-left transition-all duration-300 border cursor-pointer ${
                   activeTab === 'roi'
-                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm'
-                    : 'bg-[#080816] border-white/5 hover:border-white/10 text-slate-400'
+                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm backdrop-blur-sm'
+                    : 'bg-[#080816]/80 border-white/5 hover:border-white/10 text-slate-400 backdrop-blur-sm'
                 }`}
               >
                 <div className="flex items-center gap-4">
@@ -178,6 +187,8 @@ export default function BDashSection() {
             </button>
           </div>
 
+          {/* Right Column space for background layout visual */}
+          <div className="lg:col-span-5 hidden lg:block" />
         </div>
 
         {/* Feature Cards Grid (Footer of the section) */}
