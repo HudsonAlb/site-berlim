@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import sportImg from '../assets/sport.png';
+import sportImg from '../assets/cases/sportcase.png';
+import coquetelImg from '../assets/cases/Coquetel.png';
 
 interface CaseStudy {
   id: number;
@@ -52,7 +53,7 @@ const cases: CaseStudy[] = [
       'Estrutura de mídia focada em previsibilidade de receita.',
       'O resultado foi uma operação de marketing orientada por performance, capaz de transformar relevância cultural em crescimento sustentável de receita.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: coquetelImg,
     studyLink: '#contact'
   }
 ];

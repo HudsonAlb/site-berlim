@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight, MessageSquareQuote } from 'lucide-react';
 
 interface Testimonial {
   id: number;
@@ -7,7 +7,7 @@ interface Testimonial {
   quote: string;
   authorName: string;
   authorRole: string;
-  avatarUrl: string; // Placeholder profile URLs or nice initials
+  avatarUrl: string;
   resultMetric: string;
   resultLabel: string;
 }
@@ -58,28 +58,40 @@ export default function TestimonialsTabs() {
   };
 
   return (
-    <section id="testimonials" className="py-24 bg-brand-gradient-dark relative overflow-hidden border-t border-white/5">
-      <div className="glow-spot-dark top-10 right-[-100px]" />
+    <section id="testimonials" className="py-20 lg:py-28 bg-[#030311] relative overflow-hidden border-t border-white/10 text-white">
+      {/* Background Radial Glow Effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-[#0941DC]/10 via-transparent to-transparent pointer-events-none z-0" />
+      <div className="absolute top-1/3 -right-32 w-96 h-96 bg-[#0941DC]/10 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/3 -left-32 w-96 h-96 bg-[#0941DC]/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1431px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        {/* Section Header */}
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0941DC]/15 border border-[#0941DC]/30 mb-6 backdrop-blur-md">
+            <MessageSquareQuote className="w-4 h-4 text-[#0941DC]" />
+            <span className="text-xs font-bold tracking-widest text-white uppercase font-['Inter',sans-serif]">DEPOIMENTOS DE CLIENTES</span>
+          </div>
+
+          <h2 className="font-['Clash_Display','Inter',sans-serif] font-bold text-4xl sm:text-6xl lg:text-[72px] leading-[100%] text-white tracking-tight mb-6">
             Feedbacks
           </h2>
+
+          <p className="font-['Inter',sans-serif] font-normal text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Veja como ajudamos grandes marcas a multiplicar receitas e escalar operações com estratégias de growth de alta performance.
+          </p>
         </div>
 
-        {/* Pill Selector Tabs (Center Row) */}
+        {/* Pill Selector Tabs (Figma Style matching B-Dash section) */}
         <div className="flex justify-center items-center gap-3 flex-wrap mb-12">
           {testimonials.map((t, idx) => (
             <button
               key={t.id}
               onClick={() => setSelectedIdx(idx)}
-              className={`px-6 py-2.5 rounded-none text-sm font-semibold transition-all duration-300 border cursor-pointer focus:outline-none ${
+              className={`px-6 py-3.5 rounded-[7px] text-base font-semibold font-['Inter',sans-serif] leading-[100%] transition-all duration-300 border cursor-pointer backdrop-blur-md focus:outline-none ${
                 idx === selectedIdx
-                  ? 'bg-slate-200 border-transparent text-slate-900 shadow-md'
-                  : 'bg-white/5 border-white/10 hover:border-white/20 text-slate-300'
+                  ? 'bg-black/40 border-[#0941DC] shadow-[0_4px_20px_rgba(9,65,220,0.3)] ring-1 ring-[#0941DC]/50 text-white'
+                  : 'bg-[rgba(0,0,0,0.25)] border-white/10 hover:border-white/20 hover:bg-black/35 text-slate-300'
               }`}
             >
               {t.companyName}
@@ -87,87 +99,93 @@ export default function TestimonialsTabs() {
           ))}
         </div>
 
-        {/* Slider Area */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 max-w-5xl mx-auto">
-          {/* Left Arrow Button (Desktop only) */}
+        {/* Testimonial Slider Grid */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 max-w-[1287px] mx-auto">
+          
+          {/* Left Arrow Button (Desktop) */}
           <button 
             onClick={handlePrev}
-            className="hidden md:flex p-3 rounded-none bg-white/5 border border-white/10 hover:border-white/20 text-white hover:bg-white/10 transition-all cursor-pointer focus:outline-none shrink-0"
-            aria-label="Previous testimonial"
+            className="hidden md:flex p-4 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC]/50 hover:bg-[#0941DC]/20 text-white transition-all cursor-pointer focus:outline-none shrink-0"
+            aria-label="Anterior"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Testimonial Panel Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start flex-grow w-full">
+          {/* Testimonial Main Content Box */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch flex-grow w-full">
             
             {/* Left Side: Photo + Author Info Box */}
             <div className="md:col-span-4 flex flex-col gap-4 items-center md:items-stretch w-full">
-              <div className="relative w-full aspect-square rounded-none overflow-hidden border border-white/10 shadow-lg">
+              <div className="relative w-full aspect-square rounded-[7px] overflow-hidden border border-white/10 shadow-xl bg-[#080816]">
                 <img 
                   key={active.id}
                   src={active.avatarUrl} 
                   alt={active.authorName} 
-                  className="w-full h-full object-cover object-center transition-all duration-500" 
+                  className="w-full h-full object-cover object-center transition-all duration-500 hover:scale-105" 
                 />
               </div>
-              <div className="bg-[#f8fafc]/5 p-4 rounded-none border border-white/5 text-left w-full">
-                <h4 className="text-sm font-bold text-white leading-tight">{active.authorName}</h4>
-                <p className="text-xs text-slate-400 font-light mt-1">{active.authorRole}</p>
+              <div className="bg-[#080816] p-5 rounded-[7px] border border-white/10 text-left w-full">
+                <h4 className="font-['Inter',sans-serif] font-bold text-white text-base leading-tight">
+                  {active.authorName}
+                </h4>
+                <p className="font-['Inter',sans-serif] font-normal text-xs text-slate-400 mt-1">
+                  {active.authorRole}
+                </p>
               </div>
             </div>
 
-            {/* Right Side: Highlight Metric Box + Quote */}
-            <div className="md:col-span-8 bg-transparent p-8 md:p-10 rounded-none border border-white/10 text-left min-h-[300px] flex flex-col justify-center relative">
-              <Quote className="absolute right-8 top-8 w-24 h-24 text-[#0941DC]/5 pointer-events-none" />
+            {/* Right Side: Highlight Metric Box + Quote (Group 40 / Card Style) */}
+            <div className="md:col-span-8 bg-[#080816] p-8 md:p-10 rounded-[7px] border border-white/10 text-left flex flex-col justify-between relative shadow-xl shadow-[#0941DC]/5">
+              <Quote className="absolute right-8 top-8 w-24 h-24 text-[#0941DC]/10 pointer-events-none" />
               
               {/* Highlight Metric */}
-              <div className="flex items-center gap-6 mb-8 pb-6 border-b border-white/5">
-                <div className="text-5xl font-black text-white tracking-tight leading-none">
+              <div className="flex items-center gap-6 mb-8 pb-6 border-b border-white/10">
+                <div className="font-['Clash_Display','Inter',sans-serif] font-bold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-none">
                   {active.resultMetric}
                 </div>
-                <div className="text-sm font-semibold text-slate-300 tracking-wide max-w-[200px]">
+                <div className="font-['Inter',sans-serif] font-semibold text-sm sm:text-base text-slate-300 tracking-wide max-w-[220px] leading-tight">
                   {active.resultLabel}
                 </div>
               </div>
 
-              {/* Quote Testimonial Text */}
-              <blockquote className="text-base md:text-lg text-slate-300 font-light leading-relaxed italic">
+              {/* Quote Text */}
+              <blockquote className="font-['Inter',sans-serif] font-normal text-base sm:text-lg text-slate-200 leading-relaxed italic relative z-10">
                 "{active.quote}"
               </blockquote>
             </div>
 
           </div>
 
-          {/* Right Arrow Button (Desktop only) */}
+          {/* Right Arrow Button (Desktop) */}
           <button 
             onClick={handleNext}
-            className="hidden md:flex p-3 rounded-none bg-white/5 border border-white/10 hover:border-white/20 text-white hover:bg-white/10 transition-all cursor-pointer focus:outline-none shrink-0"
-            aria-label="Next testimonial"
+            className="hidden md:flex p-4 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC]/50 hover:bg-[#0941DC]/20 text-white transition-all cursor-pointer focus:outline-none shrink-0"
+            aria-label="Próximo"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Mobile Navigation Arrows (Mobile only) */}
+          {/* Mobile Navigation Controls */}
           <div className="flex md:hidden justify-center items-center gap-4 mt-2">
             <button 
               onClick={handlePrev}
-              className="p-3 rounded-none bg-white/5 border border-white/10 hover:border-white/20 text-white hover:bg-white/10 transition-all cursor-pointer focus:outline-none"
-              aria-label="Previous testimonial"
+              className="p-3.5 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC]/50 text-white transition-all cursor-pointer focus:outline-none"
+              aria-label="Anterior"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <span className="text-xs text-slate-400 font-medium select-none">
+            <span className="font-['Inter',sans-serif] text-xs text-slate-400 font-medium select-none">
               {selectedIdx + 1} / {testimonials.length}
             </span>
             <button 
               onClick={handleNext}
-              className="p-3 rounded-none bg-white/5 border border-white/10 hover:border-white/20 text-white hover:bg-white/10 transition-all cursor-pointer focus:outline-none"
-              aria-label="Next testimonial"
+              className="p-3.5 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC]/50 text-white transition-all cursor-pointer focus:outline-none"
+              aria-label="Próximo"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
+
         </div>
 
       </div>

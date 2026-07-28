@@ -37,7 +37,7 @@ export default function MiddleCTA() {
 
   return (
     <section id="contact" className="relative py-24 w-full bg-white overflow-hidden border-t border-slate-100">
-      {/* Decorative premium light gradient background */}
+      {/* Decorative light gradient background */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-slate-50/80 to-blue-50/50 pointer-events-none" />
       <div className="absolute bottom-[-150px] left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -46,17 +46,17 @@ export default function MiddleCTA() {
           
           {/* Left Column: Conversion Copy & Features */}
           <div className="lg:col-span-5 text-left">
-            <span className="text-xs font-black tracking-widest text-[#0941DC] uppercase bg-[#0941DC]/10 px-3.5 py-1.5 rounded-none mb-6 inline-block">
+            <span className="text-xs font-bold tracking-widest text-[#0941DC] uppercase bg-[#0941DC]/10 px-3.5 py-1.5 rounded-none mb-6 inline-block font-['Inter',sans-serif]">
               Conversão & Escala
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+            <h2 className="font-['Clash_Display','Inter',sans-serif] text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
               Pronto para dominar seu mercado?
             </h2>
-            <p className="text-slate-600 font-light text-base md:text-lg mb-8 leading-relaxed">
+            <p className="text-slate-600 font-['Inter',sans-serif] font-normal text-base md:text-lg mb-8 leading-relaxed">
               Nossa equipe de engenheiros de growth analisará seu funil de aquisição atual gratuitamente. Preencha o formulário para agendar sua sessão estratégica e iniciar sua escalada.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 font-['Inter',sans-serif]">
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#0941DC] shrink-0 mt-0.5" />
                 <div>
@@ -81,52 +81,52 @@ export default function MiddleCTA() {
             </div>
           </div>
 
-          {/* Right Column: Premium Form Card */}
+          {/* Right Column: Form Card */}
           <div className="lg:col-span-7">
-            <div className="bg-white p-8 md:p-10 rounded-none border border-slate-150 shadow-xl relative">
+            <div className="bg-white p-8 md:p-10 rounded-[7px] border border-slate-200 shadow-xl relative">
               {submitted ? (
                 <div className="py-12 px-6 text-center flex flex-col items-center justify-center min-h-[400px]">
                   <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-6 border border-emerald-100">
                     <CheckCircle2 className="w-8 h-8 text-emerald-500" />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-slate-955 mb-2">Solicitação Recebida!</h3>
-                  <p className="text-slate-600 font-light text-sm max-w-sm mx-auto">
+                  <h3 className="font-['Clash_Display','Inter',sans-serif] text-2xl font-bold text-slate-950 mb-2">Solicitação Recebida!</h3>
+                  <p className="text-slate-600 font-['Inter',sans-serif] text-sm max-w-sm mx-auto">
                     Nossos engenheiros de growth estão analisando seu perfil e entrarão em contato em até 15 minutos.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="text-left mb-6">
-                    <h3 className="text-xl font-extrabold text-slate-950">Fale com um especialista</h3>
-                    <p className="text-xs text-slate-500 font-light mt-1">Preencha os campos abaixo para solicitar seu diagnóstico gratuito.</p>
+                    <h3 className="font-['Clash_Display','Inter',sans-serif] text-xl font-bold text-slate-950">Fale com um especialista</h3>
+                    <p className="text-xs text-slate-500 font-['Inter',sans-serif] font-light mt-1">Preencha os campos abaixo para solicitar seu diagnóstico gratuito.</p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Nome */}
                     <div className="text-left flex flex-col">
-                      <label className="text-[10px] font-black uppercase text-slate-700 tracking-wider mb-1.5">Nome Completo *</label>
+                      <label className="text-[10px] font-bold uppercase text-slate-700 tracking-wider mb-1.5 font-['Inter',sans-serif]">Nome Completo *</label>
                       <input
                         type="text"
                         name="nome"
                         required
-                        placeholder="Ex: Hudson Silva"
+                        placeholder="Ex: João Silva"
                         value={formData.nome}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-[7px] bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       />
                     </div>
 
                     {/* Email */}
                     <div className="text-left flex flex-col">
-                      <label className="text-[10px] font-black uppercase text-slate-700 tracking-wider mb-1.5">E-mail Corporativo *</label>
+                      <label className="text-[10px] font-bold uppercase text-slate-700 tracking-wider mb-1.5 font-['Inter',sans-serif]">E-mail Corporativo *</label>
                       <input
                         type="email"
                         name="email"
                         required
-                        placeholder="Ex: hudson@empresa.com"
+                        placeholder="Ex: joao@empresa.com"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-[7px] bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       />
                     </div>
                   </div>
@@ -134,44 +134,44 @@ export default function MiddleCTA() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Telefone */}
                     <div className="text-left flex flex-col">
-                      <label className="text-[10px] font-black uppercase text-slate-700 tracking-wider mb-1.5">Telefone / WhatsApp *</label>
+                      <label className="text-[10px] font-bold uppercase text-slate-700 tracking-wider mb-1.5 font-['Inter',sans-serif]">WhatsApp / Telefone *</label>
                       <input
                         type="tel"
                         name="telefone"
                         required
-                        placeholder="Ex: (81) 99999-9999"
+                        placeholder="Ex: (11) 99999-9999"
                         value={formData.telefone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-[7px] bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       />
                     </div>
 
                     {/* Empresa */}
                     <div className="text-left flex flex-col">
-                      <label className="text-[10px] font-black uppercase text-slate-700 tracking-wider mb-1.5">Nome da Empresa *</label>
+                      <label className="text-[10px] font-bold uppercase text-slate-700 tracking-wider mb-1.5 font-['Inter',sans-serif]">Nome da Empresa *</label>
                       <input
                         type="text"
                         name="empresa"
                         required
-                        placeholder="Ex: Berlim Co."
+                        placeholder="Ex: Minha Empresa Co."
                         value={formData.empresa}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-[7px] bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* N Funcionários */}
+                    {/* Funcionários */}
                     <div className="text-left flex flex-col">
-                      <label className="text-[10px] font-black uppercase text-slate-700 tracking-wider mb-1.5">Nº de Funcionários</label>
+                      <label className="text-[10px] font-bold uppercase text-slate-700 tracking-wider mb-1.5 font-['Inter',sans-serif]">Número de Funcionários</label>
                       <select
                         name="funcionarios"
                         value={formData.funcionarios}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-semibold transition-all appearance-none cursor-pointer"
+                        className="w-full px-4 py-3 rounded-[7px] bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       >
-                        <option value="">Selecione uma opção</option>
+                        <option value="">Selecione...</option>
                         <option value="1-10">1 a 10 funcionários</option>
                         <option value="11-50">11 a 50 funcionários</option>
                         <option value="51-200">51 a 200 funcionários</option>
@@ -181,33 +181,29 @@ export default function MiddleCTA() {
 
                     {/* Faturamento */}
                     <div className="text-left flex flex-col">
-                      <label className="text-[10px] font-black uppercase text-slate-700 tracking-wider mb-1.5">Faturamento Mensal</label>
+                      <label className="text-[10px] font-bold uppercase text-slate-700 tracking-wider mb-1.5 font-['Inter',sans-serif]">Faturamento Mensal em Mídia</label>
                       <select
                         name="faturamento"
                         value={formData.faturamento}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-semibold transition-all appearance-none cursor-pointer"
+                        className="w-full px-4 py-3 rounded-[7px] bg-slate-50/50 border border-slate-200 focus:border-[#0941DC] focus:bg-white focus:outline-none text-slate-900 text-sm font-medium transition-all"
                       >
-                        <option value="">Selecione uma opção</option>
-                        <option value="ate-50k">Até R$ 50.000 / mês</option>
-                        <option value="50k-200k">R$ 50.000 a R$ 200.000 / mês</option>
-                        <option value="200k-1m">R$ 200.000 a R$ 1.000.000 / mês</option>
-                        <option value="1m+">Acima de R$ 1.000.000 / mês</option>
+                        <option value="">Selecione...</option>
+                        <option value="ate-10k">Até R$ 10.000 /mês</option>
+                        <option value="10k-50k">R$ 10.000 a R$ 50.000 /mês</option>
+                        <option value="50k-200k">R$ 50.000 a R$ 200.000 /mês</option>
+                        <option value="200k+">Acima de R$ 200.000 /mês</option>
                       </select>
                     </div>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 mt-2 bg-[#0941DC] text-white font-extrabold text-xs uppercase tracking-wider rounded-none shadow-md hover:bg-[#061F6B] transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full mt-6 py-4 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-['Inter',sans-serif] font-bold uppercase tracking-wider text-xs transition-all duration-300 rounded-[7px] shadow-lg shadow-[#0941DC]/25 flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    Falar com especialista
+                    Agendar Sessão Estratégica
                     <ArrowRight className="w-4 h-4" />
                   </button>
-
-                  <span className="text-[10px] text-slate-400 block mt-4 font-light text-center">
-                    🔒 Dados 100% seguros de acordo com a LGPD.
-                  </span>
                 </form>
               )}
             </div>

@@ -1,20 +1,17 @@
 import { useState } from 'react';
-import phoneLaptopFallback from '../assets/phone-laptop-fallback.png';
+import bdash9 from '../assets/Bdash 9.png';
 import { 
   BarChart3, 
-  Activity, 
   Layers, 
-  Smartphone, 
   TrendingUp, 
-  Clock, 
   CheckCircle,
-  Database,
   ArrowRight,
-  X
+  X,
+  Sparkles
 } from 'lucide-react';
 
 export default function BDashSection() {
-  const [activeTab, setActiveTab] = useState<'funil' | 'mkt' | 'roi'>('funil');
+  const [activeTab, setActiveTab] = useState<'ga4' | 'trafego' | 'roi'>('ga4');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     nome: '',
@@ -42,203 +39,174 @@ export default function BDashSection() {
   };
 
   return (
-    <section id="bdash" className="py-24 bg-brand-gradient-dark relative overflow-hidden border-t border-white/5">
-      {/* Background Devices Mockup (Video & Fallback) */}
-      <div className="absolute inset-0 w-full h-full opacity-25 lg:opacity-45 pointer-events-none overflow-hidden select-none z-0">
-        {/* Gradients to merge the background mockup with the page theme */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-gradient-dark via-brand-gradient-dark/60 to-brand-gradient-dark/35 lg:from-brand-gradient-dark lg:via-brand-gradient-dark/40 lg:to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-gradient-dark via-transparent to-brand-gradient-dark z-10" />
-        
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          disablePictureInPicture
-          controlsList="nodownload nofullscreen noremoteplayback"
-          className="w-full h-full object-cover object-center lg:object-right-center"
-          poster={phoneLaptopFallback}
-        >
-          <source src="/assets/phone-screen-video.mp4" type="video/mp4" />
-          <img 
-            src={phoneLaptopFallback} 
-            alt="B-DASH em dispositivos móveis e desktop" 
-            className="w-full h-full object-cover object-center lg:object-right-center"
-          />
-        </video>
+    <section id="bdash" className="py-20 lg:py-28 bg-[#030311] relative overflow-hidden border-t border-white/10 text-white min-h-[954px] flex flex-col justify-between">
+      
+      {/* LAYER 1: Base Background & Gradient Lighting (Reference Image Gradient) */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#0941DC]/25 via-[#061F6B]/15 to-[#030311] pointer-events-none z-0" />
+      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#0941DC]/10 rounded-full blur-[140px] pointer-events-none z-0" />
+      <div className="absolute bottom-10 right-0 w-[600px] h-[600px] bg-[#061F6B]/20 rounded-full blur-[150px] pointer-events-none z-0" />
+
+      {/* LAYER 2: Bdash 9 Background Image */}
+      <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
+        <img
+          src={bdash9}
+          alt="B-DASH Dashboard"
+          className="w-full h-full object-cover object-center opacity-75 lg:opacity-85"
+        />
+        {/* Gradient overlays — only on edges to keep text legible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030311]/80 via-transparent to-[#030311]/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030311]/70 via-transparent to-[#030311]/30" />
       </div>
 
-      {/* Decorative radial gradients for dark mode depth */}
-      <div className="absolute top-1/4 left-[-100px] w-96 h-96 bg-[#0052ff]/5 rounded-full blur-[100px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 right-[-100px] w-96 h-96 bg-[#0052ff]/5 rounded-full blur-[100px] pointer-events-none z-0" />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      {/* LAYER 3: Interactive Foreground Content Overlay */}
+      <div className="max-w-[1431px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col justify-between h-full">
         
-        {/* Category Badge & Main Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-[#0052ff]/10 border border-[#0052ff]/20 mb-6">
-            <Activity className="w-4 h-4 text-[#0052ff] animate-pulse" />
-            <span className="text-xs font-bold tracking-widest text-[#0052ff] uppercase">TECNOLOGIA EXCLUSIVA</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
-            Conheça o <span className="text-[#0052ff]">B-DASH</span>. A inteligência comercial da sua marca consolidada em tempo real.
+        {/* Header Title (Conheça a B-Dash) */}
+        <div className="text-center max-w-4xl mx-auto pt-4 mb-12 lg:mb-16">
+          <h2 className="font-['Clash_Display','Inter',sans-serif] font-bold text-4xl sm:text-6xl lg:text-[72px] leading-[100%] text-white tracking-tight">
+            Conheça a B-Dash
           </h2>
-          <p className="text-slate-300 font-light text-lg">
-            Esqueça relatórios manuais e dados fragmentados. O B-DASH é a nossa plataforma proprietária que conecta todo o seu ecossistema de aquisição em um único painel estratégico.
-          </p>
         </div>
 
-        {/* Product Visual Mockup & Interactive Tabs */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+        {/* Middle Canvas: Positioned Pill Badges Floating over the Background App Layer */}
+        <div className="relative min-h-[380px] sm:min-h-[420px] lg:min-h-[480px] w-full flex flex-col justify-between py-6">
           
-          {/* Interactive features list (Left Column) */}
-          <div className="lg:col-span-7 text-left space-y-6">
-            <div className="space-y-2">
-              <h3 className="text-2xl font-bold text-white">
-                Uma visão 360° da sua operação
-              </h3>
-              <p className="text-slate-400 text-sm font-light leading-relaxed">
-                Navegue pelas abas para explorar como o B-DASH organiza seus KPIs e automatiza insights de marketing.
-              </p>
+          {/* Top Left Pill: Atribuição GA4 & CRM */}
+          <div className="flex flex-col items-start lg:ml-8 max-w-xs sm:max-w-sm mb-6 lg:mb-0">
+            <div
+              onClick={() => setActiveTab('ga4')}
+              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-4 border text-left ${
+                activeTab === 'ga4'
+                  ? 'bg-black/70 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
+                  : 'bg-[rgba(0,0,0,0.40)] hover:bg-black/60 border-white/15 hover:border-white/30'
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <Layers className={`w-5 h-5 ${activeTab === 'ga4' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
+                <h4 className="font-['Inter',sans-serif] font-semibold text-lg sm:text-[22px] lg:text-[24px] leading-[100%] text-white whitespace-nowrap">
+                  Atribuição GA4 & CRM
+                </h4>
+              </div>
+              {activeTab === 'ga4' && (
+                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-3 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
+                  Mapeie a jornada completa do lead, do primeiro clique ao fechamento de vendas na RD Station.
+                </p>
+              )}
             </div>
+          </div>
 
-            <div className="flex flex-col gap-3">
-              {/* Tab 1 */}
-              <div
-                onClick={() => setActiveTab('funil')}
-                className={`p-5 rounded-none text-left transition-all duration-300 border cursor-pointer ${
-                  activeTab === 'funil'
-                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm backdrop-blur-sm'
-                    : 'bg-[#080816]/80 border-white/5 hover:border-white/10 text-slate-400 backdrop-blur-sm'
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`p-2 rounded-none ${activeTab === 'funil' ? 'bg-[#0052ff] text-white' : 'bg-white/5 text-slate-400'}`}>
-                    <Layers className="w-5 h-5" />
-                  </div>
-                  <h4 className={`text-base font-bold ${activeTab === 'funil' ? 'text-white' : 'text-slate-300'}`}>
-                    Atribuição GA4 & CRM
-                  </h4>
-                </div>
-                <div className={`overflow-hidden transition-all duration-300 ${activeTab === 'funil' ? 'max-h-24 mt-3 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-xs text-slate-400 font-light leading-relaxed">
-                    Mapeie a jornada desde o primeiro clique até o fechamento de vendas no CRM da RD Station de forma integrada.
-                  </p>
-                </div>
+          {/* Middle Left Pill: Tráfego Pago & Ads Multi-canal */}
+          <div className="flex flex-col items-start lg:ml-8 max-w-xs sm:max-w-md my-6 lg:my-0">
+            <div
+              onClick={() => setActiveTab('trafego')}
+              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-4 border text-left drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${
+                activeTab === 'trafego'
+                  ? 'bg-black/70 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
+                  : 'bg-[rgba(0,0,0,0.40)] hover:bg-black/60 border-white/15 hover:border-white/30'
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <BarChart3 className={`w-5 h-5 ${activeTab === 'trafego' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
+                <h4 className="font-['Inter',sans-serif] font-semibold text-lg sm:text-[22px] lg:text-[24px] leading-[100%] text-white whitespace-nowrap">
+                  Tráfego Pago & Ads Multi-canal
+                </h4>
               </div>
-
-              {/* Tab 2 */}
-              <div
-                onClick={() => setActiveTab('mkt')}
-                className={`p-5 rounded-none text-left transition-all duration-300 border cursor-pointer ${
-                  activeTab === 'mkt'
-                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm backdrop-blur-sm'
-                    : 'bg-[#080816]/80 border-white/5 hover:border-white/10 text-slate-400 backdrop-blur-sm'
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`p-2 rounded-none ${activeTab === 'mkt' ? 'bg-[#0052ff] text-white' : 'bg-white/5 text-slate-400'}`}>
-                    <BarChart3 className="w-5 h-5" />
-                  </div>
-                  <h4 className={`text-base font-bold ${activeTab === 'mkt' ? 'text-white' : 'text-slate-300'}`}>
-                    Tráfego Pago & Ads Multi-canal
-                  </h4>
-                </div>
-                <div className={`overflow-hidden transition-all duration-300 ${activeTab === 'mkt' ? 'max-h-24 mt-3 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-xs text-slate-400 font-light leading-relaxed">
-                    Compare investimentos e custos de aquisição (CAC) consolidados entre Facebook, Google, Instagram e TikTok.
-                  </p>
-                </div>
-              </div>
-
-              {/* Tab 3 */}
-              <div
-                onClick={() => setActiveTab('roi')}
-                className={`p-5 rounded-none text-left transition-all duration-300 border cursor-pointer ${
-                  activeTab === 'roi'
-                    ? 'bg-[#0052ff]/15 border-[#0052ff]/50 shadow-sm backdrop-blur-sm'
-                    : 'bg-[#080816]/80 border-white/5 hover:border-white/10 text-slate-400 backdrop-blur-sm'
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`p-2 rounded-none ${activeTab === 'roi' ? 'bg-[#0052ff] text-white' : 'bg-white/5 text-slate-400'}`}>
-                    <TrendingUp className="w-5 h-5" />
-                  </div>
-                  <h4 className={`text-base font-bold ${activeTab === 'roi' ? 'text-white' : 'text-slate-300'}`}>
-                    Roi Consolidado & LVR
-                  </h4>
-                </div>
-                <div className={`overflow-hidden transition-all duration-300 ${activeTab === 'roi' ? 'max-h-24 mt-3 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-xs text-slate-400 font-light leading-relaxed">
-                    Monitore a velocidade de crescimento de leads (LVR) e a taxa de retorno consolidada sobre seus investimentos.
-                  </p>
-                </div>
-              </div>
-
+              {activeTab === 'trafego' && (
+                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-3 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
+                  Compare investimentos e CAC consolidado em Meta, Google, LinkedIn e TikTok num só painel.
+                </p>
+              )}
             </div>
+          </div>
 
-            {/* CTA Button */}
+          {/* Middle Right Pill: Roi Consolidade & LVR */}
+          <div className="flex flex-col items-end lg:mr-8 max-w-xs sm:max-w-sm self-end my-4 lg:my-0">
+            <div
+              onClick={() => setActiveTab('roi')}
+              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-4 border text-left ${
+                activeTab === 'roi'
+                  ? 'bg-black/70 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
+                  : 'bg-[rgba(0,0,0,0.40)] hover:bg-black/60 border-white/15 hover:border-white/30'
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <TrendingUp className={`w-5 h-5 ${activeTab === 'roi' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
+                <h4 className="font-['Inter',sans-serif] font-semibold text-lg sm:text-[22px] lg:text-[24px] leading-[100%] text-white whitespace-nowrap">
+                  Roi Consolidade & LVR
+                </h4>
+              </div>
+              {activeTab === 'roi' && (
+                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-3 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
+                  Acompanhe a velocidade de crescimento de leads (LVR) e rentabilidade consolidada em tempo real.
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Request Access CTA Floating Button */}
+          <div className="self-center mt-6">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="w-full mt-6 py-4 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-[#0941DC]/20 flex items-center justify-center gap-2 group cursor-pointer"
+              className="py-3 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-['Inter',sans-serif] font-bold uppercase tracking-wider text-xs transition-all duration-300 rounded-[7px] shadow-lg shadow-[#0941DC]/30 flex items-center gap-2 group cursor-pointer border border-[#0941DC]"
             >
+              <Sparkles className="w-4 h-4" />
               Solicitar Acesso ao B-DASH
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
 
-          {/* Right Column space for background layout visual */}
-          <div className="lg:col-span-5 hidden lg:block" />
         </div>
 
-        {/* Feature Cards Grid (Footer of the section) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-[#080816] p-8 rounded-none border border-white/5 shadow-sm hover:shadow-md hover:border-[#0052ff]/30 transition-all duration-300 text-left">
-            <div className="w-10 h-10 rounded-none bg-[#0052ff]/10 flex items-center justify-center mb-6">
-              <Database className="w-5 h-5 text-[#0052ff]" />
+        {/* Bottom Cards Row (Exact Reference Order: Integração RD Station -> Atualização Automática -> Acesso Mobile Responsivo) */}
+        <div className="max-w-[1358px] mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 pt-8 pb-4">
+          
+          {/* Card 1: Integração RD Station */}
+          <div className="bg-[#080816]/90 backdrop-blur-md p-6 lg:p-7 rounded-[7px] border border-white/10 hover:border-[#0941DC]/50 transition-all duration-300 text-left flex flex-col justify-between min-h-[131px] group shadow-xl">
+            <div>
+              <h4 className="font-['Inter',sans-serif] font-semibold text-[20px] leading-[100%] text-white mb-3">
+                Integração RD Station
+              </h4>
+              <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[120%] text-slate-200">
+                Plugue seu CRM e mapeie o desempenho do seu comercial de forma automática, segmentando vendedores e conversões.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">
-              Integração RD Station
-            </h4>
-            <p className="text-sm text-slate-400 font-light leading-relaxed">
-              Plugue seu CRM e mapeie o desempenho do seu comercial de forma automática, segmentando vendedores e conversões.
-            </p>
           </div>
 
-          <div className="bg-[#080816] p-8 rounded-none border border-white/5 shadow-sm hover:shadow-md hover:border-[#0052ff]/30 transition-all duration-300 text-left">
-            <div className="w-10 h-10 rounded-none bg-[#0052ff]/10 flex items-center justify-center mb-6">
-              <Smartphone className="w-5 h-5 text-[#0052ff]" />
+          {/* Card 2: Atualização Automática */}
+          <div className="bg-[#080816]/90 backdrop-blur-md p-6 lg:p-7 rounded-[7px] border border-white/10 hover:border-[#0941DC]/50 transition-all duration-300 text-left flex flex-col justify-between min-h-[131px] group shadow-xl">
+            <div>
+              <h4 className="font-['Inter',sans-serif] font-semibold text-[20px] leading-[100%] text-white mb-3">
+                Atualização Automática
+              </h4>
+              <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[120%] text-slate-200">
+                O B-DASH atualiza seus dados a cada hora, garantindo previsibilidade para tomadas de decisões cirúrgicas.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">
-              Acesso Mobile Responsivo
-            </h4>
-            <p className="text-sm text-slate-400 font-light leading-relaxed">
-              Acompanhe o faturamento de mídia direto do seu smartphone na praia, em trânsito ou no escritório corporativo.
-            </p>
           </div>
 
-          <div className="bg-[#080816] p-8 rounded-none border border-white/5 shadow-sm hover:shadow-md hover:border-[#0052ff]/30 transition-all duration-300 text-left">
-            <div className="w-10 h-10 rounded-none bg-[#0052ff]/10 flex items-center justify-center mb-6">
-              <Clock className="w-5 h-5 text-[#0052ff]" />
+          {/* Card 3: Acesso Mobile Responsivo */}
+          <div className="bg-[#080816]/90 backdrop-blur-md p-6 lg:p-7 rounded-[7px] border border-white/10 hover:border-[#0941DC]/50 transition-all duration-300 text-left flex flex-col justify-between min-h-[131px] group shadow-xl">
+            <div>
+              <h4 className="font-['Inter',sans-serif] font-semibold text-[20px] leading-[100%] text-white mb-3">
+                Acesso Mobile Responsivo
+              </h4>
+              <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[120%] text-slate-200">
+                Acompanhe o faturamento de mídia direto do seu smartphone na praia, em trânsito ou no escritório corporativo.
+              </p>
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">
-              Atualização Automática
-            </h4>
-            <p className="text-sm text-slate-400 font-light leading-relaxed">
-              O B-DASH atualiza seus dados a cada hora, garantindo previsibilidade para tomadas de decisões cirúrgicas.
-            </p>
           </div>
+
         </div>
+
       </div>
 
-      {/* Modern Premium Modal Form */}
+      {/* Access Request Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">
           <div 
-            className="relative w-full max-w-lg bg-[#080816] border border-white/10 p-8 md:p-10 shadow-2xl text-left"
+            className="relative w-full max-w-lg bg-[#080816] border border-white/10 p-8 md:p-10 rounded-2xl shadow-2xl text-left"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button 
               onClick={() => setIsModalOpen(false)}
               className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white transition-colors cursor-pointer"
@@ -249,59 +217,60 @@ export default function BDashSection() {
 
             {submitted ? (
               <div className="py-12 text-center flex flex-col items-center justify-center">
-                <div className="w-16 h-16 bg-emerald-500/10 rounded-none flex items-center justify-center mb-6 border border-emerald-500/20">
+                <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mb-6 border border-emerald-500/20">
                   <CheckCircle className="w-8 h-8 text-emerald-500" />
                 </div>
-                <h3 className="text-2xl font-extrabold text-white mb-2">Solicitação Recebida!</h3>
-                <p className="text-slate-350 font-light text-sm max-w-sm mx-auto">
+                <h3 className="font-['Clash_Display','Inter',sans-serif] text-2xl font-bold text-white mb-2">
+                  Solicitação Recebida!
+                </h3>
+                <p className="font-['Inter',sans-serif] text-slate-300 text-sm max-w-sm mx-auto">
                   Nossos engenheiros de growth estão analisando seu perfil e entrarão em contato em breve para liberar seu acesso ao B-DASH.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <span className="text-[10px] font-black tracking-widest text-[#0941DC] uppercase bg-[#0941DC]/10 px-2.5 py-1 rounded-none inline-block mb-3">
+                  <span className="text-[10px] font-bold tracking-widest text-[#0941DC] uppercase bg-[#0941DC]/15 px-3 py-1 rounded-full inline-block mb-3 font-['Inter',sans-serif]">
                     B-DASH Beta
                   </span>
-                  <h3 className="text-2xl font-extrabold text-white">Solicitar Demonstração</h3>
-                  <p className="text-xs text-slate-400 font-light mt-1.5">
+                  <h3 className="font-['Clash_Display','Inter',sans-serif] text-2xl font-bold text-white">
+                    Solicitar Demonstração
+                  </h3>
+                  <p className="font-['Inter',sans-serif] text-xs text-slate-400 mt-1.5">
                     Inscreva-se na lista de espera exclusiva e agende uma demonstração prática da nossa inteligência comercial.
                   </p>
                 </div>
 
                 <div className="space-y-4">
-                  {/* Nome */}
                   <div className="flex flex-col">
-                    <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">Nome Completo *</label>
+                    <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider mb-1.5 font-['Inter',sans-serif]">Nome Completo *</label>
                     <input
                       type="text"
                       name="nome"
                       required
-                      placeholder="Ex: Hudson Albuquerque"
+                      placeholder="Ex: João Albuquerque"
                       value={formData.nome}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
+                      className="w-full px-4 py-3 rounded-[7px] bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
                     />
                   </div>
 
-                  {/* Email */}
                   <div className="flex flex-col">
-                    <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">E-mail Corporativo *</label>
+                    <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider mb-1.5 font-['Inter',sans-serif]">E-mail Corporativo *</label>
                     <input
                       type="email"
                       name="email"
                       required
-                      placeholder="Ex: hudson@empresa.com"
+                      placeholder="Ex: joao@empresa.com"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
+                      className="w-full px-4 py-3 rounded-[7px] bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Telefone */}
                     <div className="flex flex-col">
-                      <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">WhatsApp *</label>
+                      <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider mb-1.5 font-['Inter',sans-serif]">WhatsApp *</label>
                       <input
                         type="tel"
                         name="telefone"
@@ -309,13 +278,12 @@ export default function BDashSection() {
                         placeholder="Ex: (11) 99999-9999"
                         value={formData.telefone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-[7px] bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
                       />
                     </div>
 
-                    {/* Empresa */}
                     <div className="flex flex-col">
-                      <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1.5">Nome da Empresa *</label>
+                      <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider mb-1.5 font-['Inter',sans-serif]">Nome da Empresa *</label>
                       <input
                         type="text"
                         name="empresa"
@@ -323,7 +291,7 @@ export default function BDashSection() {
                         placeholder="Ex: Berlim Company"
                         value={formData.empresa}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-none bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
+                        className="w-full px-4 py-3 rounded-[7px] bg-white/5 border border-white/10 focus:border-[#0941DC] focus:outline-none text-white text-sm font-medium transition-all"
                       />
                     </div>
                   </div>
@@ -331,7 +299,7 @@ export default function BDashSection() {
 
                 <button
                   type="submit"
-                  className="w-full mt-6 py-4 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-[#0941DC]/20 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full mt-6 py-4 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-['Inter',sans-serif] font-bold uppercase tracking-wider text-xs transition-all duration-300 rounded-[7px] shadow-lg shadow-[#0941DC]/25 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Garantir Meu Acesso
                   <ArrowRight className="w-4 h-4" />

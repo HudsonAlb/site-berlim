@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import heroTransformamosPC from '../assets/cases/HERO - Transformamos Dados MOBILE.png';
+import heroEngenhariaPC from '../assets/cases/HERO - Engenharia Criativa PC.png';
+import heroEngenhariaMobile from '../assets/cases/HERO - Engenharia Criativa MOBILE.png';
+import heroDecisoesPC from '../assets/cases/HERO - Decisões Inteligentes PC.png';
+import heroDecisoesMobile from '../assets/cases/HERO - Decisões Inteligentes MOBILE.png';
 
 interface Slide {
   id: number;
@@ -9,8 +14,9 @@ interface Slide {
   description: string;
   primaryCta: string;
   secondaryCta: string;
-  image: string; // Deloitte fallback static image
-  video: string; // Deloitte lifestyle corporate high-quality looping video
+  image: string;
+  imageMobile?: string;
+  video: string;
 }
 
 const slides: Slide[] = [
@@ -22,7 +28,7 @@ const slides: Slide[] = [
     description: 'Agência de growth marketing focada em gerar ROI real por meio de tecnologia proprietária, criatividade cirúrgica e campanhas de alta performance.',
     primaryCta: 'Acelerar Meu Negócio',
     secondaryCta: 'Ver Nossos Cases',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000',
+    image: heroTransformamosPC,
     video: 'https://cdn.pixabay.com/video/2019/04/16/22892-331665476_large.mp4' // Corporate technology network concept
   },
   {
@@ -33,7 +39,8 @@ const slides: Slide[] = [
     description: 'Construímos funis de vendas ultra-otimizados e campanhas de tráfego pago que dominam canais digitais e maximizam margens de lucro.',
     primaryCta: 'Desenhar Minha Estratégia',
     secondaryCta: 'Nossas Soluções',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000',
+    image: heroEngenhariaPC,
+    imageMobile: heroEngenhariaMobile,
     video: 'https://cdn.pixabay.com/video/2021/04/12/70876-538180486_large.mp4' // Analytics charts screen interface loop
   },
   {
@@ -44,7 +51,8 @@ const slides: Slide[] = [
     description: 'Dashboards integrados e monitoramento contínuo para transformar cliques em leads altamente qualificados e clientes fiéis.',
     primaryCta: 'Agendar Demonstração',
     secondaryCta: 'Conhecer Métricas',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=2000',
+    image: heroDecisoesPC,
+    imageMobile: heroDecisoesMobile,
     video: 'https://cdn.pixabay.com/video/2016/09/21/5125-181676646_large.mp4' // Lifestyle workspace and meeting corporate loop
   }
 ];
@@ -93,21 +101,39 @@ export default function HeroCarousel() {
         >
           {/* Main Background Video or Fallback Image */}
           {idx === current ? (
-            <video
-              src={slide.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-40"
-              poster={slide.image}
-            />
+            <>
+              <video
+                src={slide.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-30"
+                poster={slide.image}
+              />
+              {/* Hero image overlay on top of video for branding */}
+              <picture className="absolute inset-0 w-full h-full">
+                {slide.imageMobile && (
+                  <source media="(max-width: 767px)" srcSet={slide.imageMobile} />
+                )}
+                <img
+                  src={slide.image}
+                  alt={slide.titleLine2}
+                  className="w-full h-full object-cover object-center opacity-55"
+                />
+              </picture>
+            </>
           ) : (
-            <img
-              src={slide.image}
-              alt={slide.titleLine2}
-              className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
-            />
+            <picture className="absolute inset-0 w-full h-full">
+              {slide.imageMobile && (
+                <source media="(max-width: 767px)" srcSet={slide.imageMobile} />
+              )}
+              <img
+                src={slide.image}
+                alt={slide.titleLine2}
+                className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+              />
+            </picture>
           )}
 
           {/* Premium overlay: Dark gradient on the left side to ensure high readability */}

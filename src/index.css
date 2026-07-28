@@ -20,6 +20,8 @@
   --color-branco-nevoa: #F2F8FF;
   --color-azul-vetor: #29569B;
   --color-azul-abissal: #061F6B;
+  --font-clash: 'Clash Display', 'Inter', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 }
 
 
@@ -113,10 +115,10 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 65s linear infinite;
+  animation: marquee 25s linear infinite;
 }
 
-.animate-marquee:hover {
+.marquee-wrapper:hover .animate-marquee {
   animation-play-state: paused;
 }
 
