@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Quote, ChevronLeft, ChevronRight, MessageSquareQuote } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Testimonial {
   id: number;
@@ -67,17 +67,12 @@ export default function TestimonialsTabs() {
       <div className="max-w-[1431px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0941DC]/15 border border-[#0941DC]/30 mb-6 backdrop-blur-md">
-            <MessageSquareQuote className="w-4 h-4 text-[#0941DC]" />
-            <span className="text-xs font-bold tracking-widest text-white uppercase font-['Inter',sans-serif]">DEPOIMENTOS DE CLIENTES</span>
-          </div>
-
-          <h2 className="font-['Clash_Display','Inter',sans-serif] font-bold text-4xl sm:text-6xl lg:text-[72px] leading-[100%] text-white tracking-tight mb-6">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-16">
+          <h2 className="font-['Clash_Display','Inter',sans-serif] font-bold text-4xl sm:text-6xl lg:text-[72px] leading-[100%] text-white tracking-tight mb-4 sm:mb-6">
             Feedbacks
           </h2>
 
-          <p className="font-['Inter',sans-serif] font-normal text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="font-['Inter',sans-serif] font-normal text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Veja como ajudamos grandes marcas a multiplicar receitas e escalar operações com estratégias de growth de alta performance.
           </p>
         </div>
@@ -115,8 +110,8 @@ export default function TestimonialsTabs() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch flex-grow w-full">
             
             {/* Left Side: Photo + Author Info Box */}
-            <div className="md:col-span-4 flex flex-col gap-4 items-center md:items-stretch w-full">
-              <div className="relative w-full aspect-square rounded-[7px] overflow-hidden border border-white/10 shadow-xl bg-[#080816]">
+            <div className="md:col-span-4 flex flex-col gap-3 md:gap-4 items-center md:items-stretch w-full">
+              <div className="relative w-full h-[220px] sm:h-[280px] md:h-auto md:aspect-square rounded-[7px] overflow-hidden border border-white/10 shadow-xl bg-[#080816]">
                 <img 
                   key={active.id}
                   src={active.avatarUrl} 
@@ -124,32 +119,32 @@ export default function TestimonialsTabs() {
                   className="w-full h-full object-cover object-center transition-all duration-500 hover:scale-105" 
                 />
               </div>
-              <div className="bg-[#080816] p-5 rounded-[7px] border border-white/10 text-left w-full">
-                <h4 className="font-['Inter',sans-serif] font-bold text-white text-base leading-tight">
+              <div className="bg-[#080816] p-4 sm:p-5 rounded-[7px] border border-white/10 text-left w-full">
+                <h4 className="font-['Inter',sans-serif] font-bold text-white text-sm sm:text-base leading-tight">
                   {active.authorName}
                 </h4>
-                <p className="font-['Inter',sans-serif] font-normal text-xs text-slate-400 mt-1">
+                <p className="font-['Inter',sans-serif] font-normal text-xs text-slate-400 mt-0.5 sm:mt-1">
                   {active.authorRole}
                 </p>
               </div>
             </div>
 
             {/* Right Side: Highlight Metric Box + Quote (Group 40 / Card Style) */}
-            <div className="md:col-span-8 bg-[#080816] p-8 md:p-10 rounded-[7px] border border-white/10 text-left flex flex-col justify-between relative shadow-xl shadow-[#0941DC]/5">
-              <Quote className="absolute right-8 top-8 w-24 h-24 text-[#0941DC]/10 pointer-events-none" />
+            <div className="md:col-span-8 bg-[#080816] p-5 sm:p-8 md:p-10 rounded-[7px] border border-white/10 text-left flex flex-col justify-between relative shadow-xl shadow-[#0941DC]/5">
+              <Quote className="absolute right-4 top-4 sm:right-8 sm:top-8 w-12 h-12 sm:w-24 sm:h-24 text-[#0941DC]/10 pointer-events-none" />
               
               {/* Highlight Metric */}
-              <div className="flex items-center gap-6 mb-8 pb-6 border-b border-white/10">
-                <div className="font-['Clash_Display','Inter',sans-serif] font-bold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-none">
+              <div className="flex items-center gap-4 sm:gap-6 mb-4 sm:mb-8 pb-4 sm:pb-6 border-b border-white/10">
+                <div className="font-['Clash_Display','Inter',sans-serif] font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-none">
                   {active.resultMetric}
                 </div>
-                <div className="font-['Inter',sans-serif] font-semibold text-sm sm:text-base text-slate-300 tracking-wide max-w-[220px] leading-tight">
+                <div className="font-['Inter',sans-serif] font-semibold text-xs sm:text-base text-slate-300 tracking-wide max-w-[220px] leading-tight">
                   {active.resultLabel}
                 </div>
               </div>
 
               {/* Quote Text */}
-              <blockquote className="font-['Inter',sans-serif] font-normal text-base sm:text-lg text-slate-200 leading-relaxed italic relative z-10">
+              <blockquote className="font-['Inter',sans-serif] font-normal text-xs sm:text-lg text-slate-200 leading-relaxed italic relative z-10">
                 "{active.quote}"
               </blockquote>
             </div>

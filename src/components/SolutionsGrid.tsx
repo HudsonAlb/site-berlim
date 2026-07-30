@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import { ArrowUpRight, MessageSquare } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
+
+import trafegoImg from '../assets/nossosservicos/Tráfego pago de Alta Escala.png';
+import designImg from '../assets/nossosservicos/Design de Conversão & UX_UI.png';
+import biImg from '../assets/nossosservicos/Business Intelligence & CRO.png';
+import crmImg from '../assets/nossosservicos/CRM, LTV & Automação de E-mail.png';
 
 interface Solution {
   id: number;
   title: string;
   description: string;
   imageUrl: string;
-  lpUrl: string;
   accent: string;
 }
 
@@ -15,32 +19,28 @@ const solutionsList: Solution[] = [
     id: 1,
     title: 'Tráfego pago de Alta Escala',
     description: 'Criamos e escalamos campanhas nas redes mais eficientes do mercado: Meta Ads, Google Ads, TikTok e LinkedIn Ads, focados em conversão direta.',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
-    lpUrl: '#traffic-lp',
+    imageUrl: trafegoImg,
     accent: '#0941DC'
   },
   {
     id: 2,
     title: 'Design de Conversão & UX/UI',
     description: 'Páginas e criativos desenhados cientificamente para capturar atenção e converter cliques em vendas. Foco em interfaces limpas e responsivas.',
-    imageUrl: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=1000',
-    lpUrl: '#design-lp',
+    imageUrl: designImg,
     accent: '#0941DC'
   },
   {
     id: 3,
     title: 'Business Intelligence & CRO',
     description: 'Monitoramento detalhado de cada etapa do funil e testes A/B estruturados para aumentar a taxa de conversão sem gastar mais com mídia.',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
-    lpUrl: '#cro-lp',
+    imageUrl: biImg,
     accent: '#0941DC'
   },
   {
     id: 4,
     title: 'CRM, LTV & Automação de E-mail',
     description: 'Aumente o tempo de vida do seu cliente (LTV) com réguas de relacionamento otimizadas e campanhas personalizadas de e-mail e WhatsApp.',
-    imageUrl: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=1000',
-    lpUrl: '#crm-lp',
+    imageUrl: crmImg,
     accent: '#0941DC'
   }
 ];
@@ -85,17 +85,9 @@ export default function SolutionsGrid() {
                   
                   {/* Expanded description if active */}
                   <div className={`overflow-hidden transition-all duration-300 ${isActive ? 'max-h-40 mt-3 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <p className="text-sm text-slate-600 font-light leading-relaxed mb-4">
+                    <p className="text-sm text-slate-600 font-light leading-relaxed">
                       {sol.description}
                     </p>
-                    <a 
-                      href={sol.lpUrl}
-                      className="inline-flex items-center gap-1 text-xs text-[#0941DC] hover:underline font-bold"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Saiba Mais
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
                   </div>
                 </div>
               );

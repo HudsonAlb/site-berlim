@@ -14,6 +14,7 @@ import rio2016Logo from '../assets/rioa 2016.svg';
 import serEducacionalLogo from '../assets/ser educacional.svg';
 import govPeLogo from '../assets/Gov pe p.png';
 import prefRecifeLogo from '../assets/prefeitura do recife p.png';
+import coquetelLogo from '../assets/logoscarrousel/coquetel.svg';
 
 interface Partner {
   name: string;
@@ -23,6 +24,12 @@ interface Partner {
 const imgClass = "max-h-9 sm:max-h-11 max-w-[130px] sm:max-w-[160px] w-auto h-auto object-contain opacity-75 group-hover:opacity-100 transition-all duration-300 filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105";
 
 const partners: Partner[] = [
+  {
+    name: 'Coquetel Molotov',
+    renderLogo: () => (
+      <img src={coquetelLogo} alt="Coquetel Molotov" className={imgClass} />
+    )
+  },
   {
     name: 'TOTVS',
     renderLogo: () => (

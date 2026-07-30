@@ -122,39 +122,52 @@ export default function SuccessCases() {
         </div>
 
         {/* 2-Column Content Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-stretch max-w-5xl mx-auto">
           
-          {/* Left Column: Metrics & Content Details Card */}
-          <div className="lg:col-span-7 bg-[#f8fafc] p-6 md:p-8 rounded-none border border-slate-100 shadow-sm text-left flex flex-col justify-between">
+          {/* Representative Image (Appears first on mobile with order-1) */}
+          <div className="order-1 lg:order-2 lg:col-span-5 w-full h-[180px] sm:h-[260px] lg:h-full lg:min-h-full">
+            <div className="relative w-full h-full rounded-none overflow-hidden shadow-sm border border-slate-100">
+              <img 
+                key={active.id}
+                src={active.imageUrl} 
+                alt={active.companyName} 
+                className="w-full h-full object-cover object-center transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Metrics & Content Details Card (Appears second on mobile with order-2) */}
+          <div className="order-2 lg:order-1 lg:col-span-7 bg-[#f8fafc] p-4 sm:p-6 md:p-8 rounded-none border border-slate-100 shadow-sm text-left flex flex-col justify-between">
             <div>
               {/* Highlight Metric */}
-              <div className="mb-4 flex items-baseline gap-2">
-                <span className="text-4xl font-extrabold text-slate-900 tracking-tight">
+              <div className="mb-2 sm:mb-4 flex items-baseline gap-2">
+                <span className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
                   {active.metric}
                 </span>
-                <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide">
+                <span className="text-[11px] sm:text-sm font-semibold text-slate-500 uppercase tracking-wide">
                   {active.metricLabel}
                 </span>
               </div>
 
               {/* Tag & Info */}
-              <span className="text-[10px] font-bold text-[#0941DC] tracking-widest uppercase block mb-2">
+              <span className="text-[9px] sm:text-[10px] font-bold text-[#0941DC] tracking-widest uppercase block mb-1 sm:mb-2">
                 {active.tag}
               </span>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-base sm:text-xl font-bold text-slate-900 mb-1.5 sm:mb-3">
                 {active.title}
               </h3>
-              <p className="text-sm text-slate-600 font-light leading-relaxed mb-4">
+              <p className="text-[11px] sm:text-sm text-slate-600 font-light leading-relaxed mb-2.5 sm:mb-4">
                 {active.context}
               </p>
 
               {/* Additional Metrics Grid */}
               {active.additionalMetrics && (
-                <div className="grid grid-cols-2 gap-4 mb-4 border-y border-slate-200/50 py-3">
+                <div className="grid grid-cols-2 gap-3 mb-2.5 sm:mb-4 border-y border-slate-200/50 py-2 sm:py-3">
                   {active.additionalMetrics.map((m, idx) => (
                     <div key={idx}>
-                      <div className="text-2xl font-bold text-slate-900">{m.value}</div>
-                      <div className="text-xs text-slate-500 uppercase tracking-wide">{m.label}</div>
+                      <div className="text-lg sm:text-2xl font-bold text-slate-900">{m.value}</div>
+                      <div className="text-[9px] sm:text-xs text-slate-500 uppercase tracking-wide">{m.label}</div>
                     </div>
                   ))}
                 </div>
@@ -162,9 +175,9 @@ export default function SuccessCases() {
 
               {/* Bullet Points */}
               {active.bulletPoints && (
-                <ul className="space-y-1.5 mb-4">
+                <ul className="space-y-1 mb-2.5 sm:mb-4">
                   {active.bulletPoints.map((pt, idx) => (
-                    <li key={idx} className="text-xs text-slate-600 leading-relaxed flex items-start gap-2">
+                    <li key={idx} className="text-[11px] sm:text-xs text-slate-600 leading-relaxed flex items-start gap-1.5 sm:gap-2">
                       <span className="text-[#0941DC] mt-0.5 shrink-0 font-bold">•</span>
                       <span>{pt}</span>
                     </li>
@@ -174,27 +187,14 @@ export default function SuccessCases() {
             </div>
 
             {/* Study Link */}
-            <div className="pt-4 border-t border-slate-200">
+            <div className="pt-2.5 sm:pt-4 border-t border-slate-200">
               <a 
                 href={active.studyLink} 
-                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0941DC] hover:text-[#061F6B] transition-colors group/link"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0941DC] hover:text-[#061F6B] transition-colors group/link"
               >
                 Falar com especialista
-                <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover/link:translate-x-1" />
               </a>
-            </div>
-          </div>
-
-          {/* Right Column: Representative Image */}
-          <div className="lg:col-span-5 w-full min-h-[250px] lg:min-h-full">
-            <div className="relative w-full h-full min-h-[250px] rounded-none overflow-hidden shadow-sm border border-slate-100">
-              <img 
-                key={active.id}
-                src={active.imageUrl} 
-                alt={active.companyName} 
-                className="w-full h-full object-cover object-center transition-all duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
           </div>
 

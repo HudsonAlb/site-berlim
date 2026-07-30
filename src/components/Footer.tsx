@@ -23,14 +23,11 @@ export default function Footer() {
               A Berlim Co. é uma empresa de growth marketing focada na geração contínua de ROI. Combinamos tecnologia proprietária, ciência de dados e engenharia criativa para marcas inovadoras.
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="p-2.5 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC] text-slate-300 hover:text-white transition-all shadow-sm backdrop-blur-md" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/berlimco/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC] text-slate-300 hover:text-white transition-all shadow-sm backdrop-blur-md" aria-label="LinkedIn">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </a>
-              <a href="#" className="p-2.5 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC] text-slate-300 hover:text-white transition-all shadow-sm backdrop-blur-md" aria-label="Instagram">
+              <a href="https://www.instagram.com/berlim.company/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC] text-slate-300 hover:text-white transition-all shadow-sm backdrop-blur-md" aria-label="Instagram">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </a>
-              <a href="#" className="p-2.5 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC] text-slate-300 hover:text-white transition-all shadow-sm backdrop-blur-md" aria-label="Facebook">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
               </a>
               <a href="#" className="p-2.5 rounded-[7px] bg-[rgba(0,0,0,0.25)] border border-white/10 hover:border-[#0941DC] text-slate-300 hover:text-white transition-all shadow-sm backdrop-blur-md" aria-label="YouTube">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
@@ -107,7 +104,7 @@ export default function Footer() {
           {/* Partner Seals Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4">
 
-            {/* RD Station Partner */}
+            {/* CRM Partner */}
             <div className="flex items-center gap-3 px-4 py-3 rounded-[7px] border border-white/10 bg-[#080816] hover:border-[#0941DC]/50 transition-all select-none shadow-md">
               <div className="w-6 h-6 flex items-center justify-center shrink-0">
                 <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
@@ -121,7 +118,7 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="text-left">
-                <div className="text-[10px] font-bold text-amber-500 tracking-wider font-['Inter',sans-serif]">RD STATION</div>
+                <div className="text-[10px] font-bold text-amber-500 tracking-wider font-['Inter',sans-serif]">CRM</div>
                 <div className="text-xs font-bold text-white font-['Inter',sans-serif]">Silver Partner</div>
               </div>
             </div>
@@ -161,7 +158,7 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-['Inter',sans-serif] gap-4">
           <div className="text-left">
-            © {new Date().getFullYear()} Berlim Company. Todos os direitos reservados.
+            © {new Date().getFullYear()} Berlim Co. Todos os direitos reservados.
           </div>
           <div className="flex space-x-6">
             <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>

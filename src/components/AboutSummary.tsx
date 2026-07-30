@@ -1,5 +1,7 @@
 
 
+import nossaMissaoImg from '../assets/nossosservicos/Nossa missão.png';
+
 export default function AboutSummary() {
   return (
     <section id="about" className="py-24 bg-white relative overflow-hidden">
@@ -12,8 +14,8 @@ export default function AboutSummary() {
           {/* Institutional Photo (Left Column) */}
           <div className="lg:col-span-5 w-full">
             <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
-              alt="Berlim Co. Institutional Office" 
+              src={nossaMissaoImg} 
+              alt="Nossa Missão - Berlim Co." 
               className="w-full h-[350px] md:h-[450px] object-cover rounded-none shadow-md border border-slate-100 hover:scale-[1.01] transition-transform duration-500"
             />
           </div>
@@ -21,18 +23,24 @@ export default function AboutSummary() {
           {/* Text Summary Card (Right Column) */}
           <div className="lg:col-span-7 text-left">
             <div className="bg-[#f8fafc] p-8 md:p-12 rounded-none border border-slate-100 shadow-sm">
-              <span className="text-xs font-bold tracking-widest text-[#0052ff] uppercase block mb-4">
+              <span className="text-xs font-bold tracking-widest text-[#0941DC] uppercase block mb-4">
                 Nossa missão
               </span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-                Ajudamos as maiores empresas do mercado a <span className="text-[#0052ff]">escalar receita</span> com previsibilidade.
+                Ajudamos empresas a <span className="text-[#0941DC]">escalarem receita</span> e desenvolverem soluções
               </h2>
-              <p className="text-slate-600 text-base font-light leading-relaxed mb-6">
-                Na Berlim Co., combinamos engenharia de dados avançada, marketing e design de alta conversão para construir funis de vendas de alta performance.
+              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-4">
+                Construímos uma trajetória de sucesso e protagonismo, atuando como ecossistema de MKT e tecnologia em prol de ampliar resultados. Ao longo dessa jornada, acumulamos diversos cases de sucesso e profissionais com mais de 40 prêmios.
               </p>
-              <p className="text-slate-600 text-base font-light leading-relaxed">
-                Estruturamos sistemas de crescimento onde cada investimento é mensurado, otimizado e convertido em receita previsível e sustentável.
+              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-4">
+                Acreditamos que tecnologia e marketing não é só sobre estar presente, é sobre ser relevante e eficiente. E para isso, combinamos agilidade, inteligência e criatividade com uma estrutura de entregas que acompanha cada fase do seu negócio.
               </p>
+              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-6">
+                Especialistas em marketing e tecnologia, sem fórmulas engessadas, sem enrolação.
+              </p>
+              <div className="font-['Clash_Display','Inter',sans-serif] text-lg font-bold text-[#0941DC]">
+                Let's Grow Together!
+              </div>
             </div>
           </div>
 

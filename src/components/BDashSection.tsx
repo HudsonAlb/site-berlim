@@ -46,97 +46,114 @@ export default function BDashSection() {
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#0941DC]/10 rounded-full blur-[140px] pointer-events-none z-0" />
       <div className="absolute bottom-10 right-0 w-[600px] h-[600px] bg-[#061F6B]/20 rounded-full blur-[150px] pointer-events-none z-0" />
 
-      {/* LAYER 2: Bdash 9 Background Image */}
+      {/* LAYER 2: Bdash 9 Dashboard Image */}
       <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
         <img
           src={bdash9}
           alt="B-DASH Dashboard"
-          className="w-full h-full object-cover object-center opacity-75 lg:opacity-85"
+          className="w-full h-full object-cover lg:object-cover object-center opacity-40 sm:opacity-60 lg:opacity-85"
         />
-        {/* Gradient overlays — only on edges to keep text legible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030311]/80 via-transparent to-[#030311]/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030311]/70 via-transparent to-[#030311]/30" />
+        {/* Gradient overlays — smooth dark gradients for contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#030311] via-transparent to-[#030311] lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030311]/80 via-transparent to-[#030311]/50 hidden lg:block" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030311]/70 via-transparent to-[#030311]/30 hidden lg:block" />
       </div>
 
       {/* LAYER 3: Interactive Foreground Content Overlay */}
       <div className="max-w-[1431px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col justify-between h-full">
         
         {/* Header Title (Conheça a B-Dash) */}
-        <div className="text-center max-w-4xl mx-auto pt-4 mb-12 lg:mb-16">
-          <h2 className="font-['Clash_Display','Inter',sans-serif] font-bold text-4xl sm:text-6xl lg:text-[72px] leading-[100%] text-white tracking-tight">
+        <div className="text-center max-w-4xl mx-auto pt-4 mb-6 lg:mb-16">
+          <h2 className="font-['Clash_Display','Inter',sans-serif] font-bold text-3xl sm:text-5xl lg:text-[72px] leading-[100%] text-white tracking-tight">
             Conheça a B-Dash
           </h2>
+          <p className="lg:hidden text-xs text-slate-300 mt-2 font-['Inter',sans-serif]">
+            Nossa plataforma proprietária de inteligência e dados de performance
+          </p>
         </div>
 
-        {/* Middle Canvas: Positioned Pill Badges Floating over the Background App Layer */}
-        <div className="relative min-h-[380px] sm:min-h-[420px] lg:min-h-[480px] w-full flex flex-col justify-between py-6">
+        {/* Dashboard Mockup Display Card for Mobile */}
+        <div className="lg:hidden w-full mb-6 rounded-xl overflow-hidden border border-white/15 shadow-2xl bg-[#080816]/80 relative group">
+          <img
+            src={bdash9}
+            alt="B-DASH Mobile Demonstration"
+            className="w-full h-auto max-h-[220px] object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080816] via-transparent to-transparent opacity-80" />
+          <span className="absolute bottom-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-[#0941DC] text-white px-2.5 py-1 rounded-[4px] shadow-sm">
+            Dashboard em Tempo Real
+          </span>
+        </div>
+
+        {/* Floating Interactive Feature Cards / Tabs */}
+        <div className="relative flex flex-col lg:justify-between lg:min-h-[440px] w-full gap-3 sm:gap-4 lg:gap-0 py-2 lg:py-6">
           
-          {/* Top Left Pill: Atribuição GA4 & CRM */}
-          <div className="flex flex-col items-start lg:ml-8 max-w-xs sm:max-w-sm mb-6 lg:mb-0">
+          {/* Item 1: Atribuição GA4 & CRM */}
+          <div className="w-full lg:max-w-sm lg:ml-8">
             <div
               onClick={() => setActiveTab('ga4')}
-              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-4 border text-left ${
+              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-3.5 sm:p-4 border text-left ${
                 activeTab === 'ga4'
-                  ? 'bg-black/70 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
-                  : 'bg-[rgba(0,0,0,0.40)] hover:bg-black/60 border-white/15 hover:border-white/30'
+                  ? 'bg-[#080816]/90 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
+                  : 'bg-[rgba(0,0,0,0.55)] hover:bg-black/80 border-white/15'
               }`}
             >
               <div className="flex items-center gap-3">
-                <Layers className={`w-5 h-5 ${activeTab === 'ga4' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
-                <h4 className="font-['Inter',sans-serif] font-semibold text-lg sm:text-[22px] lg:text-[24px] leading-[100%] text-white whitespace-nowrap">
+                <Layers className={`w-5 h-5 shrink-0 ${activeTab === 'ga4' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
+                <h4 className="font-['Inter',sans-serif] font-semibold text-base sm:text-lg lg:text-[22px] leading-snug text-white">
                   Atribuição GA4 & CRM
                 </h4>
               </div>
               {activeTab === 'ga4' && (
-                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-3 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
-                  Mapeie a jornada completa do lead, do primeiro clique ao fechamento de vendas na RD Station.
+                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-2.5 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
+                  Mapeie a jornada completa do lead, do primeiro clique ao fechamento de vendas no CRM.
                 </p>
               )}
             </div>
           </div>
 
-          {/* Middle Left Pill: Tráfego Pago & Ads Multi-canal */}
-          <div className="flex flex-col items-start lg:ml-8 max-w-xs sm:max-w-md my-6 lg:my-0">
+          {/* Item 2: Tráfego Pago & Ads Multi-canal */}
+          <div className="w-full lg:max-w-md lg:ml-8">
             <div
               onClick={() => setActiveTab('trafego')}
-              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-4 border text-left drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${
+              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-3.5 sm:p-4 border text-left ${
                 activeTab === 'trafego'
-                  ? 'bg-black/70 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
-                  : 'bg-[rgba(0,0,0,0.40)] hover:bg-black/60 border-white/15 hover:border-white/30'
+                  ? 'bg-[#080816]/90 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
+                  : 'bg-[rgba(0,0,0,0.55)] hover:bg-black/80 border-white/15'
               }`}
             >
               <div className="flex items-center gap-3">
-                <BarChart3 className={`w-5 h-5 ${activeTab === 'trafego' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
-                <h4 className="font-['Inter',sans-serif] font-semibold text-lg sm:text-[22px] lg:text-[24px] leading-[100%] text-white whitespace-nowrap">
+                <BarChart3 className={`w-5 h-5 shrink-0 ${activeTab === 'trafego' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
+                <h4 className="font-['Inter',sans-serif] font-semibold text-base sm:text-lg lg:text-[22px] leading-snug text-white">
                   Tráfego Pago & Ads Multi-canal
                 </h4>
               </div>
               {activeTab === 'trafego' && (
-                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-3 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
+                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-2.5 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
                   Compare investimentos e CAC consolidado em Meta, Google, LinkedIn e TikTok num só painel.
                 </p>
               )}
             </div>
           </div>
 
-          {/* Middle Right Pill: Roi Consolidade & LVR */}
-          <div className="flex flex-col items-end lg:mr-8 max-w-xs sm:max-w-sm self-end my-4 lg:my-0">
+          {/* Item 3: ROI Consolidado & LVR */}
+          <div className="w-full lg:max-w-sm lg:mr-8 lg:self-end">
             <div
               onClick={() => setActiveTab('roi')}
-              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-4 border text-left ${
+              className={`group transition-all duration-300 cursor-pointer backdrop-blur-md rounded-[7px] p-3.5 sm:p-4 border text-left ${
                 activeTab === 'roi'
-                  ? 'bg-black/70 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
-                  : 'bg-[rgba(0,0,0,0.40)] hover:bg-black/60 border-white/15 hover:border-white/30'
+                  ? 'bg-[#080816]/90 border-[#0941DC] shadow-[0_4px_25px_rgba(9,65,220,0.4)] ring-1 ring-[#0941DC]'
+                  : 'bg-[rgba(0,0,0,0.55)] hover:bg-black/80 border-white/15'
               }`}
             >
               <div className="flex items-center gap-3">
-                <TrendingUp className={`w-5 h-5 ${activeTab === 'roi' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
-                <h4 className="font-['Inter',sans-serif] font-semibold text-lg sm:text-[22px] lg:text-[24px] leading-[100%] text-white whitespace-nowrap">
-                  Roi Consolidade & LVR
+                <TrendingUp className={`w-5 h-5 shrink-0 ${activeTab === 'roi' ? 'text-[#0941DC]' : 'text-slate-300'}`} />
+                <h4 className="font-['Inter',sans-serif] font-semibold text-base sm:text-lg lg:text-[22px] leading-snug text-white">
+                  ROI Consolidado & LVR
                 </h4>
               </div>
               {activeTab === 'roi' && (
-                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-3 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
+                <p className="font-['Inter',sans-serif] text-xs sm:text-sm text-slate-300 mt-2.5 pt-2 border-t border-white/10 leading-relaxed animate-fade-in">
                   Acompanhe a velocidade de crescimento de leads (LVR) e rentabilidade consolidada em tempo real.
                 </p>
               )}
@@ -144,10 +161,10 @@ export default function BDashSection() {
           </div>
 
           {/* Request Access CTA Floating Button */}
-          <div className="self-center mt-6">
+          <div className="self-center w-full sm:w-auto mt-4 lg:mt-6">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="py-3 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-['Inter',sans-serif] font-bold uppercase tracking-wider text-xs transition-all duration-300 rounded-[7px] shadow-lg shadow-[#0941DC]/30 flex items-center gap-2 group cursor-pointer border border-[#0941DC]"
+              className="w-full sm:w-auto justify-center py-3.5 px-6 bg-[#0941DC] hover:bg-[#061F6B] text-white font-['Inter',sans-serif] font-bold uppercase tracking-wider text-xs transition-all duration-300 rounded-[7px] shadow-lg shadow-[#0941DC]/30 flex items-center gap-2 group cursor-pointer border border-[#0941DC]"
             >
               <Sparkles className="w-4 h-4" />
               Solicitar Acesso ao B-DASH
@@ -160,11 +177,11 @@ export default function BDashSection() {
         {/* Bottom Cards Row (Exact Reference Order: Integração RD Station -> Atualização Automática -> Acesso Mobile Responsivo) */}
         <div className="max-w-[1358px] mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 pt-8 pb-4">
           
-          {/* Card 1: Integração RD Station */}
+          {/* Card 1: Integração CRM */}
           <div className="bg-[#080816]/90 backdrop-blur-md p-6 lg:p-7 rounded-[7px] border border-white/10 hover:border-[#0941DC]/50 transition-all duration-300 text-left flex flex-col justify-between min-h-[131px] group shadow-xl">
             <div>
               <h4 className="font-['Inter',sans-serif] font-semibold text-[20px] leading-[100%] text-white mb-3">
-                Integração RD Station
+                Integração CRM
               </h4>
               <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[120%] text-slate-200">
                 Plugue seu CRM e mapeie o desempenho do seu comercial de forma automática, segmentando vendedores e conversões.
