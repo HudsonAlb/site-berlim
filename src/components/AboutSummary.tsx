@@ -27,15 +27,15 @@ export default function AboutSummary() {
                 Nossa missão
               </span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-                Ajudamos empresas a <span className="text-[#0941DC]">escalarem receita</span> e desenvolverem soluções
+                Ajudamos empresas a <span className="text-[#0941DC]">escalar sua receita</span> e desenvolver soluções
               </h2>
-              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-4">
+              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-4 text-justify">
                 Construímos uma trajetória de sucesso e protagonismo, atuando como ecossistema de MKT e tecnologia em prol de ampliar resultados. Ao longo dessa jornada, acumulamos diversos cases de sucesso e profissionais com mais de 40 prêmios.
               </p>
-              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-4">
+              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-4 text-justify">
                 Acreditamos que tecnologia e marketing não é só sobre estar presente, é sobre ser relevante e eficiente. E para isso, combinamos agilidade, inteligência e criatividade com uma estrutura de entregas que acompanha cada fase do seu negócio.
               </p>
-              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-6">
+              <p className="text-slate-600 text-sm md:text-base font-light leading-relaxed mb-6 text-justify">
                 Especialistas em marketing e tecnologia, sem fórmulas engessadas, sem enrolação.
               </p>
               <div className="font-['Clash_Display','Inter',sans-serif] text-lg font-bold text-[#0941DC]">

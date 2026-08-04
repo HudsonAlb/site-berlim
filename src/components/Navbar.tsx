@@ -4,9 +4,10 @@ import BrandLogo from './BrandLogo';
 
 interface NavbarProps {
   onNavigateHome?: () => void;
+  onOpenBlog?: () => void;
 }
 
-export default function Navbar({ onNavigateHome }: NavbarProps) {
+export default function Navbar({ onNavigateHome, onOpenBlog }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -16,47 +17,61 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
       const isTop = window.scrollY <= 20;
       setScrolled(!isTop);
 
-      // Section IDs with dark background (#030311)
-      const darkSectionIds = ['bdash', 'testimonials', 'news', 'footer-section'];
-      const navbarCheckPoint = window.innerWidth >= 768 ? 100 : 70;
+      if (isTop) {
+        setIsDarkTheme(true);
+        return;
+      }
 
-      let overDarkSection = false;
+      // Order of sections from top of document to bottom
+      const sections = [
+        { id: 'hero', dark: true },
+        { id: 'about', dark: false },
+        { id: 'solutions', dark: false },
+        { id: 'bdash', dark: true },
+        { id: 'cases', dark: false },
+        { id: 'news', dark: true },
+        { id: 'contact', dark: false },
+        { id: 'testimonials', dark: true },
+        { id: 'footer-section', dark: true },
+      ];
 
-      // Check if Y checkpoint (middle of navbar) overlaps any dark section rect
-      for (const id of darkSectionIds) {
-        const el = document.getElementById(id);
+      const currentY = window.scrollY + 110;
+      let currentDark = true;
+
+      // Iterate in reverse (from bottom to top section) to find the active section
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sec = sections[i];
+        const el = document.getElementById(sec.id);
         if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= navbarCheckPoint && rect.bottom >= navbarCheckPoint) {
-            overDarkSection = true;
+          const top = el.offsetTop;
+          if (currentY >= top) {
+            currentDark = sec.dark;
             break;
           }
         }
       }
 
-      // Also trigger when reaching bottom of page
-      const reachedBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 30);
-      if (reachedBottom) {
-        overDarkSection = true;
-      }
-
-      setIsDarkTheme(isTop || overDarkSection);
+      setIsDarkTheme(currentDark);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (hash: string) => {
+  const handleNavClick = (e: React.MouseEvent | undefined, hash: string) => {
+    if (e) e.preventDefault();
     const scrollToTarget = () => {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      } else if (hash === '#') {
+      const targetId = hash.replace('#', '');
+      if (targetId === '' || hash === '#') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
-      // Poll scroll position for 1.5s after navigation to ensure navbar theme updates
+
       let polls = 0;
       const interval = setInterval(() => {
         window.dispatchEvent(new Event('scroll'));
@@ -80,14 +95,14 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
       isLight 
         ? 'bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-md' 
         : scrolled
-          ? 'bg-[#030311]/95 backdrop-blur-md border-b border-white/5 shadow-lg'
+          ? 'bg-[#030311]/95 backdrop-blur-md border-b border-[#0941DC]/40 shadow-[0_4px_30px_rgba(9,65,220,0.2)]'
           : 'bg-transparent'
     }`}>
       {/* Brand logo container (left) */}
       <div className="flex items-center md:w-1/4">
         <a 
           href="#" 
-          onClick={() => handleNavClick('#')}
+          onClick={(e) => handleNavClick(e, '#')}
           className="flex items-center group select-none cursor-pointer"
         >
           <BrandLogo height={42} invert={isLight} className="md:scale-110 origin-left" />
@@ -99,12 +114,12 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
         <div className={`flex items-center space-x-7 px-8 py-2.5 rounded-none border backdrop-blur-md transition-all duration-300 ${
           isLight 
             ? 'bg-slate-100/90 border-slate-200/80 shadow-sm' 
-            : 'bg-white/10 border-white/10'
+            : 'bg-[#0941DC]/15 border-[#0941DC]/40 shadow-[0_0_20px_rgba(9,65,220,0.25)]'
         }`}>
           {/* Início */}
           <a 
             href="#" 
-            onClick={() => handleNavClick('#')}
+            onClick={(e) => handleNavClick(e, '#')}
             className={`text-sm font-semibold tracking-wide transition-colors ${
               isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
             }`}
@@ -115,7 +130,7 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
           {/* Mission */}
           <a 
             href="#about" 
-            onClick={() => handleNavClick('#about')}
+            onClick={(e) => handleNavClick(e, '#about')}
             className={`text-sm font-semibold tracking-wide transition-colors ${
               isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
             }`}
@@ -126,7 +141,7 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
           {/* Serviços */}
           <a 
             href="#solutions" 
-            onClick={() => handleNavClick('#solutions')}
+            onClick={(e) => handleNavClick(e, '#solutions')}
             className={`text-sm font-semibold tracking-wide transition-colors ${
               isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
             }`}
@@ -137,7 +152,7 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
           {/* B-Dash */}
           <a 
             href="#bdash" 
-            onClick={() => handleNavClick('#bdash')}
+            onClick={(e) => handleNavClick(e, '#bdash')}
             className={`text-sm font-semibold tracking-wide transition-colors ${
               isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
             }`}
@@ -148,7 +163,7 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
           {/* Cases */}
           <a 
             href="#cases" 
-            onClick={() => handleNavClick('#cases')}
+            onClick={(e) => handleNavClick(e, '#cases')}
             className={`text-sm font-semibold tracking-wide transition-colors ${
               isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
             }`}
@@ -156,16 +171,40 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
             Cases
           </a>
 
-          {/* News & Ideas */}
+          {/* News */}
           <a 
             href="#news" 
-            onClick={() => handleNavClick('#news')}
+            onClick={(e) => handleNavClick(e, '#news')}
             className={`text-sm font-semibold tracking-wide transition-colors ${
               isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
             }`}
           >
-            News & Ideas
+            News
           </a>
+
+          {/* Feedbacks */}
+          <a 
+            href="#testimonials" 
+            onClick={(e) => handleNavClick(e, '#testimonials')}
+            className={`text-sm font-semibold tracking-wide transition-colors ${
+              isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
+            }`}
+          >
+            Feedbacks
+          </a>
+
+          {/* Blog */}
+          <button 
+            onClick={(e) => {
+              if (onOpenBlog) onOpenBlog();
+              else handleNavClick(e, '#news');
+            }}
+            className={`text-sm font-semibold tracking-wide transition-colors cursor-pointer bg-transparent border-0 p-0 ${
+              isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
+            }`}
+          >
+            Blog
+          </button>
         </div>
       </div>
 
@@ -173,7 +212,7 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
       <div className="hidden lg:flex items-center justify-end lg:w-1/4">
         <a 
           href="#contact" 
-          onClick={() => handleNavClick('#contact')}
+          onClick={(e) => handleNavClick(e, '#contact')}
           className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-none transition-all duration-300 border ${
             isLight 
               ? 'border-slate-200 hover:border-slate-400 text-slate-800 bg-transparent hover:bg-slate-50' 
@@ -200,13 +239,15 @@ export default function Navbar({ onNavigateHome }: NavbarProps) {
         isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'
       }`}>
         <div className="px-6 py-6 space-y-4 flex flex-col bg-[#080816] shadow-lg text-left">
-          <a href="#" onClick={() => { setIsOpen(false); handleNavClick('#'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Início</a>
-          <a href="#about" onClick={() => { setIsOpen(false); handleNavClick('#about'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Nossa missão</a>
-          <a href="#solutions" onClick={() => { setIsOpen(false); handleNavClick('#solutions'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Serviços</a>
-          <a href="#bdash" onClick={() => { setIsOpen(false); handleNavClick('#bdash'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Dashboard</a>
-          <a href="#cases" onClick={() => { setIsOpen(false); handleNavClick('#cases'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Cases</a>
-          <a href="#news" onClick={() => { setIsOpen(false); handleNavClick('#news'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">News & Ideas</a>
-          <a href="#contact" onClick={() => { setIsOpen(false); handleNavClick('#contact'); }} className="w-full py-3 text-center text-sm font-bold text-white rounded-none bg-[#0941DC] hover:bg-[#061F6B] transition-colors shadow-md">
+          <a href="#" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Início</a>
+          <a href="#about" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#about'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Nossa missão</a>
+          <a href="#solutions" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#solutions'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Serviços</a>
+          <a href="#bdash" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#bdash'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Dashboard</a>
+          <a href="#cases" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#cases'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Cases</a>
+          <a href="#news" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#news'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">News</a>
+          <a href="#testimonials" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#testimonials'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Feedbacks</a>
+          <button onClick={(e) => { setIsOpen(false); if (onOpenBlog) onOpenBlog(); else handleNavClick(e, '#news'); }} className="text-left text-base font-bold text-slate-300 hover:text-white transition-colors py-1 bg-transparent border-0 p-0 cursor-pointer">Blog</button>
+          <a href="#contact" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#contact'); }} className="w-full py-3 text-center text-sm font-bold text-white rounded-none bg-[#0941DC] hover:bg-[#061F6B] transition-colors shadow-md">
             Contato
           </a>
         </div>

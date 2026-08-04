@@ -8,9 +8,10 @@ interface NewsDetailPageProps {
   articleId: string;
   onNavigateHome: () => void;
   onSelectArticle: (id: string) => void;
+  onOpenBlog?: () => void;
 }
 
-export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArticle }: NewsDetailPageProps) {
+export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArticle, onOpenBlog }: NewsDetailPageProps) {
   // Scroll to top when opening a news article page
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -22,7 +23,7 @@ export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArti
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/20 selection:text-white">
       {/* Top Navbar */}
-      <Navbar onNavigateHome={onNavigateHome} />
+      <Navbar onNavigateHome={onNavigateHome} onOpenBlog={onOpenBlog} />
 
       <main className="pt-28 pb-20 relative overflow-hidden flex-grow">
         {/* Ambient Background Lighting (Figma CSS Pattern) */}
@@ -103,7 +104,7 @@ export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArti
 
               {/* Full Paragraphs */}
               {article.fullContent.map((paragraph, idx) => (
-                <p key={idx} className="text-slate-300">
+                <p key={idx} className="text-slate-300 text-base leading-relaxed whitespace-pre-line text-justify">
                   {paragraph}
                 </p>
               ))}

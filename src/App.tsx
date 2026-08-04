@@ -10,10 +10,51 @@ import SuccessCases from './components/SuccessCases';
 import TestimonialsTabs from './components/TestimonialsTabs';
 import BlogCarousel from './components/BlogCarousel';
 import NewsDetailPage from './components/NewsDetailPage';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
+import TermsOfUsePage from './components/TermsOfUsePage';
+import BlogPage from './components/BlogPage';
 import Footer from './components/Footer';
 
 export default function App() {
   const [selectedArticleId, setSelectedArticleId] = useState<string | null>(null);
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState<boolean>(false);
+  const [showTermsOfUse, setShowTermsOfUse] = useState<boolean>(false);
+  const [showBlog, setShowBlog] = useState<boolean>(false);
+
+  // If terms of use page is selected
+  if (showTermsOfUse) {
+    return (
+      <TermsOfUsePage
+        onNavigateHome={() => setShowTermsOfUse(false)}
+        onOpenPrivacyPolicy={() => {
+          setShowTermsOfUse(false);
+          setShowPrivacyPolicy(true);
+        }}
+        onOpenBlog={() => {
+          setShowTermsOfUse(false);
+          setShowBlog(true);
+        }}
+      />
+    );
+  }
+
+  // If blog page is selected
+  if (showBlog) {
+    return (
+      <BlogPage
+        onNavigateHome={() => setShowBlog(false)}
+      />
+    );
+  }
+
+  // If privacy policy page is selected
+  if (showPrivacyPolicy) {
+    return (
+      <PrivacyPolicyPage
+        onNavigateHome={() => setShowPrivacyPolicy(false)}
+      />
+    );
+  }
 
   // If a news article page is selected, render the dedicated News Detail Page view
   if (selectedArticleId) {
@@ -22,6 +63,10 @@ export default function App() {
         articleId={selectedArticleId} 
         onNavigateHome={() => setSelectedArticleId(null)} 
         onSelectArticle={(id) => setSelectedArticleId(id)} 
+        onOpenBlog={() => {
+          setSelectedArticleId(null);
+          setShowBlog(true);
+        }}
       />
     );
   }
@@ -29,7 +74,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-white text-slate-900 selection:bg-[#0052ff]/10 selection:text-[#0052ff]">
       {/* Navbar */}
-      <Navbar />
+      <Navbar onOpenBlog={() => setShowBlog(true)} />
 
       {/* Hero Carousel Slider */}
       <HeroCarousel />
@@ -46,9 +91,6 @@ export default function App() {
       {/* Proprietary Product BDash Section */}
       <BDashSection />
 
-      {/* Social Proof Testimonials Interactive Tabs */}
-      <TestimonialsTabs />
-
       {/* Success Metric Cases */}
       <SuccessCases />
 
@@ -58,8 +100,15 @@ export default function App() {
       {/* Conversion Banner Middle Page (Contact Form) */}
       <MiddleCTA />
 
+      {/* Social Proof Testimonials Interactive Tabs (Feedback Section) */}
+      <TestimonialsTabs />
+
       {/* Footer & Partner Seals Badges */}
-      <Footer />
+      <Footer 
+        onOpenPrivacyPolicy={() => setShowPrivacyPolicy(true)} 
+        onOpenBlog={() => setShowBlog(true)}
+        onOpenTermsOfUse={() => setShowTermsOfUse(true)}
+      />
     </div>
   );
 }

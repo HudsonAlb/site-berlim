@@ -90,7 +90,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#030311] flex items-center justify-center">
+    <section id="hero" className="relative w-full h-screen overflow-hidden bg-[#030311] flex items-center justify-center">
       {/* Background slide elements */}
       {slides.map((slide, idx) => (
         <div
@@ -228,7 +228,7 @@ export default function HeroCarousel() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

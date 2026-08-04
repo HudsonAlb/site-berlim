@@ -17,29 +17,29 @@ interface Solution {
 const solutionsList: Solution[] = [
   {
     id: 1,
-    title: 'Tráfego pago de Alta Escala',
-    description: 'Criamos e escalamos campanhas nas redes mais eficientes do mercado: Meta Ads, Google Ads, TikTok e LinkedIn Ads, focados em conversão direta.',
+    title: 'Treinamento e Desenvolvimento Empresarial',
+    description: 'Capacitamos equipes e lideranças para atuar com mais estratégia, dados e tecnologia no dia a dia. Programas In Company, workshops e imersões que desenvolvem competências reais em marketing, vendas, gestão e adoção de IA, sempre conectados aos desafios específicos do seu negócio.',
     imageUrl: trafegoImg,
     accent: '#0941DC'
   },
   {
     id: 2,
-    title: 'Design de Conversão & UX/UI',
-    description: 'Páginas e criativos desenhados cientificamente para capturar atenção e converter cliques em vendas. Foco em interfaces limpas e responsivas.',
+    title: 'Desenvolvimento de Soluções com Dados, IA e Automação',
+    description: 'Criamos produtos e sistemas sob medida que unem dados, inteligência artificial e automação para tornar sua operação mais eficiente. De dashboards que centralizam informações de CRM, tráfego e presença online a agentes de IA que automatizam processos, entregamos tecnologia aplicada a resultados.',
     imageUrl: designImg,
     accent: '#0941DC'
   },
   {
     id: 3,
-    title: 'Business Intelligence & CRO',
-    description: 'Monitoramento detalhado de cada etapa do funil e testes A/B estruturados para aumentar a taxa de conversão sem gastar mais com mídia.',
+    title: 'Growth System',
+    description: 'Estruturamos um sistema de crescimento previsível, integrando estratégia comercial, marketing de performance e dados em um só processo. Mais que ações pontuais, construímos a engrenagem que gera demanda, converte e escala vendas de forma consistente.',
     imageUrl: biImg,
     accent: '#0941DC'
   },
   {
     id: 4,
-    title: 'CRM, LTV & Automação de E-mail',
-    description: 'Aumente o tempo de vida do seu cliente (LTV) com réguas de relacionamento otimizadas e campanhas personalizadas de e-mail e WhatsApp.',
+    title: 'Brand System & Content',
+    description: 'Construímos marcas fortes e conteúdo que gera conexão real com o público. Posicionamento, identidade e uma estratégia de conteúdo pensada para gerar autoridade, engajamento e resultado em todos os canais em que sua marca precisa estar.',
     imageUrl: crmImg,
     accent: '#0941DC'
   }
@@ -57,8 +57,8 @@ export default function SolutionsGrid() {
         
         {/* Centered Main Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Nossos serviços
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase font-['Clash_Display','Inter',sans-serif]">
+            ALGUNS SERVIÇOS
           </h2>
         </div>
 
@@ -85,7 +85,7 @@ export default function SolutionsGrid() {
                   
                   {/* Expanded description if active */}
                   <div className={`overflow-hidden transition-all duration-300 ${isActive ? 'max-h-40 mt-3 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <p className="text-sm text-slate-600 font-light leading-relaxed">
+                    <p className="text-sm text-slate-600 font-light leading-relaxed text-justify">
                       {sol.description}
                     </p>
                   </div>

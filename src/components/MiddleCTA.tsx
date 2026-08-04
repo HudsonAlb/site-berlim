@@ -16,6 +16,11 @@ export default function MiddleCTA() {
     e.preventDefault();
     if (formData.nome && formData.email && formData.telefone && formData.empresa) {
       setSubmitted(true);
+      
+      const message = `Olá, gostaria de agendar uma sessão estratégica.\n\nNome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}\nEmpresa: ${formData.empresa}\nFuncionários: ${formData.funcionarios || 'N/A'}\nFaturamento: ${formData.faturamento || 'N/A'}`;
+      const whatsappUrl = `https://wa.me/5581982499584?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+
       setTimeout(() => {
         setSubmitted(false);
         setFormData({
@@ -46,13 +51,10 @@ export default function MiddleCTA() {
           
           {/* Left Column: Conversion Copy & Features */}
           <div className="lg:col-span-5 text-left">
-            <span className="text-xs font-bold tracking-widest text-[#0941DC] uppercase bg-[#0941DC]/10 px-3.5 py-1.5 rounded-none mb-6 inline-block font-['Inter',sans-serif]">
-              Conversão & Escala
-            </span>
-            <h2 className="font-['Clash_Display','Inter',sans-serif] text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
-              Pronto para dominar seu mercado?
+            <h2 className="font-['Clash_Display','Inter',sans-serif] text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
+              Pronto para crescer seus resultados e desenvolver suas soluções em mkt e tech?
             </h2>
-            <p className="text-slate-600 font-['Inter',sans-serif] font-normal text-base md:text-lg mb-8 leading-relaxed">
+            <p className="text-slate-600 font-['Inter',sans-serif] font-normal text-base md:text-lg mb-8 leading-relaxed text-justify">
               Nossa equipe de engenheiros de growth analisará seu funil de aquisição atual gratuitamente. Preencha o formulário para agendar sua sessão estratégica e iniciar sua escalada.
             </p>
 
@@ -97,7 +99,9 @@ export default function MiddleCTA() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="text-left mb-6">
-                    <h3 className="font-['Clash_Display','Inter',sans-serif] text-xl font-bold text-slate-950">Fale com um especialista</h3>
+                    <h3 className="font-['Clash_Display','Inter',sans-serif] text-lg sm:text-xl font-bold text-slate-950 leading-snug">
+                      Pronto para crescer seus resultados e desenvolver suas soluções em mkt e tech?
+                    </h3>
                     <p className="text-xs text-slate-500 font-['Inter',sans-serif] font-light mt-1">Preencha os campos abaixo para solicitar seu diagnóstico gratuito.</p>
                   </div>
 

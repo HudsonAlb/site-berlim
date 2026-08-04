@@ -25,6 +25,11 @@ export default function BDashSection() {
     e.preventDefault();
     if (formData.nome && formData.email && formData.telefone && formData.empresa) {
       setSubmitted(true);
+      
+      const message = `Olá, gostaria de solicitar uma demonstração da B-Dash.\n\nNome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}\nEmpresa: ${formData.empresa}`;
+      const whatsappUrl = `https://wa.me/5581982499584?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+
       setTimeout(() => {
         setSubmitted(false);
         setFormData({ nome: '', email: '', telefone: '', empresa: '' });
@@ -39,36 +44,37 @@ export default function BDashSection() {
   };
 
   return (
-    <section id="bdash" className="py-20 lg:py-28 bg-[#030311] relative overflow-hidden border-t border-white/10 text-white min-h-[954px] flex flex-col justify-between">
+    <section id="bdash" className="pt-8 pb-20 lg:pt-12 lg:pb-28 bg-[#030311] relative overflow-hidden border-t border-white/10 text-white min-h-[954px] flex flex-col justify-between">
       
       {/* LAYER 1: Base Background & Gradient Lighting (Reference Image Gradient) */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#0941DC]/25 via-[#061F6B]/15 to-[#030311] pointer-events-none z-0" />
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#0941DC]/10 rounded-full blur-[140px] pointer-events-none z-0" />
       <div className="absolute bottom-10 right-0 w-[600px] h-[600px] bg-[#061F6B]/20 rounded-full blur-[150px] pointer-events-none z-0" />
 
-      {/* LAYER 2: Bdash 9 Dashboard Image */}
+      {/* LAYER 2: Bdash 9 Dashboard Image (High-Clarity & High-Visibility) */}
       <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
         <img
           src={bdash9}
           alt="B-DASH Dashboard"
-          className="w-full h-full object-cover lg:object-cover object-center opacity-40 sm:opacity-60 lg:opacity-85"
+          className="w-full h-full object-cover lg:object-cover object-center opacity-70 sm:opacity-85 lg:opacity-95"
         />
-        {/* Gradient overlays — smooth dark gradients for contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030311] via-transparent to-[#030311] lg:hidden" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030311]/80 via-transparent to-[#030311]/50 hidden lg:block" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030311]/70 via-transparent to-[#030311]/30 hidden lg:block" />
+        {/* Soft top gradient only behind header text for legibility without darkening main dashboard */}
+        <div className="absolute top-0 left-0 right-0 h-52 bg-gradient-to-b from-[#030311] via-[#030311]/85 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#030311] to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#030311]/70 to-transparent hidden lg:block" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#030311]/70 to-transparent hidden lg:block" />
       </div>
 
       {/* LAYER 3: Interactive Foreground Content Overlay */}
       <div className="max-w-[1431px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col justify-between h-full">
         
         {/* Header Title (Conheça a B-Dash) */}
-        <div className="text-center max-w-4xl mx-auto pt-4 mb-6 lg:mb-16">
-          <h2 className="font-['Clash_Display','Inter',sans-serif] font-bold text-3xl sm:text-5xl lg:text-[72px] leading-[100%] text-white tracking-tight">
+        <div className="text-center max-w-4xl mx-auto pt-0 mb-6 lg:mb-14">
+          <h2 className="font-['Clash_Display','Inter',sans-serif] font-bold text-3xl sm:text-5xl lg:text-[72px] leading-[100%] text-white tracking-tight drop-shadow-[0_4px_16px_rgba(3,3,17,0.9)]">
             Conheça a B-Dash
           </h2>
-          <p className="lg:hidden text-xs text-slate-300 mt-2 font-['Inter',sans-serif]">
-            Nossa plataforma proprietária de inteligência e dados de performance
+          <p className="text-sm sm:text-base font-semibold text-white mt-3 max-w-5xl mx-auto font-['Inter',sans-serif] leading-relaxed drop-shadow-[0_2px_10px_rgba(3,3,17,0.9)]">
+            RevOps na prática: dados para auxiliar na decisão. Visualize seus resultados em marketing, vendas e sucesso do cliente, tudo integrado, em uma única visão.
           </p>
         </div>
 

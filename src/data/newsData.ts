@@ -1,3 +1,6 @@
+import recnplayMainImg from '../assets/news/news1/snapinsta-1785269496906.jpg';
+import levelAiMainImg from '../assets/news/news2/CAR07462.jpeg';
+
 export interface NewsItem {
   id: string;
   category: string;
@@ -19,115 +22,55 @@ export interface NewsItem {
 
 export const newsData: NewsItem[] = [
   {
-    id: 'growth-summit-2026',
-    category: 'EVENTO PRESENCIAL',
+    id: 'level-ai-berlim-company',
+    category: 'EVENTO DE IA & LIDERANÇA',
     type: 'evento',
-    title: 'Berlim Growth Summit 2026: Estratégias de Escala & IA',
-    summary: 'Junte-se aos maiores líderes de performance do Brasil em um dia inteiro de imersão sobre Inteligência Artificial aplicada ao tráfego pago e CRO.',
+    title: 'Level AI: Berlim Company reúne lideranças do Recife para discutir o futuro da inteligência artificial nos negócios',
+    summary: 'Com o tema "O desafio não é tecnologia, é liderança", o evento idealizado por Paulo Filho reuniu cerca de 200 CEOs, diretores e gestores no auditório do Porto Digital para debater como a IA transforma a gestão e os resultados das empresas.',
     fullContent: [
-      'O Berlim Growth Summit 2026 é o encontro definitivo para diretores de marketing, heads de performance e CEOs que buscam acelerar a receita de suas empresas utilizando o estado da arte em inteligência artificial e engenharia de conversão.',
-      'Durante um dia inteiro de palestras e painéis práticos, executivos da Meta, Google, RD Station e engenheiros da Berlim Co. revelarão os bastidores de estratégias que geraram mais de R$ 100 milhões em faturamento rastreado ao longo do último ano.',
-      'Além das sessões de conteúdo, o evento contará com um espaço exclusivo de networking B2B, análise ao vivo de landing pages e demonstração prática do ecossistema B-DASH para acompanhamento em tempo real de LVR e CAC.'
+      'No dia 7 de maio de 2026, o auditório do Porto Digital, no coração do Bairro do Recife, recebeu o Level AI, evento idealizado por Paulo Filho, fundador da Berlim Company, em parceria com a FH e o Porto Digital. Com o tema "O desafio não é tecnologia, é liderança", o encontro reuniu CEOs, diretores, gestores e fundadores de startups para debater como a inteligência artificial pode, de fato, transformar a gestão e os resultados das empresas.',
+      'A repercussão do evento ganhou as páginas da Folha de Pernambuco, que destacou a proposta do Level AI de colocar lideranças, e não apenas tecnologia, no centro da conversa sobre IA nos negócios.',
+      'O desafio não é a ferramenta, é quem lidera\nA provocação que dá nome ao evento resume o principal argumento de Paulo Filho: a inteligência artificial já está amplamente disponível, mas seu uso ainda é raso na maioria das empresas. Segundo ele, 78% das empresas já utilizam IA de alguma forma, mas apenas 6% conseguem extrair dela um retorno considerável. Já as organizações que adotam a tecnologia de forma madura registram ganhos de produtividade acima de 30%.',
+      '"Nos últimos três anos, a evolução da IA foi significativa, mas muitos ainda se limitam a usar versões mais antigas das tecnologias, como os chatbots", pontuou Paulo Filho. Para ele, o gargalo não está na tecnologia em si, mas na forma como as lideranças a estruturam dentro das empresas: "Organizar dados é fundamental para estruturar a empresa. Com informações bem organizadas, as respostas se tornam mais eficazes, o que melhora a atuação de equipes e a qualidade das decisões."',
+      'Um dia de imersão para quem decide\nVoltado a um público seleto, o Level AI reuniu cerca de 200 participantes em uma programação de um dia inteiro, das 9h às 16h, com discussões práticas sobre automação, liderança, governança, marketing e dados & analytics. Mais do que apresentar cases, o evento propôs uma reflexão sobre novos modelos de liderança e sobre a formação de equipes preparadas para atuar na nova economia orientada por dados.',
+      '"A intenção é debater esses assuntos para que os líderes consigam, efetivamente, implementar as mudanças em suas empresas. A questão não é apenas a tecnologia, mas sim como ela é aplicada. Quando utilizada corretamente, a IA não apenas otimiza processos, mas também transforma a estrutura empresarial e redefine o posicionamento no mercado", concluiu Paulo Filho.',
+      'Para a Berlim, o Level AI é mais um passo na consolidação de sua atuação como protagonista na conversa sobre adoção de IA nas empresas, um movimento que já vinha ganhando corpo com a criação da Martech e que segue no centro da estratégia da companhia para os próximos anos.'
     ],
-    readTimeOrLocation: 'São Paulo - SP',
-    date: '15 de Agosto, 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1000',
-    speakerOrAuthor: 'Palestrantes da Meta, Google & Berlim Co.',
-    actionText: 'Garantir Vaga no Evento',
+    readTimeOrLocation: 'Porto Digital - Recife/PE',
+    date: '07 de Maio, 2026',
+    imageUrl: levelAiMainImg,
+    speakerOrAuthor: 'Paulo Filho (Founder Berlim Co.)',
+    actionText: 'Ver Cobertura Level AI',
     eventDetails: {
-      location: 'Centro de Convenções JK - Av. Pres. Juscelino Kubitschek, São Paulo - SP',
-      schedule: '08:30 às 18:00 (Imersão de Dia Inteiro)',
-      targetAudience: 'CEOs, CMOs, Heads de Growth & Mídia'
+      location: 'Auditório do Porto Digital - Bairro do Recife, PE',
+      schedule: '09h às 16h (Imersão de Dia Inteiro)',
+      targetAudience: 'CEOs, Diretores, Gestores e Fundadores de Startups'
     }
   },
   {
-    id: 'novos-dashboards-bdash',
-    category: 'LANÇAMENTO B-DASH',
-    type: 'noticia',
-    title: 'Novos Dashboards com Atribuição Multi-touch via GA4 e CRM',
-    summary: 'Lançamos a nova versão da plataforma B-DASH com inteligência preditiva para identificar canais de tração e otimização automatizada de CAC.',
-    fullContent: [
-      'A Berlim Co. tem o orgulho de anunciar o lançamento oficial da nova versão do B-DASH, nossa plataforma proprietária de inteligência comercial e atribuição avançada de mídia.',
-      'Com a obsolescência dos cookies de terceiros e as limitações de rastreamento no navegador, a nova arquitetura do B-DASH realiza o cruzamento de dados de leilão via API de Conversão no servidor (CAPI) diretamente com os fechamentos de vendas no CRM da RD Station.',
-      'Isso significa que gestores de tráfego e diretores financeiros agora possuem uma visão 360° do retorno real sobre o investimento (ROAS) de cada canal — Meta Ads, Google Ads, TikTok Ads e LinkedIn — eliminando a duplicidade de contagem e garantindo tomadas de decisões cirúrgicas.'
-    ],
-    readTimeOrLocation: '5 min de leitura',
-    date: '28 de Julho, 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
-    speakerOrAuthor: 'Equipe de Engenharia Berlim',
-    actionText: 'Ler Matéria Completa'
-  },
-  {
-    id: 'masterclass-cpl',
-    category: 'WORKSHOP ONLINE',
+    id: 'berlim-rec-n-play',
+    category: 'EVENTO DE INOVAÇÃO',
     type: 'evento',
-    title: 'Masterclass: Como Reduzir o CPL em 40% sem Perder Qualidade',
-    summary: 'Um workshop prático onde nossos engenheiros de conversão mostram a anatomia de landing pages de alta resposta e novos formatos de anúncios.',
+    title: "Berlim Digital no REC'n'Play: Presença de peso no maior festival de economia criativa da América Latina",
+    summary: "A Berlim Company marcou presença no festival REC'n'Play no Bairro do Recife com participação especial em painéis e palestras sobre negócios do futuro, dados, IA e branding na era da atenção.",
     fullContent: [
-      'Reduzir o Custo por Lead (CPL) é um dos maiores desafios de marcas em crescimento, especialmente em mercados de alta concorrência onde os leilões de anúncios ficam cada vez mais caros.',
-      'Nesta Masterclass online e gratuita, vamos abrir os bastidores de landing pages que convertem acima de 35% e demonstrar como alinhar o copywriting dos anúncios com a qualificação automática dos leads antes do envio para a equipe comercial.',
-      'A transmissão incluirá sessão de perguntas e respostas ao vivo, checklist em PDF para download e templates de estrutura para campanhas de Meta Ads e Google Search.'
+      "O REC'n'Play reuniu, entre os dias 15 e 18 de outubro, mais de 700 atividades gratuitas no Bairro do Recife, consolidando o festival como um dos principais encontros de tecnologia, inovação e cultura da América Latina. Em meio a essa programação, a Berlim Company marcou presença no espaço Sebrae na Rua, na Avenida Rio Branco, com duas participações que reforçam o papel da empresa como referência em marketing, dados e tecnologia no Nordeste.",
+      'Roda de conversa: "Negócios prontos para o futuro"\nNo dia 16 de outubro, das 14h às 15h, Paulo Filho, founder da Berlim Company, participou da roda de conversa "Negócios prontos para o futuro", ao lado de Patrícia Oliveira (Head Martech na Berlim Co.), Henrique Cesar (cofundador e CRO da FH) e Fernando Aureliano (cofundador e CEO da FH).',
+      "O bate-papo, promovido em parceria entre Ampla, Porto Digital e Sebrae, discutiu os caminhos que empresas precisam trilhar para se manterem competitivas diante das transformações tecnológicas, com foco em dados, inteligência artificial e novos modelos de gestão. A presença da Berlim Co. no palco reforça a construção de soluções que unem marketing, dados e tecnologia para impulsionar negócios.",
+      'Palestra: "Branding na era da atenção"\nNo dia seguinte, 17 de outubro, às 14h, também no espaço Sebrae na Rua, Paulo Filho voltou ao palco do REC\'n\'Play para uma palestra solo: "Branding na era da atenção". O tema abordou os desafios que marcas enfrentam em um cenário de excesso de estímulos e disputa constante pela atenção do público, e como estratégias de branding bem construídas ajudam empresas a se destacar e criar conexão real com seus públicos.',
+      "Um festival que reflete o momento da Berlim\nA participação da Berlim Digital no REC'n'Play dialoga diretamente com o momento atual da empresa: a consolidação de sua atuação em marketing e tecnologia, impulsionada pela Martech, unidade de negócios criada para unir estratégia comercial, dados e inteligência artificial em soluções práticas para empresas.",
+      "Levar essas discussões para um dos maiores palcos de inovação do país reforça o posicionamento da Berlim como protagonista na conversa sobre o futuro dos negócios, com coração no Porto Digital e mente voltada para o que vem a seguir.",
+      "Sobre o REC'n'Play: o festival é considerado o maior evento de tecnologia, cultura e inovação da América Latina, reunindo mais de 700 atividades gratuitas, 7 palcos, 30 prédios ativados e 83 espaços de conteúdo no Bairro do Recife."
     ],
-    readTimeOrLocation: 'Transmissão Ao Vivo',
-    date: '10 de Agosto, 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1000',
-    speakerOrAuthor: 'Head de Performance Berlim Co.',
-    actionText: 'Inscrever-se no Workshop',
+    readTimeOrLocation: 'Recife - PE (Porto Digital)',
+    date: '15 a 18 de Outubro',
+    imageUrl: recnplayMainImg,
+    speakerOrAuthor: 'Paulo Filho (Founder) & Patrícia Oliveira (Head Martech)',
+    actionText: 'Ver Cobertura Completa',
     eventDetails: {
-      location: 'Plataforma Zoom (Link enviado via E-mail)',
-      schedule: '19:30 às 21:00',
-      targetAudience: 'Gestores de Mídia, Copywriters & Analistas de CRO'
+      location: 'Espaço Sebrae na Rua, Av. Rio Branco - Bairro do Recife',
+      schedule: '15 a 18 de Outubro (Atividades das 14h às 18h)',
+      targetAudience: 'Empreendedores, Líderes de Martech, Tecnologia & Inovação'
     }
-  },
-  {
-    id: 'meta-conversoes-capi-2026',
-    category: 'TENDÊNCIAS DE TRÁFEGO',
-    type: 'noticia',
-    title: 'Meta CAPI Gateway v2: Como Mitigar a Perda de Rastreamento',
-    summary: 'Descubra como a implementação da API de Conversões do Meta no nível de servidor reduz discrepâncias de métricas e melhora o ROAS em até 28%.',
-    fullContent: [
-      'À medida que navegadores bloqueiam cookies e identificadores tradicionais, marcas que dependem exclusivamente do Pixel do Meta perdem até 30% das conversões reais nos seus relatórios de anúncios.',
-      'Neste estudo técnico publicado por nossos especialistas de dados, mostramos o passo a passo da infraestrutura CAPI Gateway com servidores dedicados e criptografia de ponta a ponta.',
-      'Entenda como enviar eventos de checkout e lead qualificado diretamente para a Meta sem sobrecarregar o tempo de carregamento da sua página ou violar diretrizes de privacidade LGPD.'
-    ],
-    readTimeOrLocation: '6 min de leitura',
-    date: '20 de Julho, 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000',
-    speakerOrAuthor: 'Growth Data Team',
-    actionText: 'Ler Guia Técnico'
-  },
-  {
-    id: 'rd-station-partner-silver',
-    category: 'CONQUISTAS BERLIM',
-    type: 'noticia',
-    title: 'Berlim Co. atinge o selo RD Station Silver Partner',
-    summary: 'Nossa agência alcançou a certificação de alta performance na RD Station por excelência em automação de marketing e integração comercial.',
-    fullContent: [
-      'É com grande entusiasmo que celebramos a conquista do selo RD Station Silver Partner! Essa certificação reconhece a Berlim Co. como uma das agências de referência nacional no ecossistema de Inbound Marketing e Automação de Vendas.',
-      'A certificação valida nossa metodologia proprietária de qualificação automatizada de leads (Lead Scoring) e sincronização contínua com os dashboards do B-DASH.',
-      'Agradecemos a todos os nossos clientes e parceiros pela confiança em nossa engenharia de growth.'
-    ],
-    readTimeOrLocation: '4 min de leitura',
-    date: '12 de Julho, 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1000',
-    speakerOrAuthor: 'Comunicação Corporativa',
-    actionText: 'Ler Comunicado'
-  },
-  {
-    id: 'cro-testes-ab-landing-pages',
-    category: 'ESTRATÉGIA & CRO',
-    type: 'noticia',
-    title: '7 Erros Mortais em Landing Pages que Destroem a Sua Taxa de Conversão',
-    summary: 'Aprenda a identificar gargalos de velocidade, chamadas para ação fracas e falta de hierarquia visual que custam vendas diariamente.',
-    fullContent: [
-      'Investir milhares de reais em tráfego pago sem otimizar a página de destino é como tentar encher um balde furado. Nesse artigo, destrinchamos os 7 erros mais comuns encontrados nas auditorias de CRO realizadas pela Berlim Co.',
-      'Desde botões de CTA imperceptíveis até formulários com campos desnecessários, veja exemplos práticos de antes e depois e como pequenos ajustes de UX/UI elevaram em 2.4x a conversão de nossos clientes.',
-      'Acesse também o nosso template de checklist de auditoria de conversão gratuito no final da leitura.'
-    ],
-    readTimeOrLocation: '7 min de leitura',
-    date: '02 de Julho, 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
-    speakerOrAuthor: 'Equipe de UX/UI & CRO',
-    actionText: 'Ler Artigo de CRO'
   }
 ];
