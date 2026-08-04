@@ -97,7 +97,7 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBlog, onOpenTermsOfU
               const emailInput = e.currentTarget.querySelector('input[type="email"]') as HTMLInputElement;
               if (emailInput && emailInput.value) {
                 const message = `Olá, gostaria de assinar os relatórios com o email: ${emailInput.value}`;
-                const whatsappUrl = `https://wa.me/5581982499584?text=${encodeURIComponent(message)}`;
+                const whatsappUrl = `https://wa.me/558182499584?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
                 emailInput.value = '';
               }

@@ -7,7 +7,7 @@ import BDashSection from './components/BDashSection';
 import SolutionsGrid from './components/SolutionsGrid';
 import MiddleCTA from './components/MiddleCTA';
 import SuccessCases from './components/SuccessCases';
-import TestimonialsTabs from './components/TestimonialsTabs';
+// import TestimonialsTabs from './components/TestimonialsTabs';
 import BlogCarousel from './components/BlogCarousel';
 import NewsDetailPage from './components/NewsDetailPage';
 import PrivacyPolicyPage from './components/PrivacyPolicyPage';
@@ -100,8 +100,8 @@ export default function App() {
       {/* Conversion Banner Middle Page (Contact Form) */}
       <MiddleCTA />
 
-      {/* Social Proof Testimonials Interactive Tabs (Feedback Section) */}
-      <TestimonialsTabs />
+      {/* Social Proof Testimonials Interactive Tabs (Feedback Section) - Oculto temporariamente para o lançamento */}
+      {/* <TestimonialsTabs /> */}
 
       {/* Footer & Partner Seals Badges */}
       <Footer 

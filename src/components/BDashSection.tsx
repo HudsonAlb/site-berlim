@@ -27,7 +27,7 @@ export default function BDashSection() {
       setSubmitted(true);
       
       const message = `Olá, gostaria de solicitar uma demonstração da B-Dash.\n\nNome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}\nEmpresa: ${formData.empresa}`;
-      const whatsappUrl = `https://wa.me/5581982499584?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/558182499584?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
 
       setTimeout(() => {

@@ -18,7 +18,7 @@ export default function MiddleCTA() {
       setSubmitted(true);
       
       const message = `Olá, gostaria de agendar uma sessão estratégica.\n\nNome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}\nEmpresa: ${formData.empresa}\nFuncionários: ${formData.funcionarios || 'N/A'}\nFaturamento: ${formData.faturamento || 'N/A'}`;
-      const whatsappUrl = `https://wa.me/5581982499584?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/558182499584?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
 
       setTimeout(() => {
