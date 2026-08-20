@@ -28,7 +28,8 @@ const slides: Slide[] = [
     description: 'Unimos estratégia de marketing e tecnologia para transformar dados em decisões e decisões em crescimento. Da comunicação à automação, criamos soluções que colocam inteligência artificial a serviço do seu negócio.',
     primaryCta: 'Acelerar Meu Negócio',
     secondaryCta: 'Ver Nossos Cases',
-    image: heroTransformamosPC,
+    image: heroEngenhariaPC,
+    imageMobile: heroEngenhariaMobile,
     video: 'https://cdn.pixabay.com/video/2019/04/16/22892-331665476_large.mp4' // Corporate technology network concept
   },
   {
@@ -39,8 +40,7 @@ const slides: Slide[] = [
     description: 'Desenvolvemos produtos, automações e soluções de inteligência artificial que conectam dados, marketing e operação em um só lugar.',
     primaryCta: 'Desenhar Minha Estratégia',
     secondaryCta: 'Nossas Soluções',
-    image: heroEngenhariaPC,
-    imageMobile: heroEngenhariaMobile,
+    image: heroTransformamosPC,
     video: 'https://cdn.pixabay.com/video/2021/04/12/70876-538180486_large.mp4' // Analytics charts screen interface loop
   },
   {
