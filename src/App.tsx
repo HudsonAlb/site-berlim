@@ -13,6 +13,7 @@ import NewsDetailPage from './components/NewsDetailPage';
 import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 import TermsOfUsePage from './components/TermsOfUsePage';
 import BlogPage from './components/BlogPage';
+import CompanyOnboardingPage from './components/CompanyOnboardingPage';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -20,6 +21,16 @@ export default function App() {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState<boolean>(false);
   const [showTermsOfUse, setShowTermsOfUse] = useState<boolean>(false);
   const [showBlog, setShowBlog] = useState<boolean>(false);
+  const [showCompanyOnboarding, setShowCompanyOnboarding] = useState<boolean>(false);
+
+  // If company onboarding (área de empresas) page is selected
+  if (showCompanyOnboarding) {
+    return (
+      <CompanyOnboardingPage
+        onNavigateHome={() => setShowCompanyOnboarding(false)}
+      />
+    );
+  }
 
   // If terms of use page is selected
   if (showTermsOfUse) {
@@ -74,7 +85,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-white text-slate-900 selection:bg-[#0052ff]/10 selection:text-[#0052ff]">
       {/* Navbar */}
-      <Navbar onOpenBlog={() => setShowBlog(true)} />
+      <Navbar onOpenBlog={() => setShowBlog(true)} onOpenCompanyOnboarding={() => setShowCompanyOnboarding(true)} />
 
       {/* Hero Carousel Slider */}
       <HeroCarousel />
@@ -104,10 +115,11 @@ export default function App() {
       {/* <TestimonialsTabs /> */}
 
       {/* Footer & Partner Seals Badges */}
-      <Footer 
-        onOpenPrivacyPolicy={() => setShowPrivacyPolicy(true)} 
+      <Footer
+        onOpenPrivacyPolicy={() => setShowPrivacyPolicy(true)}
         onOpenBlog={() => setShowBlog(true)}
         onOpenTermsOfUse={() => setShowTermsOfUse(true)}
+        onOpenCompanyOnboarding={() => setShowCompanyOnboarding(true)}
       />
     </div>
   );
