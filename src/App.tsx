@@ -45,6 +45,10 @@ export default function App() {
           setShowTermsOfUse(false);
           setShowBlog(true);
         }}
+        onOpenCompanyOnboarding={() => {
+          setShowTermsOfUse(false);
+          setShowCompanyOnboarding(true);
+        }}
       />
     );
   }
@@ -54,6 +58,10 @@ export default function App() {
     return (
       <BlogPage
         onNavigateHome={() => setShowBlog(false)}
+        onOpenCompanyOnboarding={() => {
+          setShowBlog(false);
+          setShowCompanyOnboarding(true);
+        }}
       />
     );
   }
@@ -63,6 +71,10 @@ export default function App() {
     return (
       <PrivacyPolicyPage
         onNavigateHome={() => setShowPrivacyPolicy(false)}
+        onOpenCompanyOnboarding={() => {
+          setShowPrivacyPolicy(false);
+          setShowCompanyOnboarding(true);
+        }}
       />
     );
   }
@@ -70,13 +82,17 @@ export default function App() {
   // If a news article page is selected, render the dedicated News Detail Page view
   if (selectedArticleId) {
     return (
-      <NewsDetailPage 
-        articleId={selectedArticleId} 
-        onNavigateHome={() => setSelectedArticleId(null)} 
-        onSelectArticle={(id) => setSelectedArticleId(id)} 
+      <NewsDetailPage
+        articleId={selectedArticleId}
+        onNavigateHome={() => setSelectedArticleId(null)}
+        onSelectArticle={(id) => setSelectedArticleId(id)}
         onOpenBlog={() => {
           setSelectedArticleId(null);
           setShowBlog(true);
+        }}
+        onOpenCompanyOnboarding={() => {
+          setSelectedArticleId(null);
+          setShowCompanyOnboarding(true);
         }}
       />
     );

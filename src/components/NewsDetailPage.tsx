@@ -9,9 +9,10 @@ interface NewsDetailPageProps {
   onNavigateHome: () => void;
   onSelectArticle: (id: string) => void;
   onOpenBlog?: () => void;
+  onOpenCompanyOnboarding?: () => void;
 }
 
-export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArticle, onOpenBlog }: NewsDetailPageProps) {
+export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArticle, onOpenBlog, onOpenCompanyOnboarding }: NewsDetailPageProps) {
   // Scroll to top when opening a news article page
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -23,7 +24,7 @@ export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArti
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/20 selection:text-white">
       {/* Top Navbar */}
-      <Navbar onNavigateHome={onNavigateHome} onOpenBlog={onOpenBlog} />
+      <Navbar onNavigateHome={onNavigateHome} onOpenBlog={onOpenBlog} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
 
       <main className="pt-28 pb-20 relative overflow-hidden flex-grow">
         {/* Ambient Background Lighting (Figma CSS Pattern) */}
@@ -254,7 +255,7 @@ export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArti
       </main>
 
       {/* Bottom Footer */}
-      <Footer />
+      <Footer onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
     </div>
   );
 }

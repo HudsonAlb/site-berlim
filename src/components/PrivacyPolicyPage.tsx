@@ -5,9 +5,10 @@ import Footer from './Footer';
 
 interface PrivacyPolicyPageProps {
   onNavigateHome: () => void;
+  onOpenCompanyOnboarding?: () => void;
 }
 
-export default function PrivacyPolicyPage({ onNavigateHome }: PrivacyPolicyPageProps) {
+export default function PrivacyPolicyPage({ onNavigateHome, onOpenCompanyOnboarding }: PrivacyPolicyPageProps) {
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function PrivacyPolicyPage({ onNavigateHome }: PrivacyPolicyPageP
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/30 selection:text-white">
       {/* Top Navbar */}
-      <Navbar onNavigateHome={onNavigateHome} />
+      <Navbar onNavigateHome={onNavigateHome} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
 
       <main className="pt-28 pb-24 relative overflow-hidden flex-grow">
         {/* Ambient Background Lighting */}
@@ -405,7 +406,7 @@ export default function PrivacyPolicyPage({ onNavigateHome }: PrivacyPolicyPageP
       </main>
 
       {/* Footer */}
-      <Footer onOpenPrivacyPolicy={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+      <Footer onOpenPrivacyPolicy={() => window.scrollTo({ top: 0, behavior: 'smooth' })} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
     </div>
   );
 }

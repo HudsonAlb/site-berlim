@@ -7,9 +7,10 @@ import Footer from './Footer';
 interface BlogPageProps {
   onNavigateHome: () => void;
   initialPostId?: string | null;
+  onOpenCompanyOnboarding?: () => void;
 }
 
-export default function BlogPage({ onNavigateHome, initialPostId }: BlogPageProps) {
+export default function BlogPage({ onNavigateHome, initialPostId, onOpenCompanyOnboarding }: BlogPageProps) {
   const [selectedPostId, setSelectedPostId] = useState<string | null>(initialPostId || null);
   const [activeCategory, setActiveCategory] = useState<string>('Todos');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -40,12 +41,13 @@ export default function BlogPage({ onNavigateHome, initialPostId }: BlogPageProp
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/30 selection:text-white">
       {/* Top Navbar */}
-      <Navbar 
-        onNavigateHome={onNavigateHome} 
+      <Navbar
+        onNavigateHome={onNavigateHome}
         onOpenBlog={() => {
           setSelectedPostId(null);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
+        onOpenCompanyOnboarding={onOpenCompanyOnboarding}
       />
 
       <main className="pt-28 pb-24 relative overflow-hidden flex-grow">
@@ -340,7 +342,7 @@ export default function BlogPage({ onNavigateHome, initialPostId }: BlogPageProp
       </main>
 
       {/* Footer */}
-      <Footer onOpenPrivacyPolicy={onNavigateHome} />
+      <Footer onOpenPrivacyPolicy={onNavigateHome} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
     </div>
   );
 }

@@ -7,9 +7,10 @@ interface TermsOfUsePageProps {
   onNavigateHome: () => void;
   onOpenPrivacyPolicy?: () => void;
   onOpenBlog?: () => void;
+  onOpenCompanyOnboarding?: () => void;
 }
 
-export default function TermsOfUsePage({ onNavigateHome, onOpenPrivacyPolicy, onOpenBlog }: TermsOfUsePageProps) {
+export default function TermsOfUsePage({ onNavigateHome, onOpenPrivacyPolicy, onOpenBlog, onOpenCompanyOnboarding }: TermsOfUsePageProps) {
   const [copiedPhone, setCopiedPhone] = useState(false);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function TermsOfUsePage({ onNavigateHome, onOpenPrivacyPolicy, on
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/30 selection:text-white">
       {/* Top Navbar */}
-      <Navbar onNavigateHome={onNavigateHome} onOpenBlog={onOpenBlog} />
+      <Navbar onNavigateHome={onNavigateHome} onOpenBlog={onOpenBlog} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
 
       <main className="pt-28 pb-24 relative overflow-hidden flex-grow">
         {/* Ambient Background Lighting */}
@@ -303,7 +304,7 @@ export default function TermsOfUsePage({ onNavigateHome, onOpenPrivacyPolicy, on
       </main>
 
       {/* Footer */}
-      <Footer onOpenPrivacyPolicy={onOpenPrivacyPolicy} onOpenBlog={onOpenBlog} />
+      <Footer onOpenPrivacyPolicy={onOpenPrivacyPolicy} onOpenBlog={onOpenBlog} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
     </div>
   );
 }
