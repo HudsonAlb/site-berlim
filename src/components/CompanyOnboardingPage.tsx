@@ -302,14 +302,14 @@ export default function CompanyOnboardingPage({ onNavigateHome }: CompanyOnboard
           {field.options?.map((option) => (
             <label
               key={option}
-              className={`flex items-center gap-3 px-4 py-3 rounded-[7px] bg-white/5 border ${showError ? 'border-red-500/60' : 'border-white/10'} cursor-pointer hover:border-[#0941DC]/60 transition-all`}
+              className={`flex items-start gap-3 px-4 py-3 rounded-[7px] bg-white/5 border ${showError ? 'border-red-500/60' : 'border-white/10'} cursor-pointer hover:border-[#0941DC]/60 transition-all`}
             >
               <input
                 type="radio"
                 name={field.key}
                 checked={answers[field.key] === option}
                 onChange={() => handleRadioChange(field.key, option)}
-                className="accent-[#0941DC] w-4 h-4"
+                className="accent-[#0941DC] w-4 h-4 mt-0.5 shrink-0"
               />
               <span className="text-sm text-slate-200 font-medium">{option}</span>
             </label>
@@ -326,13 +326,13 @@ export default function CompanyOnboardingPage({ onNavigateHome }: CompanyOnboard
           {allOptions.map((option) => (
             <div key={option}>
               <label
-                className={`flex items-center gap-3 px-4 py-3 rounded-[7px] bg-white/5 border ${showError ? 'border-red-500/60' : 'border-white/10'} cursor-pointer hover:border-[#0941DC]/60 transition-all`}
+                className={`flex items-start gap-3 px-4 py-3 rounded-[7px] bg-white/5 border ${showError ? 'border-red-500/60' : 'border-white/10'} cursor-pointer hover:border-[#0941DC]/60 transition-all`}
               >
                 <input
                   type="checkbox"
                   checked={selected.includes(option)}
                   onChange={() => handleCheckboxToggle(field.key, option)}
-                  className="accent-[#0941DC] w-4 h-4"
+                  className="accent-[#0941DC] w-4 h-4 mt-0.5 shrink-0"
                 />
                 <span className="text-sm text-slate-200 font-medium">{option}</span>
               </label>
