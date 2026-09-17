@@ -5,9 +5,10 @@ interface FooterProps {
   onOpenPrivacyPolicy?: () => void;
   onOpenBlog?: () => void;
   onOpenTermsOfUse?: () => void;
+  onOpenCompanyOnboarding?: () => void;
 }
 
-export default function Footer({ onOpenPrivacyPolicy, onOpenBlog, onOpenTermsOfUse }: FooterProps) {
+export default function Footer({ onOpenPrivacyPolicy, onOpenBlog, onOpenTermsOfUse, onOpenCompanyOnboarding }: FooterProps) {
   return (
     <footer id="footer-section" className="bg-[#030311] text-white pt-24 sm:pt-32 pb-16 min-h-screen relative overflow-hidden border-t border-white/10 flex flex-col justify-between">
       {/* Background Lighting Gradients (Matching B-Dash & Feedbacks) */}
@@ -81,6 +82,16 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBlog, onOpenTermsOfU
               </li>
               <li><a href="#contact" className="hover:text-[#0941DC] transition-colors">Carreiras</a></li>
               <li><a href="#contact" className="hover:text-[#0941DC] transition-colors">Fale Conosco</a></li>
+              {onOpenCompanyOnboarding && (
+                <li>
+                  <button
+                    onClick={(e) => { e.preventDefault(); onOpenCompanyOnboarding(); }}
+                    className="hover:text-[#0941DC] transition-colors cursor-pointer bg-transparent border-0 p-0 text-sm text-slate-300 font-['Inter',sans-serif]"
+                  >
+                    Área de Empresas
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 

@@ -5,9 +5,10 @@ import BrandLogo from './BrandLogo';
 interface NavbarProps {
   onNavigateHome?: () => void;
   onOpenBlog?: () => void;
+  onOpenCompanyOnboarding?: () => void;
 }
 
-export default function Navbar({ onNavigateHome, onOpenBlog }: NavbarProps) {
+export default function Navbar({ onNavigateHome, onOpenBlog, onOpenCompanyOnboarding }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -194,7 +195,7 @@ export default function Navbar({ onNavigateHome, onOpenBlog }: NavbarProps) {
           </a>
 
           {/* Blog */}
-          <button 
+          <button
             onClick={(e) => {
               if (onOpenBlog) onOpenBlog();
               else handleNavClick(e, '#news');
@@ -205,17 +206,29 @@ export default function Navbar({ onNavigateHome, onOpenBlog }: NavbarProps) {
           >
             Blog
           </button>
+
+          {/* Área de Empresas */}
+          {onOpenCompanyOnboarding && (
+            <button
+              onClick={() => onOpenCompanyOnboarding()}
+              className={`text-sm font-semibold tracking-wide transition-colors cursor-pointer bg-transparent border-0 p-0 ${
+                isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
+              }`}
+            >
+              Área de Empresas
+            </button>
+          )}
         </div>
       </div>
 
       {/* Say Hello / Contato CTA (right) */}
       <div className="hidden lg:flex items-center justify-end lg:w-1/4">
-        <a 
-          href="#contact" 
+        <a
+          href="#contact"
           onClick={(e) => handleNavClick(e, '#contact')}
           className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-none transition-all duration-300 border ${
-            isLight 
-              ? 'border-slate-200 hover:border-slate-400 text-slate-800 bg-transparent hover:bg-slate-50' 
+            isLight
+              ? 'border-slate-200 hover:border-slate-400 text-slate-800 bg-transparent hover:bg-slate-50'
               : 'border-white/20 hover:border-white/50 text-white bg-transparent hover:bg-white/5'
           }`}
         >
@@ -247,6 +260,9 @@ export default function Navbar({ onNavigateHome, onOpenBlog }: NavbarProps) {
           <a href="#news" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#news'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">News</a>
           <a href="#testimonials" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#testimonials'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Feedbacks</a>
           <button onClick={(e) => { setIsOpen(false); if (onOpenBlog) onOpenBlog(); else handleNavClick(e, '#news'); }} className="text-left text-base font-bold text-slate-300 hover:text-white transition-colors py-1 bg-transparent border-0 p-0 cursor-pointer">Blog</button>
+          {onOpenCompanyOnboarding && (
+            <button onClick={() => { setIsOpen(false); onOpenCompanyOnboarding(); }} className="text-left text-base font-bold text-slate-300 hover:text-white transition-colors py-1 bg-transparent border-0 p-0 cursor-pointer">Área de Empresas</button>
+          )}
           <a href="#contact" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#contact'); }} className="w-full py-3 text-center text-sm font-bold text-white rounded-none bg-[#0941DC] hover:bg-[#061F6B] transition-colors shadow-md">
             Contato
           </a>
