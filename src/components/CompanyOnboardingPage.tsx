@@ -182,7 +182,7 @@ function formatFieldValue(field: FieldSchema, answers: Answers): string {
 
 // Web App URL from the Google Apps Script bound to the onboarding responses spreadsheet.
 // https://docs.google.com/spreadsheets/d/1lM09FjoUNzDjy_L1bY-A2G-hactsaXUsknQ39vPClbA/edit
-const SHEETS_WEBHOOK_URL = 'REPLACE_WITH_APPS_SCRIPT_WEB_APP_URL';
+const SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzLcQAye0L3Klx_bGIew3QQneQoQSHBYA4OBVwCIJGHfMaRq0PCh6hNjOs1CpgKWw1UCA/exec';
 
 function buildSheetPayload(answers: Answers): Record<string, string> {
   const payload: Record<string, string> = {};
