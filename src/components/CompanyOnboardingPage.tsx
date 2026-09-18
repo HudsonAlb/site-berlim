@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -195,11 +196,9 @@ function buildSheetPayload(answers: Answers): Record<string, string> {
   return payload;
 }
 
-interface CompanyOnboardingPageProps {
-  onNavigateHome: () => void;
-}
-
-export default function CompanyOnboardingPage({ onNavigateHome }: CompanyOnboardingPageProps) {
+export default function CompanyOnboardingPage() {
+  const navigate = useNavigate();
+  const onNavigateHome = () => navigate('/');
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [submitted, setSubmitted] = useState(false);
@@ -356,7 +355,7 @@ export default function CompanyOnboardingPage({ onNavigateHome }: CompanyOnboard
 
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/30 selection:text-white">
-      <Navbar onNavigateHome={onNavigateHome} />
+      <Navbar />
 
       <main className="pt-28 pb-24 relative overflow-hidden flex-grow">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-[#0941DC]/15 via-transparent to-transparent pointer-events-none z-0" />
@@ -486,7 +485,7 @@ export default function CompanyOnboardingPage({ onNavigateHome }: CompanyOnboard
         </div>
       </main>
 
-      <Footer onOpenPrivacyPolicy={() => {}} />
+      <Footer />
     </div>
   );
 }

@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Scale, Mail, MapPin, Building2, Phone, ShieldAlert } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface TermsOfUsePageProps {
-  onNavigateHome: () => void;
-  onOpenPrivacyPolicy?: () => void;
-  onOpenBlog?: () => void;
-  onOpenCompanyOnboarding?: () => void;
-}
-
-export default function TermsOfUsePage({ onNavigateHome, onOpenPrivacyPolicy, onOpenBlog, onOpenCompanyOnboarding }: TermsOfUsePageProps) {
+export default function TermsOfUsePage() {
+  const navigate = useNavigate();
+  const onNavigateHome = () => navigate('/');
   const [copiedPhone, setCopiedPhone] = useState(false);
 
   useEffect(() => {
@@ -26,7 +22,7 @@ export default function TermsOfUsePage({ onNavigateHome, onOpenPrivacyPolicy, on
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/30 selection:text-white">
       {/* Top Navbar */}
-      <Navbar onNavigateHome={onNavigateHome} onOpenBlog={onOpenBlog} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
+      <Navbar />
 
       <main className="pt-28 pb-24 relative overflow-hidden flex-grow">
         {/* Ambient Background Lighting */}
@@ -194,14 +190,12 @@ export default function TermsOfUsePage({ onNavigateHome, onOpenPrivacyPolicy, on
               </p>
               <div className="p-4 rounded-lg bg-[#0941DC]/10 border border-[#0941DC]/30 text-sm text-slate-300 flex items-center justify-between gap-4">
                 <span>O tratamento dos dados pessoais coletados por meio desses formulários segue nossa Política de Privacidade.</span>
-                {onOpenPrivacyPolicy && (
-                  <button
-                    onClick={onOpenPrivacyPolicy}
-                    className="px-3.5 py-1.5 rounded-[7px] bg-[#0941DC] hover:bg-[#061F6B] text-white text-xs font-bold shrink-0 cursor-pointer"
-                  >
-                    Ver Política de Privacidade
-                  </button>
-                )}
+                <button
+                  onClick={() => navigate('/politica-de-privacidade')}
+                  className="px-3.5 py-1.5 rounded-[7px] bg-[#0941DC] hover:bg-[#061F6B] text-white text-xs font-bold shrink-0 cursor-pointer"
+                >
+                  Ver Política de Privacidade
+                </button>
               </div>
             </section>
 
@@ -304,7 +298,7 @@ export default function TermsOfUsePage({ onNavigateHome, onOpenPrivacyPolicy, on
       </main>
 
       {/* Footer */}
-      <Footer onOpenPrivacyPolicy={onOpenPrivacyPolicy} onOpenBlog={onOpenBlog} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
+      <Footer />
     </div>
   );
 }

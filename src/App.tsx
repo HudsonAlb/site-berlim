@@ -1,142 +1,22 @@
-import { useState } from 'react';
-import Navbar from './components/Navbar';
-import HeroCarousel from './components/HeroCarousel';
-import LogosMarquee from './components/LogosMarquee';
-import AboutSummary from './components/AboutSummary';
-import BDashSection from './components/BDashSection';
-import SolutionsGrid from './components/SolutionsGrid';
-import MiddleCTA from './components/MiddleCTA';
-import SuccessCases from './components/SuccessCases';
-// import TestimonialsTabs from './components/TestimonialsTabs';
-import BlogCarousel from './components/BlogCarousel';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import HomePage from './components/HomePage';
 import NewsDetailPage from './components/NewsDetailPage';
 import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 import TermsOfUsePage from './components/TermsOfUsePage';
 import BlogPage from './components/BlogPage';
 import CompanyOnboardingPage from './components/CompanyOnboardingPage';
-import Footer from './components/Footer';
 
 export default function App() {
-  const [selectedArticleId, setSelectedArticleId] = useState<string | null>(null);
-  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState<boolean>(false);
-  const [showTermsOfUse, setShowTermsOfUse] = useState<boolean>(false);
-  const [showBlog, setShowBlog] = useState<boolean>(false);
-  const [showCompanyOnboarding, setShowCompanyOnboarding] = useState<boolean>(false);
-
-  // If company onboarding (área de empresas) page is selected
-  if (showCompanyOnboarding) {
-    return (
-      <CompanyOnboardingPage
-        onNavigateHome={() => setShowCompanyOnboarding(false)}
-      />
-    );
-  }
-
-  // If terms of use page is selected
-  if (showTermsOfUse) {
-    return (
-      <TermsOfUsePage
-        onNavigateHome={() => setShowTermsOfUse(false)}
-        onOpenPrivacyPolicy={() => {
-          setShowTermsOfUse(false);
-          setShowPrivacyPolicy(true);
-        }}
-        onOpenBlog={() => {
-          setShowTermsOfUse(false);
-          setShowBlog(true);
-        }}
-        onOpenCompanyOnboarding={() => {
-          setShowTermsOfUse(false);
-          setShowCompanyOnboarding(true);
-        }}
-      />
-    );
-  }
-
-  // If blog page is selected
-  if (showBlog) {
-    return (
-      <BlogPage
-        onNavigateHome={() => setShowBlog(false)}
-        onOpenCompanyOnboarding={() => {
-          setShowBlog(false);
-          setShowCompanyOnboarding(true);
-        }}
-      />
-    );
-  }
-
-  // If privacy policy page is selected
-  if (showPrivacyPolicy) {
-    return (
-      <PrivacyPolicyPage
-        onNavigateHome={() => setShowPrivacyPolicy(false)}
-        onOpenCompanyOnboarding={() => {
-          setShowPrivacyPolicy(false);
-          setShowCompanyOnboarding(true);
-        }}
-      />
-    );
-  }
-
-  // If a news article page is selected, render the dedicated News Detail Page view
-  if (selectedArticleId) {
-    return (
-      <NewsDetailPage
-        articleId={selectedArticleId}
-        onNavigateHome={() => setSelectedArticleId(null)}
-        onSelectArticle={(id) => setSelectedArticleId(id)}
-        onOpenBlog={() => {
-          setSelectedArticleId(null);
-          setShowBlog(true);
-        }}
-        onOpenCompanyOnboarding={() => {
-          setSelectedArticleId(null);
-          setShowCompanyOnboarding(true);
-        }}
-      />
-    );
-  }
-
   return (
-    <div className="relative min-h-screen bg-white text-slate-900 selection:bg-[#0052ff]/10 selection:text-[#0052ff]">
-      {/* Navbar */}
-      <Navbar onOpenBlog={() => setShowBlog(true)} onOpenCompanyOnboarding={() => setShowCompanyOnboarding(true)} />
-
-      {/* Hero Carousel Slider */}
-      <HeroCarousel />
-
-      {/* Partners / Logos Infinite Marquee */}
-      <LogosMarquee />
-
-      {/* About Summary / What We Do Section */}
-      <AboutSummary />
-
-      {/* Solutions / Marketing Services Grid */}
-      <SolutionsGrid />
-
-      {/* Proprietary Product BDash Section */}
-      <BDashSection />
-
-      {/* Success Metric Cases */}
-      <SuccessCases />
-
-      {/* News & Ideias (Berlim Events & Articles) */}
-      <BlogCarousel onOpenArticle={(id) => setSelectedArticleId(id)} />
-
-      {/* Conversion Banner Middle Page (Contact Form) */}
-      <MiddleCTA />
-
-      {/* Social Proof Testimonials Interactive Tabs (Feedback Section) - Oculto temporariamente para o lançamento */}
-      {/* <TestimonialsTabs /> */}
-
-      {/* Footer & Partner Seals Badges */}
-      <Footer
-        onOpenPrivacyPolicy={() => setShowPrivacyPolicy(true)}
-        onOpenBlog={() => setShowBlog(true)}
-        onOpenTermsOfUse={() => setShowTermsOfUse(true)}
-        onOpenCompanyOnboarding={() => setShowCompanyOnboarding(true)}
-      />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/blog" element={<BlogPage />} />
+      <Route path="/blog/:slug" element={<BlogPage />} />
+      <Route path="/news/:id" element={<NewsDetailPage />} />
+      <Route path="/politica-de-privacidade" element={<PrivacyPolicyPage />} />
+      <Route path="/termos-de-uso" element={<TermsOfUsePage />} />
+      <Route path="/onboarding" element={<CompanyOnboardingPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }

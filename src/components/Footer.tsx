@@ -1,14 +1,22 @@
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowRight, Award } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
-interface FooterProps {
-  onOpenPrivacyPolicy?: () => void;
-  onOpenBlog?: () => void;
-  onOpenTermsOfUse?: () => void;
-  onOpenCompanyOnboarding?: () => void;
-}
+export default function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
-export default function Footer({ onOpenPrivacyPolicy, onOpenBlog, onOpenTermsOfUse, onOpenCompanyOnboarding }: FooterProps) {
+  const handleSectionClick = (e: React.MouseEvent, hash: string) => {
+    e.preventDefault();
+    if (isHome) {
+      window.history.replaceState(null, '', `/${hash}`);
+      document.getElementById(hash.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate(`/${hash}`);
+    }
+  };
+
   return (
     <footer id="footer-section" className="bg-[#030311] text-white pt-24 sm:pt-32 pb-16 min-h-screen relative overflow-hidden border-t border-white/10 flex flex-col justify-between">
       {/* Background Lighting Gradients (Matching B-Dash & Feedbacks) */}
@@ -48,11 +56,11 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBlog, onOpenTermsOfU
               Soluções
             </h3>
             <ul className="space-y-3 font-['Inter',sans-serif] text-sm text-slate-300">
-              <li><a href="#solutions" className="hover:text-[#0941DC] transition-colors">Tráfego Pago</a></li>
-              <li><a href="#solutions" className="hover:text-[#0941DC] transition-colors">Design & UX/UI</a></li>
-              <li><a href="#solutions" className="hover:text-[#0941DC] transition-colors">CRO & Testes A/B</a></li>
-              <li><a href="#solutions" className="hover:text-[#0941DC] transition-colors">Business Intelligence</a></li>
-              <li><a href="#solutions" className="hover:text-[#0941DC] transition-colors">CRM & LTV</a></li>
+              <li><a href="/#solutions" onClick={(e) => handleSectionClick(e, '#solutions')} className="hover:text-[#0941DC] transition-colors">Tráfego Pago</a></li>
+              <li><a href="/#solutions" onClick={(e) => handleSectionClick(e, '#solutions')} className="hover:text-[#0941DC] transition-colors">Design & UX/UI</a></li>
+              <li><a href="/#solutions" onClick={(e) => handleSectionClick(e, '#solutions')} className="hover:text-[#0941DC] transition-colors">CRO & Testes A/B</a></li>
+              <li><a href="/#solutions" onClick={(e) => handleSectionClick(e, '#solutions')} className="hover:text-[#0941DC] transition-colors">Business Intelligence</a></li>
+              <li><a href="/#solutions" onClick={(e) => handleSectionClick(e, '#solutions')} className="hover:text-[#0941DC] transition-colors">CRM & LTV</a></li>
             </ul>
           </div>
 
@@ -62,36 +70,19 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBlog, onOpenTermsOfU
               Institucional
             </h3>
             <ul className="space-y-3 font-['Inter',sans-serif] text-sm text-slate-300">
-              <li><a href="#about" className="hover:text-[#0941DC] transition-colors">Nossa missão</a></li>
-              <li><a href="#cases" className="hover:text-[#0941DC] transition-colors">Cases</a></li>
-              <li><a href="#news" className="hover:text-[#0941DC] transition-colors">News</a></li>
+              <li><a href="/#about" onClick={(e) => handleSectionClick(e, '#about')} className="hover:text-[#0941DC] transition-colors">Nossa missão</a></li>
+              <li><a href="/#cases" onClick={(e) => handleSectionClick(e, '#cases')} className="hover:text-[#0941DC] transition-colors">Cases</a></li>
+              <li><a href="/#news" onClick={(e) => handleSectionClick(e, '#news')} className="hover:text-[#0941DC] transition-colors">News</a></li>
               <li>
-                <button 
-                  onClick={(e) => { 
-                    e.preventDefault(); 
-                    if (onOpenBlog) onOpenBlog(); 
-                    else { 
-                      const el = document.getElementById('news'); 
-                      if (el) el.scrollIntoView({ behavior: 'smooth' }); 
-                    } 
-                  }} 
+                <button
+                  onClick={() => navigate('/blog')}
                   className="hover:text-[#0941DC] transition-colors cursor-pointer bg-transparent border-0 p-0 text-sm text-slate-300 font-['Inter',sans-serif]"
                 >
                   Blog
                 </button>
               </li>
-              <li><a href="#contact" className="hover:text-[#0941DC] transition-colors">Carreiras</a></li>
-              <li><a href="#contact" className="hover:text-[#0941DC] transition-colors">Fale Conosco</a></li>
-              {onOpenCompanyOnboarding && (
-                <li>
-                  <button
-                    onClick={(e) => { e.preventDefault(); onOpenCompanyOnboarding(); }}
-                    className="hover:text-[#0941DC] transition-colors cursor-pointer bg-transparent border-0 p-0 text-sm text-slate-300 font-['Inter',sans-serif]"
-                  >
-                    Área de Empresas
-                  </button>
-                </li>
-              )}
+              <li><a href="/#contact" onClick={(e) => handleSectionClick(e, '#contact')} className="hover:text-[#0941DC] transition-colors">Carreiras</a></li>
+              <li><a href="/#contact" onClick={(e) => handleSectionClick(e, '#contact')} className="hover:text-[#0941DC] transition-colors">Fale Conosco</a></li>
             </ul>
           </div>
 
@@ -169,20 +160,14 @@ export default function Footer({ onOpenPrivacyPolicy, onOpenBlog, onOpenTermsOfU
             © {new Date().getFullYear()} Berlim Co. Todos os direitos reservados.
           </div>
           <div className="flex space-x-6">
-            <button 
-              onClick={(e) => {
-                e.preventDefault();
-                if (onOpenTermsOfUse) onOpenTermsOfUse();
-              }} 
+            <button
+              onClick={() => navigate('/termos-de-uso')}
               className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs text-slate-400 font-['Inter',sans-serif]"
             >
               Termos de Uso
             </button>
-            <button 
-              onClick={(e) => {
-                e.preventDefault();
-                if (onOpenPrivacyPolicy) onOpenPrivacyPolicy();
-              }} 
+            <button
+              onClick={() => navigate('/politica-de-privacidade')}
               className="hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs text-slate-400 font-['Inter',sans-serif]"
             >
               Políticas de Privacidade

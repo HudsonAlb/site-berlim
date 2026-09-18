@@ -1,18 +1,15 @@
 import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { newsData } from '../data/newsData';
 import { Calendar, Clock, ArrowLeft, MapPin, Tag, ArrowRight, Share2, CheckCircle2 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface NewsDetailPageProps {
-  articleId: string;
-  onNavigateHome: () => void;
-  onSelectArticle: (id: string) => void;
-  onOpenBlog?: () => void;
-  onOpenCompanyOnboarding?: () => void;
-}
+export default function NewsDetailPage() {
+  const navigate = useNavigate();
+  const { id: articleId } = useParams<{ id: string }>();
+  const onNavigateHome = () => navigate('/');
 
-export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArticle, onOpenBlog, onOpenCompanyOnboarding }: NewsDetailPageProps) {
   // Scroll to top when opening a news article page
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -24,7 +21,7 @@ export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArti
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/20 selection:text-white">
       {/* Top Navbar */}
-      <Navbar onNavigateHome={onNavigateHome} onOpenBlog={onOpenBlog} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
+      <Navbar />
 
       <main className="pt-28 pb-20 relative overflow-hidden flex-grow">
         {/* Ambient Background Lighting (Figma CSS Pattern) */}
@@ -219,7 +216,7 @@ export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArti
               {otherArticles.map((other) => (
                 <div 
                   key={other.id}
-                  onClick={() => onSelectArticle(other.id)}
+                  onClick={() => navigate(`/news/${other.id}`)}
                   className="bg-[#080816] rounded-[7px] border border-white/10 overflow-hidden hover:border-[#0941DC]/60 transition-all duration-300 flex flex-col sm:flex-row items-stretch group cursor-pointer shadow-xl"
                 >
                   <div className="sm:w-2/5 h-48 sm:h-auto relative overflow-hidden bg-[#030311] shrink-0">
@@ -255,7 +252,7 @@ export default function NewsDetailPage({ articleId, onNavigateHome, onSelectArti
       </main>
 
       {/* Bottom Footer */}
-      <Footer onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
+      <Footer />
     </div>
   );
 }

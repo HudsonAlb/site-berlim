@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ShieldCheck, Mail, MapPin, Building2, Check, Lock, Cookie, FileText, UserCheck, Server } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface PrivacyPolicyPageProps {
-  onNavigateHome: () => void;
-  onOpenCompanyOnboarding?: () => void;
-}
-
-export default function PrivacyPolicyPage({ onNavigateHome, onOpenCompanyOnboarding }: PrivacyPolicyPageProps) {
+export default function PrivacyPolicyPage() {
+  const navigate = useNavigate();
+  const onNavigateHome = () => navigate('/');
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   useEffect(() => {
@@ -24,7 +22,7 @@ export default function PrivacyPolicyPage({ onNavigateHome, onOpenCompanyOnboard
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/30 selection:text-white">
       {/* Top Navbar */}
-      <Navbar onNavigateHome={onNavigateHome} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
+      <Navbar />
 
       <main className="pt-28 pb-24 relative overflow-hidden flex-grow">
         {/* Ambient Background Lighting */}
@@ -406,7 +404,7 @@ export default function PrivacyPolicyPage({ onNavigateHome, onOpenCompanyOnboard
       </main>
 
       {/* Footer */}
-      <Footer onOpenPrivacyPolicy={() => window.scrollTo({ top: 0, behavior: 'smooth' })} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
+      <Footer />
     </div>
   );
 }

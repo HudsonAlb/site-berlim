@@ -1,36 +1,33 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { blogPosts } from '../data/blogData';
 import { ArrowLeft, Calendar, Clock, User, Key, HelpCircle, Share2, ArrowRight, Search, Check } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface BlogPageProps {
-  onNavigateHome: () => void;
-  initialPostId?: string | null;
-  onOpenCompanyOnboarding?: () => void;
-}
-
-export default function BlogPage({ onNavigateHome, initialPostId, onOpenCompanyOnboarding }: BlogPageProps) {
-  const [selectedPostId, setSelectedPostId] = useState<string | null>(initialPostId || null);
+export default function BlogPage() {
+  const navigate = useNavigate();
+  const { slug } = useParams<{ slug?: string }>();
+  const onNavigateHome = () => navigate('/');
   const [activeCategory, setActiveCategory] = useState<string>('Todos');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [copiedLink, setCopiedLink] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [selectedPostId]);
+  }, [slug]);
 
   const categories = ['Todos', ...Array.from(new Set(blogPosts.map(p => p.category)))];
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = activeCategory === 'Todos' || post.category === activeCategory;
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           post.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           post.primaryKeyword.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
-  const activePost = blogPosts.find(p => p.id === selectedPostId);
+  const activePost = blogPosts.find(p => p.id === slug);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -41,14 +38,7 @@ export default function BlogPage({ onNavigateHome, initialPostId, onOpenCompanyO
   return (
     <div className="min-h-screen bg-[#030311] text-white flex flex-col justify-between selection:bg-[#0941DC]/30 selection:text-white">
       {/* Top Navbar */}
-      <Navbar
-        onNavigateHome={onNavigateHome}
-        onOpenBlog={() => {
-          setSelectedPostId(null);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        onOpenCompanyOnboarding={onOpenCompanyOnboarding}
-      />
+      <Navbar />
 
       <main className="pt-28 pb-24 relative overflow-hidden flex-grow">
         {/* Ambient Background Lighting */}
@@ -64,7 +54,7 @@ export default function BlogPage({ onNavigateHome, initialPostId, onOpenCompanyO
             {/* Back Navigation Bar */}
             <div className="mb-8 text-left flex flex-wrap items-center gap-3">
               <button
-                onClick={() => setSelectedPostId(null)}
+                onClick={() => navigate('/blog')}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-[7px] bg-[rgba(255,255,255,0.05)] border border-white/10 hover:border-[#0941DC]/60 hover:bg-[#0941DC]/20 text-slate-300 hover:text-white font-['Inter',sans-serif] text-sm font-semibold transition-all duration-300 cursor-pointer backdrop-blur-md"
               >
                 <ArrowLeft className="w-4 h-4 text-[#0941DC]" />
@@ -209,7 +199,7 @@ export default function BlogPage({ onNavigateHome, initialPostId, onOpenCompanyO
             {/* Bottom Back Button */}
             <div className="mt-14 text-center">
               <button
-                onClick={() => setSelectedPostId(null)}
+                onClick={() => navigate('/blog')}
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-[7px] bg-white/10 hover:bg-white/20 border border-white/15 text-white font-['Inter',sans-serif] text-sm font-bold transition-all duration-300 cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -284,7 +274,7 @@ export default function BlogPage({ onNavigateHome, initialPostId, onOpenCompanyO
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
-                  onClick={() => setSelectedPostId(post.id)}
+                  onClick={() => navigate(`/blog/${post.id}`)}
                   className="group bg-[#080816] rounded-xl overflow-hidden border border-white/10 hover:border-[#0941DC]/60 transition-all duration-300 flex flex-col justify-between shadow-xl cursor-pointer hover:-translate-y-1"
                 >
                   <div>
@@ -342,7 +332,7 @@ export default function BlogPage({ onNavigateHome, initialPostId, onOpenCompanyO
       </main>
 
       {/* Footer */}
-      <Footer onOpenPrivacyPolicy={onNavigateHome} onOpenCompanyOnboarding={onOpenCompanyOnboarding} />
+      <Footer />
     </div>
   );
 }
