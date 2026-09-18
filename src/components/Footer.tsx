@@ -1,6 +1,9 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowRight, Award } from 'lucide-react';
 import BrandLogo from './BrandLogo';
+import rdStationSeal from '../assets/selos/RD Station.svg';
+import metaCertifiedSeal from '../assets/selos/Meta certified.svg';
+import googleAdsSeal from '../assets/selos/Google ads certified.svg';
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -138,17 +141,17 @@ export default function Footer() {
 
             {/* RD Station */}
             <div className="w-44 h-14 flex items-center justify-center px-4 py-2 rounded-[7px] border border-white/10 bg-[#080816] hover:border-[#0941DC]/50 transition-all select-none shadow-md">
-              <img src="/src/assets/selos/RD Station.svg" alt="RD Station Partner" className="max-h-full max-w-full object-contain" />
+              <img src={rdStationSeal} alt="RD Station Partner" className="max-h-full max-w-full object-contain" />
             </div>
 
             {/* Meta Certified */}
             <div className="w-44 h-14 flex items-center justify-center px-4 py-2 rounded-[7px] border border-white/10 bg-[#080816] hover:border-[#0941DC]/50 transition-all select-none shadow-md">
-              <img src="/src/assets/selos/Meta certified.svg" alt="Meta Certified Partner" className="max-h-full max-w-full object-contain" />
+              <img src={metaCertifiedSeal} alt="Meta Certified Partner" className="max-h-full max-w-full object-contain" />
             </div>
 
             {/* Google Ads Certified */}
             <div className="w-44 h-14 flex items-center justify-center px-4 py-2 rounded-[7px] border border-white/10 bg-[#080816] hover:border-[#0941DC]/50 transition-all select-none shadow-md">
-              <img src="/src/assets/selos/Google ads certified.svg" alt="Google Ads Certified Partner" className="max-h-full max-w-full object-contain" />
+              <img src={googleAdsSeal} alt="Google Ads Certified Partner" className="max-h-full max-w-full object-contain" />
             </div>
 
           </div>
