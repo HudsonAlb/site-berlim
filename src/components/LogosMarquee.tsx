@@ -8,7 +8,6 @@ import uolLogo from '../assets/uol.svg';
 import ancoraLogo from '../assets/âncora.svg';
 import sportLogo from '../assets/Sport.svg';
 import fiatLogo from '../assets/Fiat.svg';
-import esporteDaSorteLogo from '../assets/esporte da sorte.svg';
 import moradaLogo from '../assets/morada.svg';
 import rio2016Logo from '../assets/rioa 2016.svg';
 import serEducacionalLogo from '../assets/ser educacional.svg';
@@ -70,12 +69,6 @@ const partners: Partner[] = [
     name: 'UOL Edtech',
     renderLogo: () => (
       <img src={uolLogo} alt="UOL Edtech" className={imgClass} />
-    )
-  },
-  {
-    name: 'Esporte da Sorte',
-    renderLogo: () => (
-      <img src={esporteDaSorteLogo} alt="Esporte da Sorte" className={imgClass} />
     )
   },
   {
