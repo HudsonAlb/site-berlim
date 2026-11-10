@@ -5,6 +5,7 @@ import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 import TermsOfUsePage from './components/TermsOfUsePage';
 import BlogPage from './components/BlogPage';
 import CompanyOnboardingPage from './components/CompanyOnboardingPage';
+import EbookMartechPage from './components/ebook/EbookMartechPage';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/politica-de-privacidade" element={<PrivacyPolicyPage />} />
       <Route path="/termos-de-uso" element={<TermsOfUsePage />} />
       <Route path="/onboarding" element={<CompanyOnboardingPage />} />
+      <Route path="/ebookmartech" element={<EbookMartechPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

@@ -172,3 +172,26 @@ body {
 }
 
 
+
+/* Ebook MARTECH: "Salvar em PDF" prints the page as an A4 ebook, one chapter per page */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: #030311 !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .ebook-cover,
+  .ebook-chapter {
+    break-after: page;
+  }
+}
