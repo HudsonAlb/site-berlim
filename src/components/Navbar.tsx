@@ -113,8 +113,8 @@ export default function Navbar() {
       </div>
 
       {/* Desktop Menu - Centered Pill Container (middle) */}
-      <div className="hidden lg:flex flex-grow justify-center items-center">
-        <div className={`flex items-center space-x-7 px-8 py-2.5 rounded-none border backdrop-blur-md transition-all duration-300 ${
+      <div className="hidden xl:flex flex-grow justify-center items-center">
+        <div className={`flex items-center whitespace-nowrap space-x-7 px-8 py-2.5 rounded-none border backdrop-blur-md transition-all duration-300 ${
           isLight
             ? 'bg-slate-100/90 border-slate-200/80 shadow-sm'
             : 'bg-[#0941DC]/15 border-[#0941DC]/40 shadow-[0_0_20px_rgba(9,65,220,0.25)]'
@@ -219,7 +219,7 @@ export default function Navbar() {
       </div>
 
       {/* Say Hello / Contato CTA (right) */}
-      <div className="hidden lg:flex items-center justify-end lg:w-1/4">
+      <div className="hidden xl:flex items-center justify-end xl:w-1/4">
         <a
           href="/#contact"
           onClick={(e) => handleNavClick(e, '#contact')}
@@ -236,7 +236,7 @@ export default function Navbar() {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`lg:hidden p-2 focus:outline-none transition-colors ${
+        className={`xl:hidden p-2 focus:outline-none transition-colors ${
           isLight ? 'text-slate-800' : 'text-slate-300 hover:text-white'
         }`}
         aria-label="Toggle menu"
@@ -245,7 +245,7 @@ export default function Navbar() {
       </button>
 
       {/* Mobile Menu Overlay */}
-      <div className={`lg:hidden absolute top-full left-0 w-full border-b border-white/5 transition-all duration-300 ease-in-out ${
+      <div className={`xl:hidden absolute top-full left-0 w-full border-b border-white/5 transition-all duration-300 ease-in-out ${
         isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'
       }`}>
         <div className="px-6 py-6 space-y-4 flex flex-col bg-[#080816] shadow-lg text-left">
