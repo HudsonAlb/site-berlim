@@ -76,6 +76,7 @@ export default function Footer() {
               <li><a href="/#about" onClick={(e) => handleSectionClick(e, '#about')} className="hover:text-[#0941DC] transition-colors">Nossa missão</a></li>
               <li><a href="/#cases" onClick={(e) => handleSectionClick(e, '#cases')} className="hover:text-[#0941DC] transition-colors">Cases</a></li>
               <li><a href="/#news" onClick={(e) => handleSectionClick(e, '#news')} className="hover:text-[#0941DC] transition-colors">News</a></li>
+              <li><a href="/school" className="hover:text-[#0941DC] transition-colors">School</a></li>
               <li>
                 <button
                   onClick={() => navigate('/blog')}

@@ -205,6 +205,16 @@ export default function Navbar() {
           >
             Blog
           </button>
+
+          {/* School: app separado (berlim-school), servido em /school via rewrite no vercel.json */}
+          <a
+            href="/school"
+            className={`text-sm font-semibold tracking-wide transition-colors ${
+              isLight ? 'text-slate-600 hover:text-slate-950' : 'text-slate-300 hover:text-white'
+            }`}
+          >
+            School
+          </a>
         </div>
       </div>
 
@@ -247,6 +257,7 @@ export default function Navbar() {
           <a href="/#news" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#news'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">News</a>
           <a href="/#testimonials" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#testimonials'); }} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">Feedbacks</a>
           <button onClick={() => { setIsOpen(false); handleBlogClick(); }} className="text-left text-base font-bold text-slate-300 hover:text-white transition-colors py-1 bg-transparent border-0 p-0 cursor-pointer">Blog</button>
+          <a href="/school" onClick={() => setIsOpen(false)} className="text-base font-bold text-slate-300 hover:text-white transition-colors py-1">School</a>
           <a href="/#contact" onClick={(e) => { setIsOpen(false); handleNavClick(e, '#contact'); }} className="w-full py-3 text-center text-sm font-bold text-white rounded-none bg-[#0941DC] hover:bg-[#061F6B] transition-colors shadow-md">
             Contato
           </a>
