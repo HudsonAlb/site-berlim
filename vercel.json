@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/school", "destination": "https://berlim-school.vercel.app/school" },
+    { "source": "/school/:path*", "destination": "https://berlim-school.vercel.app/school/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
